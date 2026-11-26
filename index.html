@@ -1,0 +1,1204 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>童趣賓果工作室</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Huninn&display=swap">
+<style>
+/* Layout: 製作頁＝左側設定欄 + 右側卡片預覽；叫號台＝大舞台 + 帶領工具欄；模板、教案＝卡片牆／閱讀欄。窄螢幕全部堆疊成單欄。 */
+:root{
+  --bg:#EEF3F6; --surface:#FFFFFF; --surface-2:#F6F9FB; --line:#D5DFE7;
+  --ink:#1C2A39; --muted:#5A6B7C;
+  --blue:#2556C4; --sun:#F2B705; --coral:#E8553F; --leaf:#24936A; --berry:#8E44AD;
+  --blue-soft:#E3EBFB; --sun-soft:#FFF4CC; --coral-soft:#FDE6E1; --leaf-soft:#DDF3EA; --berry-soft:#F1E4F7;
+  --focus:#2556C4;
+  --display:"Huninn","Noto Sans TC","PingFang TC","Microsoft JhengHei",system-ui,sans-serif;
+  --body:"Noto Sans TC","PingFang TC","Microsoft JhengHei",system-ui,sans-serif;
+  --radius:14px;
+  --card-paper:#FFFFFF; --card-ink:#1C2A39;
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
+  --bg:#111821; --surface:#19222D; --surface-2:#202B37; --line:#2F3C4A;
+  --ink:#E7EDF4; --muted:#9AABBC;
+  --blue:#7FA3F5; --sun:#F5C842; --coral:#F07A66; --leaf:#4CC496; --berry:#C08AE0;
+  --blue-soft:#1E2C4A; --sun-soft:#3A3115; --coral-soft:#40231E; --leaf-soft:#163729; --berry-soft:#33233F;
+  --focus:#9DB9FA; color-scheme:dark;
+}}
+:root[data-theme="dark"]{
+  --bg:#111821; --surface:#19222D; --surface-2:#202B37; --line:#2F3C4A;
+  --ink:#E7EDF4; --muted:#9AABBC;
+  --blue:#7FA3F5; --sun:#F5C842; --coral:#F07A66; --leaf:#4CC496; --berry:#C08AE0;
+  --blue-soft:#1E2C4A; --sun-soft:#3A3115; --coral-soft:#40231E; --leaf-soft:#163729; --berry-soft:#33233F;
+  --focus:#9DB9FA; color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.6;
+  background-image:radial-gradient(var(--line) 1px, transparent 1px);background-size:22px 22px}
+body.big{font-size:18px}
+button,input,select,textarea{font:inherit;color:inherit}
+button{cursor:pointer}
+:focus-visible{outline:3px solid var(--focus);outline-offset:2px;border-radius:6px}
+h1,h2,h3,h4{font-family:var(--display);text-wrap:balance;line-height:1.25;margin:0}
+
+/* Header */
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--surface);border-bottom:1px solid var(--line)}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:21;background:var(--surface)}
+.top-in{max-width:1360px;margin:0 auto;display:flex;align-items:center;gap:14px;flex-wrap:wrap;
+  padding-block:10px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.brand{display:flex;align-items:center;gap:10px;margin-right:auto}
+.brand h1{font-size:1.35rem;letter-spacing:.02em}
+.brand small{display:block;color:var(--muted);font-size:.78rem;font-family:var(--body);letter-spacing:.04em}
+.logo{width:38px;height:38px;display:grid;grid-template-columns:repeat(3,1fr);gap:2px;padding:3px;border-radius:10px;background:var(--ink)}
+.logo i{border-radius:3px;background:var(--surface)}
+.logo i:nth-child(1),.logo i:nth-child(5),.logo i:nth-child(9){background:var(--sun)}
+.logo i:nth-child(3){background:var(--coral)} .logo i:nth-child(7){background:var(--leaf)}
+.tabs{display:flex;gap:4px;flex-wrap:wrap}
+.tab{border:0;background:transparent;padding:8px 13px;border-radius:999px;font-weight:700;color:var(--muted)}
+.tab[aria-selected="true"]{background:var(--ink);color:var(--surface)}
+.tab:hover:not([aria-selected="true"]){background:var(--surface-2);color:var(--ink)}
+.tog{display:flex;align-items:center;gap:6px;color:var(--muted);font-size:.85rem}
+
+main{max-width:1360px;margin:0 auto;padding-block:20px 60px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+
+/* Make view */
+.make{display:grid;grid-template-columns:minmax(300px,400px) minmax(0,1fr);gap:20px;align-items:start}
+@media (max-width:920px){.make{grid-template-columns:minmax(0,1fr)}}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:16px;display:flex;flex-direction:column;gap:12px;min-width:0}
+.side{display:flex;flex-direction:column;gap:14px;min-width:0}
+.step-h{display:flex;align-items:center;gap:10px}
+.step-h b{width:28px;height:28px;flex:none;border-radius:50%;display:grid;place-items:center;background:var(--sun);color:#1C2A39;font-family:var(--display);font-size:.95rem}
+.step-h h2{font-size:1.1rem}
+.step-h .hint{margin-left:auto;font-size:.75rem;color:var(--muted)}
+.lab{font-size:.8rem;font-weight:700;color:var(--muted);letter-spacing:.06em}
+.row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.seg{display:inline-flex;background:var(--surface-2);border:1px solid var(--line);border-radius:10px;padding:3px;gap:2px;flex-wrap:wrap}
+.seg button{border:0;background:transparent;padding:6px 11px;border-radius:8px;font-weight:600;color:var(--muted)}
+.seg button[aria-pressed="true"]{background:var(--surface);color:var(--ink);box-shadow:0 1px 3px rgba(0,0,0,.12)}
+.seg button:disabled{opacity:.35;cursor:not-allowed}
+.themes{display:grid;grid-template-columns:repeat(auto-fill,minmax(96px,1fr));gap:8px}
+.th{border:1.5px solid var(--line);background:var(--surface);border-radius:12px;padding:8px 6px;display:flex;flex-direction:column;align-items:center;gap:2px;text-align:center}
+.th .em{font-size:1.7rem;line-height:1.2;height:40px;display:grid;place-items:center}
+.th .em img{width:40px;height:40px;object-fit:contain}
+.th .em.txt{font-family:var(--display);font-weight:700}
+.th span:last-child{font-size:.82rem;font-weight:700;line-height:1.3}
+.th[aria-pressed="true"]{border-color:var(--blue);background:var(--blue-soft)}
+.th:hover{border-color:var(--blue)}
+.modes{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px}
+.md{border:1.5px solid var(--line);background:var(--surface);border-radius:12px;padding:8px;display:flex;gap:8px;align-items:center;text-align:left}
+.md[aria-pressed="true"]{border-color:var(--coral);background:var(--coral-soft)}
+.md:hover{border-color:var(--coral)}
+.md .nm{font-weight:700;font-size:.88rem;line-height:1.3}
+.md .tg{font-size:.72rem;color:var(--muted)}
+.mini{display:grid;gap:1.5px;width:30px;height:30px;flex:none}
+.mini i{background:var(--line);border-radius:1.5px}
+.mini i.on{background:var(--coral)}
+.mini.lg{width:64px;height:64px;gap:3px}
+.mini.lg i{border-radius:3px}
+.note{font-size:.85rem;color:var(--muted);background:var(--surface-2);border-radius:10px;padding:10px 12px}
+.note b{color:var(--ink)}
+.note ul{margin:.3em 0 0;padding-left:1.2em}
+.warn{font-size:.85rem;background:var(--sun-soft);border-radius:10px;padding:8px 12px;margin:0}
+.btn{border:1.5px solid var(--line);background:var(--surface);padding:8px 14px;border-radius:10px;font-weight:700;display:inline-flex;align-items:center;gap:6px;text-align:left}
+.btn:hover{border-color:var(--ink)}
+.btn.pri{background:var(--blue);border-color:var(--blue);color:#fff}
+.btn.pri:hover{filter:brightness(1.08)}
+:root[data-theme="dark"] .btn.pri{color:#111821}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .btn.pri{color:#111821}}
+.btn.sun{background:var(--sun);border-color:var(--sun);color:#1C2A39}
+.btn.sm{padding:5px 10px;font-size:.85rem}
+.btn.danger{color:var(--coral)}
+.btn:disabled{opacity:.4;cursor:not-allowed}
+.stepper{display:inline-flex;align-items:center;border:1.5px solid var(--line);border-radius:10px;overflow:hidden}
+.stepper button{border:0;background:var(--surface-2);width:34px;height:34px;font-size:1.1rem;font-weight:700}
+.stepper output{min-width:42px;text-align:center;font-weight:700;font-variant-numeric:tabular-nums}
+.field{display:flex;flex-direction:column;gap:4px;min-width:0}
+input[type=text],input[type=number],textarea,select{border:1.5px solid var(--line);background:var(--surface);border-radius:10px;padding:7px 10px;width:100%;min-width:0}
+input[type=number]{width:72px}
+textarea{resize:vertical;min-height:80px}
+.chk{display:flex;gap:8px;align-items:center;font-size:.9rem}
+.chk input{width:18px;height:18px;accent-color:var(--blue);flex:none}
+.subtabs{display:flex;gap:4px;border-bottom:1.5px solid var(--line)}
+.subtabs button{border:0;background:transparent;padding:6px 12px;font-weight:700;color:var(--muted);border-bottom:3px solid transparent;margin-bottom:-1.5px}
+.subtabs button[aria-selected="true"]{color:var(--ink);border-bottom-color:var(--blue)}
+.drop{border:2px dashed var(--line);border-radius:12px;padding:14px;text-align:center;color:var(--muted);font-size:.88rem;cursor:pointer}
+.drop.over{border-color:var(--blue);background:var(--blue-soft)}
+.items{display:flex;flex-direction:column;gap:6px;max-height:340px;overflow:auto;padding-right:2px}
+.it{display:grid;grid-template-columns:40px minmax(0,1fr) minmax(0,1.2fr) 28px;gap:6px;align-items:center}
+.it .th-img{width:40px;height:40px;border-radius:8px;background:var(--surface-2);display:grid;place-items:center;font-size:1.3rem;overflow:hidden}
+.it .th-img img{width:100%;height:100%;object-fit:cover}
+.it input{padding:5px 8px;font-size:.85rem}
+.it button,.rr button,.rd button{border:0;background:transparent;color:var(--muted);font-size:1.1rem}
+.sets{display:flex;flex-direction:column;gap:6px}
+.set{display:flex;align-items:center;gap:6px;background:var(--surface-2);border-radius:10px;padding:6px 8px}
+.set span{margin-right:auto;font-weight:600;font-size:.9rem;min-width:0;overflow-wrap:anywhere}
+
+/* Rounds + roster editors */
+.rounds{display:flex;flex-direction:column;gap:6px}
+.rd{display:grid;grid-template-columns:auto minmax(0,1.2fr) minmax(0,1fr) 28px;gap:6px;align-items:center;padding:6px;border-radius:10px;border:1.5px solid transparent}
+.rd.cur{border-color:var(--coral);background:var(--coral-soft)}
+.rd .n{font-weight:800;font-size:.85rem;white-space:nowrap;border:0;background:transparent;padding:4px 6px;border-radius:8px}
+.rd select{padding:5px 6px;font-size:.85rem}
+.roster{display:flex;flex-direction:column;gap:5px;max-height:360px;overflow:auto}
+.rr{display:grid;grid-template-columns:22px minmax(0,1.3fr) minmax(0,.9fr) minmax(0,1fr) auto 24px;gap:5px;align-items:center}
+.rr .k{font-size:.75rem;color:var(--muted);text-align:right;font-variant-numeric:tabular-nums}
+.rr input[type=text],.rr select{padding:5px 6px;font-size:.84rem}
+.rr label{font-size:.78rem;display:flex;align-items:center;gap:3px;white-space:nowrap}
+.rr-h{font-size:.72rem;color:var(--muted);font-weight:700}
+@media (max-width:420px){.rr{grid-template-columns:minmax(0,1fr) minmax(0,1fr) 24px}.rr .k,.rr-h{display:none}.rr input[type=text]{grid-column:1/3}}
+
+/* Preview */
+.preview{display:flex;flex-direction:column;gap:14px;min-width:0}
+.bar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:10px 12px}
+.bar .info{margin-right:auto;font-size:.9rem;color:var(--muted);min-width:0}
+.bar .info b{color:var(--ink);font-family:var(--display);font-size:1.05rem}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,290px),1fr));gap:16px}
+.cards.n1{grid-template-columns:minmax(0,600px)}
+
+/* Bingo card — fixed paper colors so it prints the same in both themes */
+.bcard{--acc:#2556C4;--tint:#E3EBFB;background:var(--card-paper);color:var(--card-ink);border:4px solid var(--acc);border-radius:18px;padding:12px;display:flex;flex-direction:column;gap:8px;container-type:inline-size;min-width:0}
+.bcard.p-sun{--acc:#E0A400;--tint:#FFF4CC}
+.bcard.p-coral{--acc:#E8553F;--tint:#FDE6E1}
+.bcard.p-leaf{--acc:#24936A;--tint:#DDF3EA}
+.bcard.p-berry{--acc:#8E44AD;--tint:#F1E4F7}
+.bhead{display:flex;align-items:center;gap:8px}
+.bhead h3{font-size:clamp(1rem,6cqw,1.6rem);margin-right:auto;color:var(--card-ink);min-width:0;overflow-wrap:anywhere}
+.bhead .no{font-size:.78rem;font-weight:700;background:var(--tint);color:var(--card-ink);border-radius:999px;padding:2px 10px;white-space:nowrap}
+.bhead .who{font-size:clamp(.9rem,4.4cqw,1.2rem);font-weight:800;background:var(--acc);color:#fff;border-radius:999px;padding:2px 12px;white-space:nowrap;max-width:45cqw;overflow:hidden;text-overflow:ellipsis}
+.bhead .mini i{background:#D5DFE7}.bhead .mini i.on{background:var(--acc)}
+.bsub{font-size:.75rem;color:#5A6B7C;margin-top:-4px}
+.grid{display:grid;grid-template-columns:repeat(var(--n),1fr);gap:5px}
+.cell{position:relative;aspect-ratio:1;border:2px solid var(--acc);background:#fff;border-radius:10px;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:3px;overflow:hidden;color:var(--card-ink);min-width:0}
+.cell .pic{font-size:calc(52cqw / var(--n));line-height:1.1}
+.cell .pic img{width:calc(66cqw / var(--n));height:calc(66cqw / var(--n));object-fit:contain;border-radius:6px;display:block}
+.cell .pic img.photo{object-fit:cover}
+.cell .pic.txt{font-family:var(--display);font-size:calc(34cqw / var(--n));font-weight:700}
+.cell .lbl{font-size:calc(13cqw / var(--n));font-weight:700;line-height:1.2;text-align:center;overflow-wrap:anywhere;max-width:100%}
+.bcard.bigtxt .cell .lbl{font-size:calc(17cqw / var(--n))}
+.cell.only-text .lbl{font-size:calc(19cqw / var(--n));font-family:var(--display)}
+.bcard.bigtxt .cell.only-text .lbl{font-size:calc(24cqw / var(--n))}
+.cell.free{background:var(--tint)}
+.cell.free .pic{font-size:calc(20cqw / var(--n));font-family:var(--display);font-weight:800;color:var(--acc)}
+.cell.called{box-shadow:inset 0 0 0 4px #F2B705;background:#FFFBEA}
+.cell.marked::after{content:attr(data-mark);position:absolute;inset:0;display:grid;place-items:center;font-size:calc(56cqw / var(--n));background:rgba(255,255,255,.45);animation:stamp .25s ease-out}
+.cell.win{background:#FFF4CC}
+@keyframes stamp{from{transform:scale(1.6);opacity:0}to{transform:scale(1);opacity:1}}
+@media (prefers-reduced-motion:reduce){.cell.marked::after{animation:none}}
+button.cell{cursor:pointer}
+button.cell:hover{background:var(--tint)}
+.bcard.won{box-shadow:0 0 0 4px #F2B705}
+.empty{background:var(--surface);border:2px dashed var(--line);border-radius:var(--radius);padding:40px 20px;text-align:center;color:var(--muted)}
+
+/* Caller */
+.call{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:20px;align-items:start}
+@media (max-width:920px){.call{grid-template-columns:minmax(0,1fr)}}
+#view-call:fullscreen{background:var(--bg);padding:20px;overflow:auto}
+.stage{background:var(--surface);border:1px solid var(--line);border-radius:22px;padding:48px 24px 24px;display:flex;flex-direction:column;align-items:center;gap:12px;min-height:460px;justify-content:center;text-align:center;position:relative}
+.stage .count{position:absolute;top:14px;left:16px;font-size:.85rem;color:var(--muted);font-variant-numeric:tabular-nums}
+.stage .rnd{position:absolute;top:10px;left:50%;transform:translateX(-50%);background:var(--coral-soft);border-radius:999px;padding:3px 14px;font-weight:800;font-size:.85rem;white-space:nowrap}
+.stage .fs{position:absolute;top:10px;right:12px}
+.stage .big{font-size:clamp(6rem,22vw,11rem);line-height:1.05}
+.stage .big img{width:clamp(200px,36vw,340px);height:clamp(200px,36vw,340px);object-fit:contain;border-radius:20px;background:#fff}
+.stage .big img.photo{object-fit:cover}
+.stage .big.txt{font-family:var(--display);font-size:clamp(5rem,16vw,9rem);font-weight:700}
+.stage .name{font-family:var(--display);font-size:clamp(2rem,6vw,3.6rem);font-weight:700}
+.stage .clue{font-size:clamp(1.3rem,3.6vw,2rem);font-weight:700;max-width:28ch}
+.stage .prompt{background:var(--sun-soft);border-radius:999px;padding:6px 16px;font-weight:700}
+.stage .pick{background:var(--leaf-soft);border-radius:14px;padding:8px 18px;font-weight:800;font-size:clamp(1.2rem,3vw,1.7rem)}
+.stage .hidden-ans{color:var(--muted)}
+.timer{width:min(420px,80%);height:8px;border-radius:999px;background:var(--surface-2);overflow:hidden}
+.timer i{display:block;height:100%;background:var(--sun);width:100%;transform-origin:left;animation:tm linear forwards}
+@keyframes tm{from{transform:scaleX(1)}to{transform:scaleX(0)}}
+.controls{display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
+.controls .btn{font-size:1.05rem;padding:11px 18px}
+.btn.xl{font-size:1.3rem!important;padding:14px 28px!important;border-radius:14px}
+.hist{display:grid;grid-template-columns:repeat(auto-fill,minmax(64px,1fr));gap:6px}
+.hist div{background:var(--surface-2);border-radius:10px;padding:4px;text-align:center;font-size:.72rem;font-weight:700;line-height:1.2;overflow:hidden}
+.hist div .e{font-size:1.7rem;display:block;line-height:1.2}
+.hist div img{width:44px;height:44px;object-fit:contain;border-radius:6px;display:block;margin:2px auto;background:#fff}
+.hist div.last{background:var(--sun-soft);outline:2px solid var(--sun)}
+.board{display:flex;flex-direction:column;gap:6px}
+.board .b{display:flex;align-items:center;gap:8px;background:var(--surface-2);border-radius:10px;padding:6px 10px;font-weight:700}
+.board .b .r{width:26px;height:26px;border-radius:50%;background:var(--sun);color:#1C2A39;display:grid;place-items:center;font-size:.8rem;flex:none}
+.board .b span{margin-right:auto;min-width:0;overflow-wrap:anywhere}
+.board .b.maybe{background:var(--leaf-soft)}
+
+/* Templates */
+.tpls{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,330px),1fr));gap:16px}
+.tpl{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:18px;display:flex;flex-direction:column;gap:10px;min-width:0}
+.tpl.cur{border:2px solid var(--blue)}
+.tpl h3{font-size:1.2rem}
+.tpl .who{font-size:.85rem;color:var(--muted)}
+.tpl .rl{display:flex;flex-direction:column;gap:4px;font-size:.88rem}
+.tpl .rl div{display:flex;gap:8px;align-items:center}
+.tpl .rl b{font-size:.75rem;background:var(--coral-soft);border-radius:6px;padding:1px 6px;white-space:nowrap}
+.tpl details{font-size:.88rem}
+.tpl summary{cursor:pointer;font-weight:700;color:var(--blue)}
+.tpl ol,.tpl ul{margin:.4em 0 0;padding-left:1.3em}
+.tpl li{margin-block:2px}
+.tpl .acts{margin-top:auto;display:flex;gap:8px;flex-wrap:wrap}
+.intro{display:flex;flex-direction:column;gap:6px;margin-bottom:16px;max-width:75ch}
+.intro h2{font-size:1.5rem}
+.intro p{margin:0;color:var(--muted)}
+
+/* Guide */
+.guide{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,380px);gap:20px;align-items:start}
+@media (max-width:920px){.guide{grid-template-columns:minmax(0,1fr)}}
+.plan{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:22px;display:flex;flex-direction:column;gap:16px;min-width:0}
+.plan-h{display:flex;gap:14px;align-items:center;flex-wrap:wrap}
+.plan-h .em{font-size:3rem;line-height:1}
+.plan-h .em img{width:64px;height:64px;object-fit:contain}
+.plan-h h2{font-size:1.6rem}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{font-size:.78rem;font-weight:700;padding:3px 10px;border-radius:999px;background:var(--surface-2);border:1px solid var(--line)}
+.chip.a{background:var(--leaf-soft);border-color:transparent}
+.chip.b{background:var(--coral-soft);border-color:transparent}
+.chip.c{background:var(--blue-soft);border-color:transparent}
+.plan section{display:flex;flex-direction:column;gap:6px}
+.plan h3{font-size:1.05rem;display:flex;align-items:center;gap:8px}
+.plan h3::before{content:"";width:10px;height:10px;border-radius:3px;background:var(--sun);flex:none}
+.plan ol,.plan ul{margin:0;padding-left:1.4em;max-width:68ch}
+.plan li{margin-block:3px}
+.plan p{margin:0;max-width:68ch}
+.gal{display:flex;flex-direction:column;gap:8px}
+.gal .g{display:flex;gap:12px;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px;align-items:flex-start}
+.gal .g h4{margin:0 0 2px;font-size:.98rem}
+.gal .g p{margin:0;font-size:.86rem;color:var(--muted)}
+.gal .g .meta{font-size:.78rem;color:var(--ink);margin-top:4px}
+.gal .g ul{margin:4px 0 0;padding-left:1.1em;font-size:.82rem;color:var(--muted)}
+.gal .g .btn{margin-top:6px}
+.sel-theme{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.sel-theme select{width:auto}
+
+/* Modal */
+.modal{position:fixed;inset:0;z-index:50;background:rgba(10,16,24,.6);display:grid;place-items:center;padding:20px}
+.modal-box{background:var(--surface);border-radius:18px;max-width:900px;width:100%;max-height:90vh;overflow:auto;padding:20px;display:flex;flex-direction:column;gap:12px}
+.modal-box h2{font-size:1.3rem}
+.verify{display:grid;grid-template-columns:minmax(0,360px) minmax(0,1fr);gap:16px;align-items:start}
+@media (max-width:700px){.verify{grid-template-columns:minmax(0,1fr)}}
+.verdict{font-family:var(--display);font-size:1.6rem}
+.dl-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:10px}
+.dl{border:1.5px solid var(--line);background:var(--surface);border-radius:14px;padding:14px;text-align:left;display:flex;flex-direction:column;gap:4px}
+.dl b{font-family:var(--display);font-size:1.1rem}
+.dl span{font-size:.84rem;color:var(--muted)}
+.dl:hover{border-color:var(--blue);background:var(--blue-soft)}
+.dl:disabled{opacity:.5;cursor:wait}
+#dlPpt{border-color:var(--blue)}
+.shots{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px}
+.shots img{width:100%;border:1px solid var(--line);border-radius:6px;background:#fff}
+.toast{position:fixed;left:50%;bottom:calc(24px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--ink);color:var(--surface);padding:10px 18px;border-radius:999px;font-weight:700;z-index:60;max-width:90vw;text-align:center}
+
+/* Win overlay */
+.win-o{position:fixed;inset:0;z-index:55;display:grid;place-items:center;background:rgba(10,16,24,.45)}
+.win-o .w{background:var(--surface);border-radius:24px;padding:28px 40px;text-align:center;border:5px solid var(--sun)}
+.win-o .w .t{font-family:var(--display);font-size:clamp(3rem,10vw,5rem);color:var(--coral);line-height:1.1}
+#confetti{position:fixed;inset:0;pointer-events:none;z-index:56}
+
+/* Print */
+#printArea{position:fixed;left:-20000px;top:0}
+.ppage{width:210mm;height:297mm;background:#fff;color:#1C2A39;padding:12mm;display:grid;gap:8mm;overflow:hidden;font-family:var(--body)}
+.ppage.per1{grid-template-columns:1fr;align-content:center}
+.ppage.per2{grid-template-rows:1fr 1fr;justify-items:center}
+.ppage.per2 .bcard{width:62%}
+.ppage.per4{grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;align-items:center}
+.ppage .bcard{break-inside:avoid}
+.ppage.tiles{grid-template-columns:repeat(4,1fr);grid-auto-rows:1fr;gap:0;padding:10mm}
+.tile{border:1px dashed #9AABBC;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2mm;padding:3mm;text-align:center}
+.tile .e{font-size:20mm;line-height:1}
+.tile .e.txt{font-size:16mm;font-weight:700;font-family:var(--display)}
+.tile img{width:34mm;height:34mm;object-fit:contain;border-radius:2mm}
+.tile .n{font-size:5mm;font-weight:700}
+.tile .c{font-size:3.2mm;color:#5A6B7C}
+.ppage.sheet{display:block;font-size:3.6mm;line-height:1.55}
+.sheet h1{font-family:var(--display);font-size:8mm;margin:0 0 2mm}
+.sheet h2{font-family:var(--display);font-size:5mm;margin:5mm 0 1.5mm;border-bottom:.4mm solid #1C2A39;padding-bottom:1mm}
+.sheet .meta{color:#5A6B7C;margin:0}
+.sheet table{width:100%;border-collapse:collapse;font-size:3.4mm}
+.sheet td,.sheet th{border:.3mm solid #B8C6D3;padding:1.2mm 2mm;text-align:left;vertical-align:top}
+.sheet th{background:#EEF3F6}
+.sheet ol,.sheet ul{margin:0;padding-left:5mm}
+.sheet .cols{columns:2;column-gap:8mm}
+@media print{
+  @page{size:A4;margin:0}
+  body{background:#fff!important;background-image:none!important}
+  body>*:not(#printArea){display:none!important}
+  #printArea{position:static}
+  .ppage{page-break-after:always;break-after:page}
+}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="top-in">
+    <div class="brand">
+      <div class="logo" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+      <div><h1>童趣賓果工作室</h1><small>社區・特教・親子團體活動的賓果卡生成器</small></div>
+    </div>
+    <nav class="tabs" role="tablist" aria-label="功能">
+      <button class="tab" role="tab" data-view="tpl" id="tab-tpl">活動模板</button>
+      <button class="tab" role="tab" data-view="make" id="tab-make">做卡片</button>
+      <button class="tab" role="tab" data-view="call" id="tab-call">叫號台</button>
+      <button class="tab" role="tab" data-view="guide" id="tab-guide">教案與玩法</button>
+    </nav>
+    <label class="tog"><input type="checkbox" id="bigMode"> 大字模式</label>
+  </div>
+</header>
+
+<main>
+  <!-- ========== 活動模板 ========== -->
+  <section class="view" id="view-tpl" hidden>
+    <div class="intro">
+      <h2>選一個活動模板，直接開始帶</h2>
+      <p>每個模板都排好主題、局數、每局玩法、時間分配、人力分工和主持流程。套用後可以再到「做卡片」調整，例如換主題、改格子大小，或替個別孩子設定不同難度。</p>
+    </div>
+    <div class="tpls" id="tplList"></div>
+  </section>
+
+  <!-- ========== 做卡片 ========== -->
+  <section class="view" id="view-make" hidden>
+    <div class="make">
+      <div class="side">
+        <div class="panel">
+          <div class="step-h"><b>1</b><h2>選擇內容</h2></div>
+          <div class="subtabs" role="tablist">
+            <button role="tab" id="src-theme" data-src="theme">內建主題</button>
+            <button role="tab" id="src-custom" data-src="custom">自訂內容</button>
+          </div>
+          <div id="srcTheme"><div class="themes" id="themeList"></div></div>
+          <div id="srcCustom" hidden>
+            <div class="field">
+              <label class="lab" for="customName">主題名稱</label>
+              <input type="text" id="customName" placeholder="例如：我們班的同學">
+            </div>
+            <div class="field">
+              <label class="lab" for="customText">輸入文字（一行一個，用 | 加提示）</label>
+              <textarea id="customText" placeholder="蘋果 | 紅紅圓圓的水果&#10;公車&#10;王小明&#10;ㄅ"></textarea>
+              <div class="row"><button class="btn sm pri" id="addText">＋ 加入清單</button><button class="btn sm" id="sampleText">放入範例</button></div>
+            </div>
+            <div class="field">
+              <span class="lab">上傳圖片（照片、繪本截圖、AI 生成圖、孩子的畫）</span>
+              <label class="drop" id="drop" for="fileIn">把圖片拖到這裡，或<b>點這裡選擇檔案</b><br><small>可一次選多張，檔名會自動當成名稱</small></label>
+              <input type="file" id="fileIn" accept="image/*" multiple hidden>
+            </div>
+            <div class="row" style="justify-content:space-between"><span class="lab" id="itemCount">清單 0 項</span><button class="btn sm danger" id="clearItems">清空清單</button></div>
+            <div class="items" id="itemList"></div>
+            <div class="field">
+              <span class="lab">我的主題庫（存在這台裝置的瀏覽器）</span>
+              <div class="row"><button class="btn sm" id="saveSet">儲存目前清單</button><button class="btn sm" id="shareSet">分享代碼</button><button class="btn sm" id="importSet">匯入代碼</button></div>
+              <div class="sets" id="setList"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel">
+          <div class="step-h"><b>2</b><h2>活動流程與玩法</h2><span class="hint">點左邊的局數切換</span></div>
+          <div class="rounds" id="rounds"></div>
+          <div class="row"><button class="btn sm" id="addRound">＋ 加一局</button></div>
+          <span class="lab" id="modeFor">第 1 局的玩法</span>
+          <div class="modes" id="modeList"></div>
+          <div class="note" id="modeNote"></div>
+        </div>
+
+        <div class="panel">
+          <div class="step-h"><b>3</b><h2>參與者與個別化</h2></div>
+          <p class="note" style="margin:0">填了名單，就是<b>每人（或每組）一張卡</b>，卡上印名字。每個人可以設定自己的格子大小、顯示方式和大字，同一場活動能讓不同程度的孩子一起玩。</p>
+          <div class="field">
+            <label class="lab" for="rosterText">貼上名單（一行一個）</label>
+            <textarea id="rosterText" placeholder="王小明&#10;陳小華&#10;林阿嬤"></textarea>
+            <div class="row"><button class="btn sm pri" id="addRoster">＋ 加入名單</button>
+              <span class="row" style="gap:4px">或建立 <input type="number" id="grpN" min="2" max="12" value="4" aria-label="組數"> 組 <button class="btn sm" id="mkGroups">建立</button></span></div>
+          </div>
+          <div id="rosterBox"></div>
+        </div>
+
+        <div class="panel">
+          <div class="step-h"><b>4</b><h2>卡片設定（全體預設）</h2></div>
+          <div class="field"><span class="lab">格子大小</span><div class="seg" id="sizeSeg"></div></div>
+          <div class="field"><span class="lab">格子顯示</span>
+            <div class="seg" id="dispSeg"><button data-v="both">圖＋字</button><button data-v="pic">只有圖</button><button data-v="text">只有字</button></div></div>
+          <div class="row" style="gap:20px">
+            <div class="field" id="countField"><span class="lab">卡片張數</span>
+              <div class="stepper"><button id="cMinus" aria-label="減少">−</button><output id="cOut">4</output><button id="cPlus" aria-label="增加">＋</button></div></div>
+            <div class="field"><span class="lab">標記圖案</span>
+              <div class="seg" id="markSeg"><button data-v="⭐">⭐</button><button data-v="✔️">✔️</button><button data-v="❤️">❤️</button><button data-v="⭕">⭕</button></div></div>
+          </div>
+          <div class="field"><span class="lab">卡片顏色</span>
+            <div class="seg" id="palSeg"><button data-v="blue">海洋藍</button><button data-v="sun">向日葵</button><button data-v="coral">珊瑚紅</button><button data-v="leaf">森林綠</button><button data-v="berry">葡萄紫</button><button data-v="mix">每張不同</button></div></div>
+          <div class="field"><label class="lab" for="cardTitle">卡片標題（留白就用主題名稱）</label><input type="text" id="cardTitle" placeholder="例如：小太陽班 動物賓果"></div>
+          <label class="chk"><input type="checkbox" id="freeChk"> 中間放「免費格」（3×3、5×5 才有）</label>
+          <label class="chk"><input type="checkbox" id="hintChk"> 螢幕上的卡片會亮黃框，提示已抽到的圖</label>
+        </div>
+      </div>
+
+      <div class="preview">
+        <div class="bar">
+          <div class="info" id="info"></div>
+          <button class="btn" id="shuffle">重新洗牌</button>
+          <button class="btn" id="clearMarks">清除標記</button>
+          <button class="btn" id="printBtn">列印</button>
+          <button class="btn sun" id="goCall">開始叫號 →</button>
+        </div>
+        <div class="cards" id="cards"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 叫號台 ========== -->
+  <section class="view" id="view-call" hidden>
+    <div class="call">
+      <div class="stage" id="stage"></div>
+      <div class="side">
+        <div class="panel">
+          <div class="step-h"><b>局</b><h2 id="roundTitle">第 1 局</h2></div>
+          <div class="note" id="roundNote"></div>
+          <div class="row"><button class="btn pri" id="nextRound">下一局 →</button><button class="btn danger" id="resetCall">重來這一局</button></div>
+        </div>
+        <div class="panel">
+          <div class="step-h"><b>★</b><h2>賓果榜</h2><span class="hint" id="boardHint"></span></div>
+          <label class="chk"><input type="checkbox" id="detectChk"> 自動偵測誰賓果了（依已抽出的卡判斷，適合不會喊賓果的孩子）</label>
+          <div class="board" id="board"></div>
+          <div class="row"><button class="btn" id="verifyBtn">對獎：檢查某張卡</button></div>
+        </div>
+        <div class="panel">
+          <div class="step-h"><b>人</b><h2>抽一位上台</h2></div>
+          <p class="note" style="margin:0">輪流回答、上台蓋格子、造句時用。同一位不會重複被抽到，直到大家都輪過。</p>
+          <div class="row"><button class="btn sun" id="pickBtn">抽一位</button><button class="btn sm" id="pickReset">重新輪一次</button><span class="lab" id="pickLeft"></span></div>
+        </div>
+        <div class="panel">
+          <div class="step-h"><b>⚙</b><h2>叫號設定</h2></div>
+          <div class="field"><span class="lab">叫號方式（這一局）</span>
+            <div class="seg" id="callSeg"><button data-v="both">圖＋字</button><button data-v="picture">只看圖</button><button data-v="voice">只聽聲音</button><button data-v="clue">猜謎提示</button></div></div>
+          <label class="chk"><input type="checkbox" id="voiceChk"> 自動朗讀（國語）</label>
+          <label class="chk"><input type="checkbox" id="twiceChk"> 每張念兩次（間隔 4 秒）</label>
+          <div class="field"><span class="lab">朗讀速度</span>
+            <div class="seg" id="rateSeg"><button data-v="0.65">慢</button><button data-v="0.85">適中</button><button data-v="1">一般</button></div></div>
+          <div class="field"><span class="lab">自動抽卡間隔（找圖時間）</span>
+            <div class="seg" id="autoSeg"><button data-v="8">8 秒</button><button data-v="12">12 秒</button><button data-v="20">20 秒</button><button data-v="30">30 秒</button></div></div>
+          <div class="row"><button class="btn" id="autoBtn">自動抽卡</button></div>
+          <div class="note">鍵盤：<b>空白鍵</b>抽下一張，<b>R</b> 再念一次，<b>A</b> 顯示答案，<b>P</b> 抽一位。</div>
+        </div>
+        <div class="panel">
+          <div class="row" style="justify-content:space-between"><h2 style="font-size:1.05rem">已抽出</h2><span class="lab" id="histCount"></span></div>
+          <div class="hist" id="hist"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 教案與玩法 ========== -->
+  <section class="view" id="view-guide" hidden>
+    <div class="guide">
+      <div class="plan" id="plan"></div>
+      <div class="side">
+        <div class="panel">
+          <h2 style="font-size:1.1rem">玩法圖鑑（團體帶領版）</h2>
+          <div class="gal" id="gal"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div id="printArea" aria-hidden="true"></div>
+<canvas id="confetti" hidden></canvas>
+
+<script>
+(function(){
+"use strict";
+const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelectorAll(s)];
+const store={get(k,d){try{const v=localStorage.getItem(k);return v?JSON.parse(v):d}catch(e){return d}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v));return true}catch(e){return false}}};
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+let inFrame=true; try{inFrame=window.self!==window.top}catch(e){inFrame=true}
+const P=a=>a.map(s=>{const [e,t,c]=s.split('|');return {e,t,c:c||''}});
+
+/* ================= 內建主題（順序固定：圖檔以「主題-序號」對應） ================= */
+const THEMES=[
+{id:'animals',name:'動物朋友',icon:'🐶',items:P(['🐶|小狗|汪汪叫，是人類的好朋友','🐱|小貓|喵喵叫，喜歡抓老鼠','🐰|兔子|長耳朵，愛吃紅蘿蔔','🐻|熊|胖胖的，喜歡吃蜂蜜','🐼|貓熊|黑白色，愛吃竹子','🐯|老虎|身上有條紋，是森林之王','🦁|獅子|有很多鬃毛，吼聲很大','🐘|大象|鼻子長長的','🦒|長頸鹿|脖子最長的動物','🐒|猴子|會爬樹，愛吃香蕉','🐷|小豬|鼻子扁扁，嚕嚕叫','🐮|乳牛|會產牛奶，哞哞叫','🐑|綿羊|毛捲捲的，咩咩叫','🐴|馬|跑得很快，可以騎','🐔|雞|早上會喔喔叫','🦆|鴨子|呱呱叫，會游泳','🐸|青蛙|會跳很遠，住在池塘','🐢|烏龜|走路慢慢，背著硬殼','🐟|魚|住在水裡，用鰭游泳','🐬|海豚|很聰明，住在海裡','🐳|鯨魚|海裡最大的動物','🦋|蝴蝶|有美麗的翅膀','🐝|蜜蜂|會採蜜，嗡嗡嗡','🐌|蝸牛|背著房子慢慢爬','🐧|企鵝|住在冰天雪地，搖搖擺擺走','🦉|貓頭鷹|晚上醒著，眼睛大大','🐿️|松鼠|尾巴蓬蓬，愛吃堅果','🦓|斑馬|身上有黑白條紋的馬'])},
+{id:'fruits',name:'蔬菜水果',icon:'🍎',items:P(['🍎|蘋果|紅紅圓圓，咬起來脆脆','🍌|香蕉|黃色彎彎的，猴子愛吃','🍇|葡萄|一串一串紫色的','🍓|草莓|紅色，有小小的籽','🍉|西瓜|外面綠、裡面紅，夏天吃','🍊|橘子|橘色，要剝皮吃','🍍|鳳梨|頭上有葉子，酸酸甜甜','🥭|芒果|黃色，夏天很香甜','🍑|水蜜桃|粉紅色，軟軟的','🍐|梨子|水分很多','🍒|櫻桃|兩顆紅紅連在一起','🥝|奇異果|外面毛毛，裡面綠色','🍋|檸檬|黃色，非常酸','🥥|椰子|硬硬的殼，裡面有水','🍅|番茄|紅色，可以做成番茄醬','🥕|紅蘿蔔|橘色長長，兔子愛吃','🌽|玉米|一顆一顆黃色的','🥦|花椰菜|長得像一棵小樹','🥒|小黃瓜|綠色長條，脆脆的','🍆|茄子|紫色長長的','🥔|馬鈴薯|可以做成薯條','🧅|洋蔥|切的時候會流眼淚','🍄|香菇|長得像一把小傘','🌶️|辣椒|紅紅的，吃起來很辣','🥬|青菜|綠色的葉子','🎃|南瓜|萬聖節做成燈籠'])},
+{id:'vehicles',name:'交通工具',icon:'🚌',items:P(['🚗|汽車|四個輪子，載家人出門','🚌|公車|很多人一起搭，要刷卡','🚕|計程車|黃色的，招手就會停','🚓|警車|會嗚嗚叫，警察開的','🚑|救護車|載生病的人去醫院','🚒|消防車|紅色的，去滅火','🚚|貨車|載很多貨物','🚜|拖拉機|在農田裡工作','🏍️|機車|兩個輪子，要戴安全帽','🚲|腳踏車|用腳踩才會動','🛴|滑板車|一腳踩、一腳滑','🚂|火車|在鐵軌上跑，嘟嘟嘟','🚄|高鐵|跑得非常快的列車','🚇|捷運|在城市地底下跑','✈️|飛機|在天空飛，去很遠的地方','🚁|直升機|頭上有螺旋槳','🚀|火箭|可以飛到太空','⛵|帆船|靠風吹著走','🚢|輪船|在海上航行的大船','🛶|獨木舟|用槳划的小船','🚠|纜車|掛在空中的車廂','🛵|電動機車|很安靜的兩輪車','🚐|娃娃車|載小朋友上學','🛻|小貨卡|後面可以載東西','🚛|聯結車|很長很長的大卡車'])},
+{id:'emotions',name:'情緒小臉',icon:'😊',items:P(['😀|開心|收到禮物的感覺','😢|難過|心愛的玩具壞掉了','😡|生氣|東西被別人搶走','😨|害怕|聽到很大的打雷聲','😲|驚訝|突然看到很特別的東西','😴|想睡覺|晚上玩累了','🥰|被愛|媽媽抱抱的感覺','😳|害羞|第一次上台說話','🤔|想一想|在想答案是什麼','😋|好好吃|吃到最喜歡的食物','🤒|生病|發燒不舒服','😌|放鬆|洗完熱水澡','😤|不服氣|輸了比賽很不甘心','🥳|慶祝|參加生日派對','😭|大哭|跌倒好痛','😆|大笑|聽到好好笑的故事','😟|擔心|找不到媽媽','😎|得意|完成一件很難的事','🤗|想抱抱|看到好朋友','😶|說不出話|不知道該說什麼','🙄|不耐煩|等了好久好久','🤩|好興奮|要去遊樂園玩','😬|緊張|要打針了','😇|溫暖|幫助別人的時候','🤢|噁心|聞到臭臭的味道'])},
+{id:'body',name:'身體部位',icon:'👀',items:P(['👀|眼睛|用來看東西','👂|耳朵|用來聽聲音','👃|鼻子|用來聞味道','👄|嘴巴|用來吃飯、說話','🦷|牙齒|每天要刷乾淨','👅|舌頭|可以嚐出味道','✋|手|可以拿東西、揮手','👆|手指|用來指東西','👍|大拇指|比讚的那根手指','🤲|手掌|可以捧東西','💅|指甲|要定期剪短','💪|手臂|舉起來很有力氣','🦵|腿|用來跑跑跳跳','🦶|腳|用來走路','🧠|大腦|用來思考','❤️|心臟|撲通撲通跳','🫁|肺|用來呼吸','🦴|骨頭|讓身體站得直','💇|頭髮|長在頭上，要梳整齊','🙂|臉|眼睛、鼻子、嘴巴都在這裡'])},
+{id:'daily',name:'生活自理',icon:'🪥',items:P(['🪥|刷牙|早上和睡前都要做','🧼|洗手|吃飯前、上廁所後','🛁|洗澡|把身體洗乾淨','👕|穿衣服|先套頭，再穿手','👖|穿褲子|一腳一腳伸進去','🧦|穿襪子|穿鞋子之前','👟|穿鞋子|分清楚左腳右腳','🧥|穿外套|天氣冷的時候','🥣|吃早餐|起床後的第一餐','🍚|吃飯|用湯匙或筷子','🥛|喝水|口渴的時候','🚽|上廁所|上完記得沖水','🛏️|睡覺|晚上要早點睡','🧸|收玩具|玩完放回原位','🎒|整理書包|上學前準備好','🧹|掃地|讓地板乾乾淨淨','🗑️|丟垃圾|丟進垃圾桶','🪮|梳頭髮|讓頭髮整整齊齊','😷|戴口罩|生病或人多的時候','🧴|擦乳液|皮膚乾乾的時候','🧺|收衣服|衣服晾乾了','🍽️|收碗盤|吃完飯拿到廚房','🌂|帶雨傘|下雨天出門','⏰|起床|鬧鐘響了','🙋|舉手|想說話先舉手','🙏|說謝謝|別人幫助我的時候'])},
+{id:'community',name:'社區好鄰居',icon:'🏪',items:P(['🏫|學校|上課學習的地方','🏥|醫院|生病去看醫生','🏪|便利商店|24 小時都開著','🛒|超市|買菜、買日用品','🏦|銀行|存錢的地方','📮|郵局|寄信、寄包裹','🚒|消防局|消防員在這裡','🚓|警察局|有困難找警察','🏞️|公園|溜滑梯、散步','📚|圖書館|安靜看書、借書','🍞|麵包店|買麵包和蛋糕','💈|理髮店|剪頭髮的地方','🚉|火車站|搭火車的地方','🚏|公車站|在這裡等公車','💊|藥局|買藥的地方','🏛️|區公所|辦證件的地方','🛕|廟宇|拜拜祈福的地方','🏊|游泳池|夏天游泳','🍜|餐廳|吃飯的地方','🎬|電影院|看電影的地方','🦷|牙醫診所|檢查牙齒','⛽|加油站|汽車、機車加油','🏠|家|和家人住的地方','🧺|洗衣店|洗衣服的地方','🎡|遊樂園|坐摩天輪','🏟️|運動場|跑步、比賽'])},
+{id:'jobs',name:'職業達人',icon:'🧑‍🚒',items:P(['🧑‍⚕️|醫生|幫生病的人看病','🧑‍🏫|老師|在學校教小朋友','🧑‍🚒|消防員|勇敢去滅火','👮|警察|保護大家的安全','🧑‍🍳|廚師|煮好吃的菜','🧑‍🌾|農夫|種稻米和蔬菜','🧑‍🔧|修車師傅|把壞掉的車修好','👷|建築工人|蓋房子','🧑‍💻|工程師|用電腦寫程式','🧑‍🎨|畫家|畫出美麗的圖','🧑‍🚀|太空人|坐火箭去太空','🧑‍✈️|機長|開飛機','🧑‍🔬|科學家|在實驗室做研究','🧑‍⚖️|法官|判斷誰對誰錯','🧑‍🎤|歌手|唱歌給大家聽','💇|美髮師|幫人剪頭髮','📬|郵差|送信到每一家','🚚|司機|開車送貨','💉|護理師|幫忙打針、照顧病人','🦷|牙醫|檢查牙齒','🎻|音樂家|演奏樂器','📸|攝影師|幫大家拍照','🧹|清潔隊員|讓街道乾淨','🕵️|偵探|找出線索','🧑‍💼|上班族|在辦公室工作'])},
+{id:'colors',name:'顏色形狀',icon:'🔺',items:P(['🔴|紅色圓形|圓圓的，紅色','🟠|橘色圓形|圓圓的，橘色','🟡|黃色圓形|圓圓的，黃色','🟢|綠色圓形|圓圓的，綠色','🔵|藍色圓形|圓圓的，藍色','🟣|紫色圓形|圓圓的，紫色','🟤|咖啡色圓形|圓圓的，咖啡色','⚫|黑色圓形|圓圓的，黑色','🟥|紅色正方形|四個邊一樣長，紅色','🟧|橘色正方形|四個邊一樣長，橘色','🟨|黃色正方形|四個邊一樣長，黃色','🟩|綠色正方形|四個邊一樣長，綠色','🟦|藍色正方形|四個邊一樣長，藍色','🟪|紫色正方形|四個邊一樣長，紫色','🔺|紅色三角形|有三個角','🔻|紅色倒三角形|尖尖的角朝下','🔶|橘色菱形|像風箏的形狀','🔷|藍色菱形|像鑽石的形狀','⭐|星星|有五個尖尖的角','❤️|紅色愛心|代表喜歡','💛|黃色愛心|黃色的愛心','💚|綠色愛心|綠色的愛心','💙|藍色愛心|藍色的愛心','💜|紫色愛心|紫色的愛心','🌙|月亮形|彎彎的像月亮'])},
+{id:'numbers',name:'數字數量',icon:'12',items:Array.from({length:30},(_,i)=>{const n=i+1;return {e:String(n),t:String(n),c:n<=10?('●'.repeat(n)+'（數數看有幾個）'):(n+'：比 '+(n-1)+' 多 1'),txt:true}})},
+{id:'zhuyin',name:'注音符號',icon:'ㄅ',items:P(['ㄅ|ㄅ 爸爸|爸爸的「ㄅ」','ㄆ|ㄆ 葡萄|葡萄的「ㄆ」','ㄇ|ㄇ 媽媽|媽媽的「ㄇ」','ㄈ|ㄈ 飛機|飛機的「ㄈ」','ㄉ|ㄉ 大象|大象的「ㄉ」','ㄊ|ㄊ 兔子|兔子的「ㄊ」','ㄋ|ㄋ 牛奶|牛奶的「ㄋ」','ㄌ|ㄌ 老虎|老虎的「ㄌ」','ㄍ|ㄍ 哥哥|哥哥的「ㄍ」','ㄎ|ㄎ 蝌蚪|蝌蚪的「ㄎ」','ㄏ|ㄏ 花朵|花朵的「ㄏ」','ㄐ|ㄐ 雞蛋|雞蛋的「ㄐ」','ㄑ|ㄑ 氣球|氣球的「ㄑ」','ㄒ|ㄒ 西瓜|西瓜的「ㄒ」','ㄓ|ㄓ 蜘蛛|蜘蛛的「ㄓ」','ㄔ|ㄔ 吃飯|吃飯的「ㄔ」','ㄕ|ㄕ 獅子|獅子的「ㄕ」','ㄖ|ㄖ 日出|日出的「ㄖ」','ㄗ|ㄗ 自己|自己的「ㄗ」','ㄘ|ㄘ 草莓|草莓的「ㄘ」','ㄙ|ㄙ 三|數字三的「ㄙ」','ㄧ|ㄧ 衣服|衣服的「ㄧ」','ㄨ|ㄨ 烏龜|烏龜的「ㄨ」','ㄩ|ㄩ 魚|小魚的「ㄩ」','ㄚ|ㄚ 阿姨|阿姨的「ㄚ」','ㄛ|ㄛ 喔|喔喔叫的「ㄛ」','ㄜ|ㄜ 鵝|大白鵝的「ㄜ」','ㄞ|ㄞ 愛心|愛心的「ㄞ」','ㄟ|ㄟ 杯子|杯子的「ㄟ」','ㄠ|ㄠ 貓|小貓的「ㄠ」','ㄡ|ㄡ 狗|小狗的「ㄡ」','ㄢ|ㄢ 安全|安全的「ㄢ」','ㄣ|ㄣ 恩人|恩人的「ㄣ」','ㄤ|ㄤ 糖果|糖果的「ㄤ」','ㄥ|ㄥ 燈|電燈的「ㄥ」','ㄦ|ㄦ 耳朵|耳朵的「ㄦ」']).map(x=>(x.txt=true,x))},
+{id:'weather',name:'天氣季節',icon:'🌈',items:P(['☀️|晴天|太陽出來了','🌤️|多雲|太陽躲在雲後面','☁️|陰天|天空灰灰的','🌧️|下雨|要帶雨傘','⛈️|打雷|轟隆隆好大聲','❄️|下雪|白白冷冷的','🌈|彩虹|雨後出現七種顏色','🌪️|龍捲風|轉呀轉的大風','🌫️|起霧|看不清楚前面','🌬️|颳風|風呼呼地吹','🌡️|好熱|溫度好高','🥶|好冷|冷得發抖','🌸|春天|花朵開了','🏖️|夏天|去海邊玩水','🍁|秋天|葉子變紅掉下來','⛄|冬天|穿厚厚的衣服','☂️|雨傘|下雨天撐開','🧣|圍巾|圍在脖子上保暖','🧤|手套|讓手暖暖的','🕶️|太陽眼鏡|太陽很大時戴','🧢|帽子|遮太陽','🌙|月亮|晚上掛在天上','⭐|星星|晚上一閃一閃','🌅|日出|早上太陽升起','🌊|海浪|海邊一波一波'])},
+{id:'actions',name:'動作指令',icon:'👏',items:P(['👏|拍拍手|拍手三下','🙌|舉雙手|兩手舉高高','🦘|跳一跳|原地跳兩下','🙆|摸摸頭|雙手摸摸頭','🦶|踏踏腳|用力踏腳三下','👋|揮揮手|跟大家說嗨','🤸|轉一圈|原地轉一圈','🧘|深呼吸|慢慢吸氣，再吐氣','😊|笑一個|給旁邊的人一個微笑','🤗|抱自己|給自己一個抱抱','🐸|青蛙跳|蹲下來跳一下','🦩|單腳站|單腳站數到五','👉|指鼻子|用手指指鼻子','🐢|慢慢走|像烏龜一樣慢慢走','🐇|兔子跳|雙手放頭上跳','🦅|老鷹飛|張開雙手飛一飛','🥁|拍大腿|拍大腿兩下','👍|比個讚|比讚給好朋友','🙇|鞠個躬|彎腰說謝謝','🫡|敬個禮|像警察一樣敬禮','🤫|噓安靜|手指放在嘴巴前','🙈|遮眼睛|雙手遮住眼睛','🙉|摀耳朵|雙手摀住耳朵','🐍|扭一扭|身體像蛇一樣扭','🏃|原地跑|原地跑五步','💃|跳個舞|自由跳一下'])},
+{id:'safety',name:'安全小尖兵',icon:'🚦',items:P(['🚦|紅綠燈|綠燈行、紅燈停','🚸|斑馬線|過馬路走這裡','⛑️|安全帽|騎車一定要戴','🧯|滅火器|著火時大人使用','🔥|小心火|不玩火、不玩打火機','⚡|小心電|濕手不摸插座','🔌|插頭|不亂拔、不亂插','🔪|刀子|尖尖的，要大人幫忙','💊|藥品|不能自己亂吃','🏊|水邊|玩水要有大人陪','🚫|不跟陌生人走|陌生人給糖也不拿','📞|打電話求救|火災打 119、報案打 110','🚪|關好門|出門記得關門','🧴|清潔劑|不能喝、不能玩','🦺|反光背心|晚上走路更安全','🛗|電梯|不在電梯裡跳','🪜|樓梯|慢慢走、扶扶手','🔦|手電筒|停電的時候用','🚗|安全座椅|坐車要繫安全帶','🧑‍🚒|找消防員|火災時聽消防員的話','👮|找警察|迷路時找警察','🙇|地震|趴下、掩護、穩住','🧼|勤洗手|把細菌洗掉','🩹|OK 繃|小傷口要貼好','🆘|大聲求救|遇到危險大聲喊'])},
+{id:'festivals',name:'節慶生活',icon:'🧧',items:P(['🧧|紅包|過年長輩給的','🐉|舞龍|過年熱鬧的表演','🧨|鞭炮|過年劈哩啪啦','🍊|橘子|過年吃，代表吉利','🏮|燈籠|元宵節提燈籠','🍡|湯圓|元宵節、冬至吃','🚣|划龍舟|端午節的比賽','🥮|月餅|中秋節吃','🌕|月亮|中秋節賞月','🍖|烤肉|中秋節全家烤肉','🐰|玉兔|月亮上的兔子','💐|花束|母親節送媽媽','👔|領帶|父親節送爸爸','🍎|謝師禮|教師節謝謝老師','🎂|生日蛋糕|生日吹蠟燭','🎁|禮物|收到很開心','🎄|聖誕樹|掛滿裝飾','🎅|聖誕老公公|送禮物的白鬍子爺爺','🎃|南瓜燈|萬聖節的燈','👻|小幽靈|萬聖節裝扮','🎆|煙火|跨年看煙火','🎉|拉炮|慶祝的時候拉','🧑‍🤝‍🧑|好朋友|一起過節','🎎|娃娃|兒童節的禮物'])}
+];
+THEMES.forEach(t=>t.items.forEach((it,i)=>{it.key=t.id+'-'+String(i+1).padStart(2,'0')}));
+
+/* ================= 玩法（含團體帶領要點與個別化調整） ================= */
+const MODES=[
+{id:'line',name:'經典一條線',tag:'入門',win:{t:'lines',k:1},call:'both',ppl:'2–30 人',time:'5–10 分',desc:'橫線、直線或斜線，任一條連成線就賓果。',how:['老師抽卡並念出名稱','孩子在卡片上找到相同圖案，蓋上標記','任一條線完成，舉手喊「賓果！」'],lead:'每抽一張，給 5–8 秒找圖時間再抽下一張。有人喊賓果，用「對獎」核對。',adj:['能力較好的孩子：改 4×4 或「只有字」','需要協助的孩子：3×3＋大字＋提示黃框']},
+{id:'double',name:'雙線挑戰',tag:'進階',win:{t:'lines',k:2},call:'both',ppl:'4–30 人',time:'10–15 分',desc:'要完成兩條線才算賓果，遊戲時間比較長。',how:['規則同一條線','完成第一條線先說「一條線！」','再完成第二條才是賓果'],lead:'有人完成第一條線時先口頭表揚，讓其他人保持動機。',adj:['同一場可讓部分孩子只要一條線就算過關','適合放在第二、三局，不要當第一局']},
+{id:'corners',name:'四個角落',tag:'方位',win:{t:'shape',s:'corners'},call:'both',ppl:'2–30 人',time:'5–10 分',desc:'把四個角落都蓋滿就賓果。',how:['開始前大家一起指出「左上、右上、左下、右下」','叫號時提醒孩子看看是不是角落','四個角都蓋到就賓果'],lead:'只需要 4 格，節奏快，適合注意力短的團體或時間不多時。',adj:['降低難度：只要上面兩個角','卡片右上的小格圖會提示目標位置']},
+{id:'x',name:'大叉叉',tag:'圖形',win:{t:'shape',s:'x'},call:'both',ppl:'2–30 人',time:'8–12 分',desc:'兩條斜線都完成，排成一個 X。',how:['先用手指在卡片上畫出 X 的路線','蓋滿 X 上面的格子就賓果'],lead:'開始前全體一起用手指描一次 X，確認大家知道目標。',adj:['3×3 只要 4 格（加免費格）','斜線追視困難的孩子，助教可以在卡上用筆先描線']},
+{id:'plus',name:'十字架',tag:'圖形',win:{t:'shape',s:'plus'},call:'both',ppl:'2–30 人',time:'8–12 分',desc:'中間一橫加中間一直，排成「十」。',how:['先找到卡片正中間','把中間一橫、一直都蓋滿'],lead:'3×3 和 5×5 最清楚；4×4 會用靠中間的那一排。',adj:['可以搭配方位詞「中間、上面、下面」']},
+{id:'frame',name:'外框一圈',tag:'圖形',win:{t:'shape',s:'frame'},call:'both',ppl:'2–20 人',time:'10–15 分',desc:'把卡片最外面一圈全部蓋滿。',how:['用手指沿著外框繞一圈','外圈全部蓋滿就賓果'],lead:'格數多，建議開「提示黃框」或自動偵測。',adj:['3×3 外框 8 格，適合入門','練習沿邊界追視，適合視知覺訓練']},
+{id:'full',name:'全部蓋滿',tag:'耐力',win:{t:'shape',s:'full'},call:'both',ppl:'2–15 人',time:'15–25 分',desc:'每一格都蓋滿才賓果。',how:['適合時間充足時','也可以改成全班一起蓋滿的合作目標'],lead:'時間最長，適合當最後一局或下課前收尾。',adj:['搭配提示黃框','能力差距大時改用「合作大賓果」']},
+{id:'listen',name:'聽音找圖',tag:'聽覺',win:{t:'lines',k:1},call:'voice',ppl:'2–30 人',time:'10 分',desc:'叫號台只播放聲音，不顯示圖片，孩子用聽的去找。',how:['老師按「抽下一張」，系統念出名稱','孩子聽完後在卡片找圖','老師可以按「顯示答案」對照'],lead:'請大家先安靜再抽；開啟「每張念兩次」。環境吵雜時老師也再口頭說一次。',adj:['聽覺處理較慢的孩子：助教在旁再說一次或指圖','可以先「圖＋字」玩一局，再拿掉視覺提示']},
+{id:'look',name:'看圖說說看',tag:'口語',win:{t:'lines',k:1},call:'picture',ppl:'2–12 人',time:'10–15 分',desc:'只秀出圖片，孩子說出名稱後才能蓋。',how:['叫號台只顯示圖片','用「抽一位」請孩子說出名稱，或全體齊聲說','說完才蓋格子'],lead:'人多時改成全體齊聲回答，避免等待太久；人少時用「抽一位」輪流。',adj:['口語未發展：指認、手勢或溝通板都算','仿說也算成功']},
+{id:'riddle',name:'猜謎賓果',tag:'理解',win:{t:'lines',k:1},call:'clue',ppl:'2–30 人',time:'10–15 分',desc:'只說提示，例如「長耳朵，愛吃紅蘿蔔」，孩子猜出答案再蓋。',how:['叫號台顯示並念出提示','孩子猜答案，猜對一起蓋','按「顯示答案」揭曉'],lead:'先讓大家想 5 秒再請舉手，避免總是同一位最快的孩子回答。',adj:['提示可以說兩次','年紀小的團體先玩「圖＋字」，再改猜謎']},
+{id:'action',name:'動作賓果',tag:'大動作',win:{t:'lines',k:1},call:'both',prompt:'蓋格子之前，大家一起做出這個動作！',ppl:'2–30 人',time:'5–10 分',desc:'每抽一張，全體一起做動作再蓋格子。',how:['搭配「動作指令」或「動物朋友」主題','抽到後老師示範動作','大家一起做完再蓋'],lead:'需要能站起來的空間；老師先示範，再數「1、2、3」一起做。',adj:['坐輪椅或平衡較弱：改上半身版本','感覺敏感的孩子可以只看不做，一樣能蓋']},
+{id:'sentence',name:'說一句話',tag:'語言',win:{t:'lines',k:1},call:'both',prompt:'用這個詞說一句話，例如「我喜歡＿＿」。',ppl:'2–10 人',time:'10–15 分',desc:'蓋格子前，用抽到的詞說一句話。',how:['抽到後用「抽一位」請一位孩子說','給句型：「我看到＿＿」「我喜歡＿＿」','說完大家一起蓋'],lead:'每張只請一位說，其他人一起蓋，節奏才不會斷掉。人多時分組，每組派一位。',adj:['給句型板或圖卡提示','能力好的孩子用兩個詞造句']},
+{id:'hunt',name:'尋寶賓果',tag:'戶外',win:{t:'lines',k:1},call:'none',ppl:'分 3–6 組',time:'20–45 分',desc:'不用叫號。帶孩子在教室、社區或公園裡找到卡片上的東西就蓋。',how:['每組拿一張卡','出發去找卡片上的東西','找到就蓋，或拍照記錄'],lead:'每組一位大人陪同，先約好集合點與時間；回來後用賓果榜分享。',adj:['行動不便：改在教室內或看照片、街景尋寶','每組卡片可以設不同難度']},
+{id:'coop',name:'合作大賓果',tag:'團體',win:{t:'shape',s:'full'},call:'both',ppl:'全體',time:'10–15 分',desc:'全體共用一張大卡，輪流上台蓋格子，一起完成。',how:['自動做成一張共用卡，投影出來','抽到後用「抽一位」請孩子上台點','全部蓋滿，大家一起歡呼'],lead:'把「做卡片」頁投影，孩子上台點卡片上的格子；每人至少輪到一次。',adj:['沒有輸贏壓力，適合新團體和情緒容易起伏的孩子']}
+];
+const CALLS={both:'圖＋字',picture:'只看圖',voice:'只聽聲音',clue:'猜謎提示',none:'不用叫號'};
+
+/* ================= 主題教案 ================= */
+const PLANS={
+animals:{age:'3–7 歲',mode:'riddle',size:3,goals:['認識常見動物的名稱與特徵','練習聽指令、圖卡配對','用身體模仿動物，增加參與感'],prep:'賓果卡（3×3）、叫號台或叫號圖卡、標記物（瓶蓋、大貼紙）',flow:['暖身（3 分鐘）：老師學動物叫聲，孩子猜是誰','示範（2 分鐘）：拿一張卡，示範「找到、蓋上、喊賓果」','遊戲（10 分鐘）：先玩「經典一條線」，熟悉後改「猜謎賓果」','分享（3 分鐘）：賓果的孩子選一隻卡上的動物，帶大家模仿'],extend:['把動物分成「陸地、水裡、天空」三類','回家和家人玩「學叫聲猜動物」'],adapt:['精細動作較弱：用大顆瓶蓋或磁鐵當標記','注意力短：每局只抽 5 張，接著做一次動物動作再繼續']},
+fruits:{age:'3–7 歲',mode:'look',size:3,goals:['認識蔬果名稱、顏色與形狀','連結飲食經驗，鼓勵嘗試新食物','練習命名與口語表達'],prep:'賓果卡、真實蔬果或模型 3–5 種、標記物',flow:['暖身：摸摸袋子裡的真實蔬果，猜猜是什麼','示範：用「看圖說說看」，先說名稱再蓋','遊戲：玩 2 局，第二局改「猜謎賓果」','分享：說說「我最喜歡吃的是＿＿」'],extend:['按顏色分類：紅色的蔬果有哪些？','延伸到點心時間，一起品嚐卡片上的水果'],adapt:['口語尚未發展：可用指認或手勢代替說出名稱','挑食孩子：只聊顏色和形狀，不強迫談吃']},
+vehicles:{age:'3–8 歲',mode:'listen',size:4,goals:['認識交通工具與用途','分辨陸地、海上、天空的交通工具','練習聽覺辨識'],prep:'賓果卡（4×4）、交通工具聲音（可用口技）、標記物',flow:['暖身：老師發出「嗚伊嗚伊」「嘟嘟嘟」，孩子猜是什麼車','示範：用「聽音找圖」，只聽名稱找圖','遊戲：玩 2 局','分享：「我坐過＿＿，我想坐＿＿」'],extend:['搭配社區散步，數數看到幾種交通工具','用積木或紙箱做出自己的車'],adapt:['聽覺處理較慢：開「每張念兩次」','對聲音敏感：關掉自動朗讀，老師輕聲念']},
+emotions:{age:'4–10 歲',mode:'sentence',size:3,goals:['辨識基本情緒表情','連結情緒與生活情境','練習說出自己的感受'],prep:'賓果卡（3×3 起）、鏡子、情緒溫度計（可選）',flow:['暖身：照鏡子做出開心、生氣、難過的臉','遊戲：用「猜謎賓果」，老師說情境（例如「玩具壞掉了」），孩子找表情','延伸：每蓋一格，請一位孩子說「我會＿＿的時候，是因為＿＿」','結束：大家選一個今天的心情'],extend:['把情緒分成「舒服的、不舒服的」','討論「生氣的時候可以怎麼辦」'],adapt:['自閉症類群孩子：搭配真人照片或孩子自己的表情照（用自訂上傳）','不想分享時可以只指出表情，不強迫口說']},
+body:{age:'2–6 歲',mode:'action',size:3,goals:['認識身體部位名稱','練習身體覺察與指認','建立衛生習慣的概念'],prep:'賓果卡（3×3 或 4×4）、標記物',flow:['暖身：唱「頭兒肩膀膝腳趾」','遊戲：用「動作賓果」，抽到後大家摸摸那個部位再蓋','延伸：問「眼睛可以做什麼？」','結束：給身體一個抱抱'],extend:['搭配刷牙、洗手的生活自理練習','畫出自己的身體輪廓並貼上部位名稱'],adapt:['觸覺敏感的孩子：用指的代替摸','此主題共 20 項，最多做到 4×4']},
+daily:{age:'3–10 歲',mode:'line',size:3,goals:['熟悉每天的生活自理步驟','練習時間順序（早上、晚上）','建立「我會自己做」的自信'],prep:'賓果卡、孩子自己做這些事的照片（可用自訂上傳）',flow:['暖身：問「早上起床後先做什麼？」','遊戲：經典一條線，抽到時說「我會＿＿」','延伸：把抽出的卡排成「早上做的、晚上做的」','結束：發一張「我今天會做」的小貼紙'],extend:['做成家庭版：家長和孩子一起，做到一項就蓋一格','當成一週生活檢核表：用「全部蓋滿」當目標'],adapt:['用孩子自己的照片取代圖卡，效果更好','步驟太多時，先挑 8 項做 3×3']},
+community:{age:'4–12 歲',mode:'hunt',size:4,goals:['認識社區場所與功能','練習在社區中觀察與指認','建立求助與安全的概念'],prep:'賓果卡（每組一張）、筆或貼紙、社區散步路線',flow:['出發前：看卡片，說說每個地方可以做什麼','散步：用「尋寶賓果」，找到就蓋或拍照','回教室：每組分享找到幾個','討論：「生病要去哪裡？迷路要找誰？」'],extend:['把社區照片上傳成自己社區的專屬卡','畫一張「我家附近」的地圖'],adapt:['行動不便：改成看社區照片或街景來尋寶','容易走失：一位大人陪一組，並先約好集合點']},
+jobs:{age:'4–10 歲',mode:'riddle',size:4,goals:['認識不同職業與工作內容','欣賞每一種工作的價值','練習用描述猜答案'],prep:'賓果卡、職業道具（聽診器、帽子等，可選）',flow:['暖身：戴上道具，請孩子猜「我是誰」','遊戲：「猜謎賓果」，老師描述工作內容','延伸：「長大想做什麼工作？為什麼？」','結束：謝謝身邊幫助我們的人'],extend:['邀請家長分享自己的工作','角色扮演：開一間小商店或小醫院'],adapt:['抽象理解較弱：改用「看圖說說看」','可以只放孩子生活中見過的職業']},
+colors:{age:'2–6 歲',mode:'line',size:3,goals:['分辨顏色與基本形狀','練習配對與分類','建立觀察細節的能力'],prep:'賓果卡、彩色積木或色紙',flow:['暖身：拿出彩色積木，說出顏色','遊戲：經典一條線，老師說「藍色正方形」，孩子找','進階：只說顏色或只說形狀，讓孩子找出所有符合的','結束：找找教室裡有什麼是紅色的'],extend:['搭配「尋寶賓果」在教室找顏色','用色紙剪出形狀拼成圖畫'],adapt:['色覺辨識困難：改用「只有字」或強調形狀','先只用顏色或只用形狀，不要同時出現']},
+numbers:{age:'4–8 歲',mode:'riddle',size:3,goals:['認識數字 1–30','連結數字與數量','練習數數與比較大小'],prep:'賓果卡（3×3 起）、積木或豆子',flow:['暖身：用手指比出 1 到 10','遊戲：「猜謎賓果」會顯示點點，孩子數完再找數字','進階：老師說「比 5 多 1」，孩子找 6','結束：一起從 1 數到 10'],extend:['搭配實物：抽到 3，就拿出 3 顆豆子','做成加法賓果：說「2 加 3」找 5'],adapt:['數感剛起步：先只用 1–10，格子 3×3','可用自訂內容只放孩子正在學的數字']},
+zhuyin:{age:'5–8 歲',mode:'listen',size:4,goals:['認讀注音符號','練習聽音辨識','連結符號與常見詞彙'],prep:'賓果卡、注音字卡',flow:['暖身：唸注音歌','遊戲：「聽音找圖」，系統念出「ㄅ 爸爸」，孩子找符號','進階：只念詞彙，孩子找第一個音的符號','結束：每人說一個「ㄅ」開頭的詞'],extend:['用自訂內容只放這週在學的符號','家長版：睡前玩 3×3 複習'],adapt:['構音或聽辨困難：老師念慢一點、配合口型','先只放聲母或只放韻母']},
+weather:{age:'3–8 歲',mode:'sentence',size:4,goals:['認識天氣與四季','連結天氣與穿著','練習觀察與描述'],prep:'賓果卡、窗外觀察或天氣照片',flow:['暖身：看看窗外，今天是什麼天氣？','遊戲：「說一句話」，抽到「下雨」時說「下雨天要帶＿＿」','延伸：把卡片分成春夏秋冬','結束：決定明天要穿什麼'],extend:['做一週天氣紀錄表','搭配「尋寶賓果」在戶外找季節的東西'],adapt:['抽象的季節概念較難：先聚焦在今天的天氣','可以用真實的雨傘、手套當道具']},
+actions:{age:'2–10 歲',mode:'action',size:3,goals:['練習大動作與身體協調','練習聽指令、模仿動作','活動轉換、提升專注'],prep:'賓果卡（3×3）、足夠活動的空間',flow:['暖身：老師說「我做你跟著做」','遊戲：「動作賓果」，抽到就全體一起做','進階：「只聽聲音」，聽到才做','結束：「深呼吸」三次，讓身體安靜下來'],extend:['當作上課中間的動態休息（3 分鐘）','讓孩子設計新的動作加進自訂內容'],adapt:['平衡較弱：單腳站可以扶椅子','坐輪椅的孩子：改用上半身版本的動作']},
+safety:{age:'4–12 歲',mode:'riddle',size:4,goals:['建立居家與交通安全觀念','知道危險時怎麼求救','練習判斷安全與危險'],prep:'賓果卡、情境圖片（可選）',flow:['暖身：問「過馬路要注意什麼？」','遊戲：「猜謎賓果」，老師說情境，孩子找出對應的安全卡','討論：每蓋一格，問「如果遇到這樣，你會怎麼做？」','結束：一起背 119、110'],extend:['家長版：在家裡找找哪裡要小心','演練地震「趴下、掩護、穩住」'],adapt:['理解較慢：一次只談一個情境，用演的比用說的清楚','避免讓焦慮的孩子覺得害怕，多強調「我知道怎麼做」']},
+festivals:{age:'3–10 歲',mode:'line',size:4,goals:['認識台灣常見節慶與習俗','分享家庭過節經驗','練習分類（哪個節日用到什麼）'],prep:'賓果卡、節慶相關實物（紅包、燈籠、月餅）',flow:['暖身：看實物猜是哪個節日','遊戲：經典一條線','延伸：把抽出的卡分到「過年、端午、中秋、聖誕」','結束：說說「我家過節會＿＿」'],extend:['在節日前一週玩，當作節慶主題活動','邀請孩子帶家裡過節的照片，上傳成自訂卡'],adapt:['新住民家庭：邀請分享原生國家的節慶，加入自訂內容','先選一個節日，只放相關的圖']}
+};
+const TIPS=['從 3×3、「圖＋字」開始，先讓孩子有成功經驗。','一次只給一個指令；說完停 5 秒，給孩子反應時間。','搭配手勢、實物或照片，讓視覺、聽覺、觸覺一起提示。','標記物選大又好抓的：瓶蓋、磁鐵、大貼紙，或直接在卡上點觸。','用「參與者與個別化」替每個孩子設定適合的格子大小和顯示方式，同一場就能一起玩。','打開「自動偵測誰賓果了」，不會喊賓果的孩子也不會被漏掉。','情緒容易起伏的團體，用「合作大賓果」，大家一起贏。','讓先賓果的孩子當小助手，幫忙按「抽下一張」。','稱讚要具體：「你找到兔子了，看得好仔細！」'];
+
+/* ================= 活動模板 ================= */
+const TEMPLATES=[
+{id:'sped',name:'特教班・早療小團體',who:'3–8 位孩子＋1–2 位老師',time:'20 分鐘',theme:'animals',size:3,display:'both',hint:true,detect:true,big:true,groups:0,
+ rounds:[{mode:'line',call:'both'},{mode:'look',call:'picture'}],
+ roles:['主持老師：操作叫號台、帶動節奏','助教：坐在需要協助的孩子旁邊，用手指指認、協助蓋標記'],
+ script:[[3,'打招呼，介紹今天的動物朋友（拿出 2–3 張大圖卡）'],[2,'示範一張卡：找到 → 蓋上 → 舉手說「賓果」'],[7,'第 1 局「經典一條線」：圖＋字，每張停 8 秒'],[6,'第 2 局「看圖說說看」：用「抽一位」輪流說名稱，仿說也算'],[2,'賓果榜表揚，每個人說一次「我做到了」']],
+ indiv:['口語好的孩子：個別化設定「只有字」','需要較多協助的孩子：3×3＋大字，助教陪同','注意力短：第 2 局可以只玩 5 張就結束']},
+{id:'class',name:'幼兒園・國小全班',who:'20–30 人，1 位老師＋1 位助教',time:'30 分鐘',theme:'vehicles',size:4,display:'both',hint:false,detect:true,big:false,groups:0,
+ rounds:[{mode:'line',call:'both'},{mode:'corners',call:'both'},{mode:'listen',call:'voice'}],
+ roles:['主持老師：叫號、宣布每局規則','助教：巡場，聽到賓果就用「對獎」核對，記錄賓果榜'],
+ script:[[3,'說明規則，請大家準備標記物'],[8,'第 1 局「一條線」：前 3 位賓果上榜就換局'],[8,'第 2 局「四個角落」：先一起指出四個角'],[9,'第 3 局「聽音找圖」：開「每張念兩次」，請大家安靜聽'],[2,'公布三局賓果榜，請上榜的同學分享一個找到的交通工具']],
+ indiv:['卡片用名單印名字，避免拿錯','學習較慢的同學：個別化設定 3×3','每局設「前 3 位上榜」就結束，控制時間']},
+{id:'family',name:'社區親子活動',who:'10–25 組家庭',time:'40 分鐘',theme:'community',size:4,display:'both',hint:false,detect:true,big:false,groups:0,
+ rounds:[{mode:'line',call:'both'},{mode:'riddle',call:'clue'},{mode:'frame',call:'both'}],
+ roles:['主持人：叫號、帶動氣氛','工作人員 2 位：對獎、發小禮物','家長：陪孩子一起找、一起猜'],
+ script:[[5,'開場：介紹今天的「社區好鄰居」，請家長和孩子一組一張卡'],[10,'第 1 局「一條線」：前 5 組上榜'],[10,'第 2 局「猜謎賓果」：家長可以給孩子提示，但讓孩子說答案'],[12,'第 3 局「外框一圈」：時間較長，期間可以聊「你家附近有哪些地方」'],[3,'頒獎、合照']],
+ indiv:['名單用家庭名稱（例如「小明家」）','有弟妹的家庭：可以多印一張 3×3 給小的']},
+{id:'warmup',name:'團體課暖身・動態轉換',who:'3–12 人',time:'10 分鐘',theme:'actions',size:3,display:'both',hint:true,detect:true,big:false,groups:0,
+ rounds:[{mode:'action',call:'both'},{mode:'action',call:'voice'}],
+ roles:['主持老師：示範動作','助教：協助平衡較弱的孩子'],
+ script:[[1,'全體站起來，確認身邊有空間'],[5,'第 1 局「動作賓果」：看圖、做動作、蓋格子'],[3,'第 2 局改「只聽聲音」：聽到才做'],[1,'用「深呼吸」三次收尾，回到座位']],
+ indiv:['坐輪椅的孩子：改上半身版本','感覺敏感的孩子：可以只看不做，一樣能蓋']},
+{id:'hunt',name:'社區戶外尋寶',who:'分 4 組，每組 1 位大人',time:'45 分鐘',theme:'community',size:3,display:'both',hint:false,detect:false,big:false,groups:4,
+ rounds:[{mode:'hunt',call:'both'}],
+ roles:['帶隊老師：說明範圍、時間與集合點','每組 1 位大人：陪同、拍照記錄、注意安全'],
+ script:[[5,'出發前：發卡片，說明找到就蓋（或拍照）、集合時間'],[30,'分組在社區或公園尋寶'],[10,'回來分享：每組說說找到哪些地方，用賓果榜記錄']],
+ indiv:['每組卡片可以設不同大小','行動不便：改在室內看社區照片尋寶']},
+{id:'emotion',name:'情緒教育小團體',who:'4–12 人',time:'25 分鐘',theme:'emotions',size:3,display:'both',hint:true,detect:true,big:false,groups:0,
+ rounds:[{mode:'riddle',call:'clue'},{mode:'sentence',call:'both'}],
+ roles:['主持老師：說情境、引導分享','助教：陪伴情緒較容易起伏的孩子'],
+ script:[[3,'照鏡子做表情暖身'],[10,'第 1 局「猜謎賓果」：老師說情境，孩子找表情'],[10,'第 2 局「說一句話」：用「抽一位」請孩子說「我會＿＿的時候」'],[2,'每人選一張卡代表今天的心情']],
+ indiv:['不想分享的孩子可以用指的','可以上傳孩子自己的表情照當自訂內容']},
+{id:'zhuyin',name:'注音複習',who:'國小低年級全班',time:'15 分鐘',theme:'zhuyin',size:4,display:'pic',hint:false,detect:true,big:false,groups:0,
+ rounds:[{mode:'listen',call:'voice'},{mode:'double',call:'voice'}],
+ roles:['老師：叫號、帶念'],
+ script:[[1,'說明：卡上只有符號，要用聽的找'],[7,'第 1 局「聽音找圖」：每張念兩次'],[7,'第 2 局「雙線挑戰」']],
+ indiv:['還在學的孩子：個別化設定「圖＋字」','已熟練的孩子：5×5']},
+{id:'elder',name:'社區長者・跨齡共融',who:'10–20 人（長者與孩子混合）',time:'30 分鐘',theme:'festivals',size:4,display:'both',hint:true,detect:true,big:true,groups:0,
+ rounds:[{mode:'line',call:'both'},{mode:'corners',call:'both'}],
+ roles:['主持人：叫號，說話放慢','志工：協助視力或聽力較弱的長者'],
+ script:[[5,'開場：請長者分享小時候怎麼過年'],[12,'第 1 局「一條線」：每張停久一點，讓長者和孩子一起找'],[10,'第 2 局「四個角落」：節奏快、容易成功'],[3,'頒獎、合照']],
+ indiv:['視力較弱的長者：大字＋只有字','孩子和長者兩兩一組共用一張卡']},
+{id:'safety',name:'安全教育宣導',who:'全班或社區講座',time:'20 分鐘',theme:'safety',size:4,display:'both',hint:false,detect:true,big:false,groups:0,
+ rounds:[{mode:'riddle',call:'clue'},{mode:'line',call:'both'}],
+ roles:['講師：說情境、帶討論','助教：對獎、記錄'],
+ script:[[2,'問大家：「遇到危險可以找誰？」'],[10,'第 1 局「猜謎賓果」：每蓋一張，問「你會怎麼做？」'],[6,'第 2 局「一條線」快速複習'],[2,'一起背 119、110']],
+ indiv:['年紀小的孩子：3×3','容易焦慮的孩子：避開火災、地震類，可在自訂內容刪掉']},
+{id:'coop',name:'新團體破冰・合作賓果',who:'全體共用一張卡',time:'15 分鐘',theme:'fruits',size:3,display:'both',hint:true,detect:false,big:true,groups:0,
+ rounds:[{mode:'coop',call:'both'}],
+ roles:['主持老師：投影「做卡片」頁，操作叫號台','助教：陪孩子上台'],
+ script:[[2,'投影共用卡，說明「大家一起把格子蓋滿」'],[11,'每抽一張，用「抽一位」請一位孩子上台點格子'],[2,'蓋滿後全體歡呼，拍照']],
+ indiv:['害羞的孩子可以和朋友一起上台','每人至少輪到一次']}
+];
+
+/* ================= 狀態 ================= */
+const DEF={src:'theme',theme:'animals',size:3,free:true,display:'both',count:4,mark:'⭐',pal:'blue',title:'',hint:true,big:false,voice:true,twice:false,rate:0.85,auto:12,view:'tpl',perPage:2,detect:true,rounds:[{mode:'line',call:'both'}],ri:0,tpl:''};
+const S=Object.assign({},DEF,store.get('bingo.s',{}));
+if(!Array.isArray(S.rounds)||!S.rounds.length)S.rounds=[{mode:S.mode||'line',call:S.call||'both'}];
+if(S.ri>=S.rounds.length)S.ri=0;
+let custom=store.get('bingo.custom',{name:'',items:[]}); if(!custom||!Array.isArray(custom.items))custom={name:'',items:[]};
+let roster=store.get('bingo.roster',[]); if(!Array.isArray(roster))roster=[];
+let cards=[], drawn=[], current=null, revealed=false, autoTimer=null, twiceT=null, board=[], picked=[], pickedName='', knownWins=new Set();
+let IMGS=new Set();
+const save=()=>store.set('bingo.s',S);
+const saveCustom=()=>{if(!store.set('bingo.custom',custom))toast('瀏覽器空間不足，圖片可能無法保存；可以減少圖片數量')};
+const saveRoster=()=>store.set('bingo.roster',roster);
+const theme=id=>THEMES.find(t=>t.id===id)||THEMES[0];
+const round=()=>S.rounds[S.ri]||S.rounds[0];
+const mode=()=>MODES.find(m=>m.id===round().mode)||MODES[0];
+const callStyle=()=>{const c=round().call;return c==='none'?'both':c};
+function pool(){
+  if(S.src==='theme')return theme(S.theme).items.map((it,i)=>Object.assign({},it,{id:i},IMGS.has(it.key)?{img:'img/'+it.key+'.webp',gen:true}:{}));
+  return custom.items.map((it,i)=>Object.assign({},it,{id:i}));
+}
+const poolName=()=>S.src==='theme'?theme(S.theme).name:(custom.name||'自訂主題');
+const hasFree=n=>S.free&&n%2===1;
+const need=n=>n*n-(hasFree(n)?1:0);
+
+/* ================= 工具 ================= */
+function shuffle(a){a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
+function toast(msg){$$('.toast').forEach(t=>t.remove());const t=document.createElement('div');t.className='toast';t.setAttribute('role','status');t.textContent=msg;document.body.appendChild(t);setTimeout(()=>t.remove(),2800)}
+function isTxt(it){return !it.img&&(it.txt||!it.e||!/\p{Extended_Pictographic}/u.test(it.e))}
+function imgTag(it,alt){return `<img src="${esc(it.img)}" alt="${esc(alt||'')}"${it.gen?'':' class="photo"'}>`}
+function picHTML(it,cls){if(it.img)return `<span class="${cls}">${imgTag(it)}</span>`;if(!it.e)return '';return `<span class="${cls}${isTxt(it)?' txt':''}">${esc(it.e)}</span>`}
+function lines(n){const L=[];for(let r=0;r<n;r++)L.push([...Array(n)].map((_,c)=>r*n+c));for(let c=0;c<n;c++)L.push([...Array(n)].map((_,r)=>r*n+c));L.push([...Array(n)].map((_,i)=>i*n+i));L.push([...Array(n)].map((_,i)=>i*n+(n-1-i)));return L}
+function shapeCells(s,n){const all=[...Array(n*n).keys()],m=Math.floor(n/2);
+  if(s==='corners')return [0,n-1,n*(n-1),n*n-1];
+  if(s==='x')return all.filter(i=>{const r=Math.floor(i/n),c=i%n;return r===c||r+c===n-1});
+  if(s==='plus')return all.filter(i=>{const r=Math.floor(i/n),c=i%n;return r===m||c===m});
+  if(s==='frame')return all.filter(i=>{const r=Math.floor(i/n),c=i%n;return r===0||c===0||r===n-1||c===n-1});
+  return all}
+function exampleCells(m,n){if(m.win.t==='lines'){const mid=Math.floor(n/2),a=[...Array(n)].map((_,c)=>mid*n+c);if(m.win.k>1)a.push(...[...Array(n)].map((_,i)=>i*n+i));return a}return shapeCells(m.win.s,n)}
+function miniHTML(m,n,lg){const on=new Set(exampleCells(m,n));return `<span class="mini${lg?' lg':''}" style="grid-template-columns:repeat(${n},1fr)" aria-hidden="true">${[...Array(n*n)].map((_,i)=>`<i class="${on.has(i)?'on':''}"></i>`).join('')}</span>`}
+function themeIcon(t){const it=t.items[0];if(IMGS.has(it.key))return `<span class="em"><img src="img/${it.key}.webp" alt=""></span>`;return `<span class="em${/\p{Extended_Pictographic}/u.test(t.icon)?'':' txt'}">${esc(t.icon)}</span>`}
+
+/* ================= 卡片 ================= */
+function bestSize(want){const p=pool().length;if(p>=need(want))return want;for(const n of [5,4,3])if(n<want&&p>=need(n))return n;for(const n of [3,4,5])if(p>=need(n))return n;return 0}
+function makeCard(n,disp,name,big){
+  const p=pool(),k=need(n),mid=Math.floor(n*n/2);
+  const pick=shuffle(p).slice(0,k).map(x=>x.id);if(hasFree(n))pick.splice(mid,0,null);
+  return {n,disp,name,big:!!big,items:pick,marked:new Set(),won:false};
+}
+function generate(){
+  stopAuto();knownWins=new Set();
+  const base=bestSize(S.size);
+  if(!base){cards=[];renderCards();return}
+  S.size=base;
+  if(mode().id==='coop')cards=[makeCard(base,S.display,'全體共用',S.big)];
+  else if(roster.length)cards=roster.map(r=>{const n=bestSize(r.n||base)||base;return makeCard(n,r.disp||S.display,r.name,r.big)});
+  else cards=[...Array(S.count)].map(()=>makeCard(base,S.display,'',false));
+  renderCards();
+}
+const PALS=['blue','sun','coral','leaf','berry'];
+function palOf(i){return S.pal==='mix'?PALS[i%PALS.length]:S.pal}
+const cardLabel=(c,i)=>c.name?`${c.name}（第 ${i+1} 張）`:`第 ${i+1} 張`;
+/* variant: play | print | verify */
+function cardHTML(card,i,variant){
+  const p=pool(),n=card.n,m=mode(),title=S.title.trim()||poolName();
+  const play=variant==='play',ver=variant==='verify';
+  const drawnSet=new Set(drawn);
+  const marked=ver?new Set(card.items.map((id,ci)=>drawnSet.has(id)?ci:-1).filter(x=>x>=0)):card.marked;
+  const winSet=(play||ver)?winCells(card,marked):new Set();
+  const cells=card.items.map((id,ci)=>{
+    if(id===null)return `<div class="cell free"><span class="pic">FREE</span><span class="lbl">免費</span></div>`;
+    const it=p[id]; if(!it)return `<div class="cell"></div>`;
+    const hasPic=!!(it.e||it.img),showPic=card.disp!=='text'&&hasPic,showTxt=card.disp!=='pic'||!hasPic;
+    const cls=['cell']; if(!showPic)cls.push('only-text');
+    if((play||ver)&&marked.has(ci))cls.push('marked');
+    if(play&&S.hint&&drawnSet.has(id)&&!marked.has(ci))cls.push('called');
+    if(winSet.has(ci))cls.push('win');
+    const inner=(showPic?picHTML(it,'pic'):'')+(showTxt?`<span class="lbl">${esc(it.t)}</span>`:'');
+    const tag=play?'button':'div';
+    return `<${tag} class="${cls.join(' ')}" data-c="${ci}" data-mark="${esc(S.mark)}"${play?` aria-label="${esc(it.t)}${marked.has(ci)?'，已標記':''}"`:''}>${inner}</${tag}>`}).join('');
+  return `<article class="bcard p-${palOf(i)}${card.big?' bigtxt':''}${play&&card.won?' won':''}" data-i="${i}">
+    <div class="bhead"><h3>${esc(title)}</h3>${m.win.t==='shape'||m.win.k>1?miniHTML(m,n):''}${card.name?`<span class="who">${esc(card.name)}</span>`:''}<span class="no">${card.name?'#':'第 '}${i+1}${card.name?'':' 張'}</span></div>
+    <div class="bsub">玩法：${esc(m.name)}${S.rounds.length>1?`（第 ${S.ri+1} 局）`:''}</div>
+    <div class="grid" style="--n:${n}">${cells}</div></article>`;
+}
+function renderCards(){
+  const box=$('#cards');
+  if(!cards.length){
+    box.className='cards';
+    box.innerHTML=`<div class="empty"><p><b>${S.src==='custom'?'自訂清單還不夠':'這個主題的項目不足'}</b></p><p>目前 ${pool().length} 項，最少需要 ${need(3)} 項才能做 3×3 卡片。${S.src==='custom'?'<br>在左邊輸入文字或上傳圖片吧！':''}</p></div>`;
+  } else {
+    box.className='cards'+(cards.length===1?' n1':'');
+    box.innerHTML=cards.map((c,i)=>cardHTML(c,i,'play')).join('');
+  }
+  renderInfo();
+}
+function renderInfo(){
+  const m=mode(),sizes=[...new Set(cards.map(c=>c.n))].map(n=>n+'×'+n).join('、')||'—';
+  $('#info').innerHTML=`<b>${esc(poolName())}</b>　${pool().length} 項・${sizes}・${cards.length} 張${roster.length&&m.id!=='coop'?'（依名單）':''}・第 ${S.ri+1}/${S.rounds.length} 局 ${esc(m.name)}`;
+}
+function winCells(card,marked){
+  const n=card.n,m=mode(),on=i=>marked.has(i)||card.items[i]===null,res=new Set();
+  if(m.win.t==='lines'){const done=lines(n).filter(l=>l.every(on));if(done.length>=m.win.k)done.forEach(l=>l.forEach(i=>res.add(i)));return res}
+  const sc=shapeCells(m.win.s,n);if(sc.every(on))sc.forEach(i=>res.add(i));return res;
+}
+function missing(card,marked){
+  const n=card.n,m=mode(),off=l=>l.filter(i=>!(marked.has(i)||card.items[i]===null)).length;
+  if(m.win.t==='lines'){const c=lines(n).map(off).sort((a,b)=>a-b);return c.slice(0,m.win.k).reduce((a,b)=>a+b,0)}
+  return off(shapeCells(m.win.s,n));
+}
+$('#cards').addEventListener('click',e=>{
+  const cell=e.target.closest('button.cell');if(!cell)return;
+  const ci=+cell.dataset.c,ce=cell.closest('.bcard'),i=+ce.dataset.i,card=cards[i];
+  card.marked.has(ci)?card.marked.delete(ci):card.marked.add(ci);
+  const was=card.won;card.won=winCells(card,card.marked).size>0;
+  ce.outerHTML=cardHTML(card,i,'play');
+  const again=$(`.bcard[data-i="${i}"] .cell[data-c="${ci}"]`);if(again)again.focus();
+  if(card.won&&!was){celebrate(card.name||`第 ${i+1} 張`);addBoard(i)}
+});
+
+/* ================= 慶祝與賓果榜 ================= */
+function celebrate(who){
+  speak('賓果！',true);
+  $$('.win-o').forEach(x=>x.remove());
+  const o=document.createElement('div');o.className='win-o';o.innerHTML=`<div class="w"><div class="t">賓果！</div><p style="font-size:1.3rem;font-weight:700;margin:.4em 0 1em">${esc(who)} 完成了，好棒！</p><button class="btn pri xl">繼續玩</button></div>`;
+  document.body.appendChild(o);o.querySelector('button').focus();
+  o.addEventListener('click',e=>{if(e.target===o||e.target.tagName==='BUTTON')o.remove()});
+  if(!matchMedia('(prefers-reduced-motion: reduce)').matches)confetti();
+}
+function confetti(){
+  const cv=$('#confetti'),ctx=cv.getContext('2d');cv.hidden=false;cv.width=innerWidth;cv.height=innerHeight;
+  const cols=['#F2B705','#E8553F','#2556C4','#24936A','#8E44AD'];
+  const ps=[...Array(140)].map(()=>({x:Math.random()*cv.width,y:-20-Math.random()*cv.height*.5,vx:(Math.random()-.5)*3,vy:2+Math.random()*4,s:6+Math.random()*8,r:Math.random()*6,c:cols[Math.floor(Math.random()*5)]}));
+  let t=0;(function f(){ctx.clearRect(0,0,cv.width,cv.height);ps.forEach(p=>{p.x+=p.vx;p.y+=p.vy;p.r+=.1;ctx.save();ctx.translate(p.x,p.y);ctx.rotate(p.r);ctx.fillStyle=p.c;ctx.fillRect(-p.s/2,-p.s/4,p.s,p.s/2);ctx.restore()});if(++t<160)requestAnimationFrame(f);else{ctx.clearRect(0,0,cv.width,cv.height);cv.hidden=true}})();
+}
+function addBoard(i){if(board.some(b=>b.i===i))return;board.push({i,at:drawn.length});renderBoard()}
+function detectList(){const ds=new Set(drawn);return cards.map((c,i)=>({c,i,ok:winCells(c,new Set(c.items.map((id,ci)=>ds.has(id)?ci:-1).filter(x=>x>=0))).size>0})).filter(x=>x.ok&&!board.some(b=>b.i===x.i))}
+function renderBoard(){
+  const maybe=S.detect?detectList():[];
+  $('#boardHint').textContent=board.length?`${board.length} 位上榜`:'';
+  $('#board').innerHTML=(board.length?board.map((b,k)=>`<div class="b"><span class="r">${k+1}</span><span>${esc(cardLabel(cards[b.i]||{},b.i))}</span><small class="lab">第 ${b.at} 張時</small><button class="btn sm" data-unboard="${k}" aria-label="移除">✕</button></div>`).join(''):'<p class="note" style="margin:0">還沒有人賓果。孩子喊賓果時按「對獎」核對，確認後加入。</p>')+
+   maybe.map(x=>`<div class="b maybe"><span class="r">？</span><span>${esc(cardLabel(x.c,x.i))} 可能賓果了</span><button class="btn sm" data-vi="${x.i}">核對</button><button class="btn sm pri" data-board="${x.i}">上榜</button></div>`).join('');
+}
+$('#board').addEventListener('click',e=>{const a=e.target.closest('[data-board]'),u=e.target.closest('[data-unboard]'),v=e.target.closest('[data-vi]');
+  if(a){addBoard(+a.dataset.board);celebrate(cards[+a.dataset.board].name||`第 ${+a.dataset.board+1} 張`)}
+  if(u){board.splice(+u.dataset.unboard,1);renderBoard()}
+  if(v)openVerify(+v.dataset.vi)});
+function checkNewWins(){if(!S.detect)return;const l=detectList();const fresh=l.filter(x=>!knownWins.has(x.i));l.forEach(x=>knownWins.add(x.i));if(fresh.length)toast(`可能賓果：${fresh.map(x=>x.c.name||('第 '+(x.i+1)+' 張')).join('、')}`)}
+function openVerify(i){
+  if(!cards.length){toast('還沒有卡片');return}
+  i=i??0;
+  modal(`<h2>對獎</h2><div class="field"><label class="lab" for="vSel">選擇卡片</label><select id="vSel">${cards.map((c,k)=>`<option value="${k}"${k===i?' selected':''}>${esc(cardLabel(c,k))}</option>`).join('')}</select></div><div class="verify" id="vBox"></div><div class="row"><button class="btn" data-close>關閉</button></div>`);
+  const show=k=>{const c=cards[k],ds=new Set(drawn),mk=new Set(c.items.map((id,ci)=>ds.has(id)?ci:-1).filter(x=>x>=0));const ok=winCells(c,mk).size>0,miss=missing(c,mk);
+    $('#vBox').innerHTML=`<div>${cardHTML(c,k,'verify')}</div><div class="field" style="gap:10px"><div class="verdict">${ok?'✅ 符合賓果':'還差 '+miss+' 格'}</div><p class="note" style="margin:0">依照<b>已抽出的 ${drawn.length} 張</b>判斷（星號是已抽到的格子），玩法「${esc(mode().name)}」。</p>${ok?(board.some(b=>b.i===k)?'<span class="chip a">已在賓果榜</span>':`<button class="btn pri" id="vAdd">加入賓果榜</button>`):'<p class="warn">如果孩子蓋的格子跟這裡不一樣，可能是看錯圖，可以一起再找一次。</p>'}</div>`;
+    const a=$('#vAdd');if(a)a.onclick=()=>{addBoard(k);closeModal();celebrate(c.name||`第 ${k+1} 張`)}};
+  $('#vSel').onchange=e=>show(+e.target.value);show(i);
+}
+$('#verifyBtn').onclick=()=>openVerify(0);
+$('#detectChk').onchange=e=>{S.detect=e.target.checked;save();renderBoard()};
+
+/* ================= 抽一位 ================= */
+function people(){return cards.length&&mode().id!=='coop'?cards.map((c,i)=>c.name||`第 ${i+1} 張`):(roster.length?roster.map(r=>r.name):[...Array(S.count)].map((_,i)=>`第 ${i+1} 位`))}
+function pickOne(){const all=people();let left=all.filter(x=>!picked.includes(x));if(!left.length){picked=[];left=all;toast('大家都輪過了，重新開始輪')}
+  pickedName=left[Math.floor(Math.random()*left.length)];picked.push(pickedName);speak('請 '+pickedName,true);renderPickLeft();if(S.view==='call')renderStage();else toast('請 '+pickedName)}
+function renderPickLeft(){const all=people();$('#pickLeft').textContent=`還有 ${all.filter(x=>!picked.includes(x)).length}／${all.length} 位沒輪到`}
+$('#pickBtn').onclick=pickOne;$('#pickReset').onclick=()=>{picked=[];pickedName='';renderPickLeft();renderStage()};
+
+/* ================= 語音 ================= */
+let voices=[];function loadVoices(){try{voices=speechSynthesis.getVoices()}catch(e){}}
+try{loadVoices();speechSynthesis.onvoiceschanged=loadVoices}catch(e){}
+function speak(text,force){
+  try{if(!('speechSynthesis' in window))return;if(!S.voice&&!force)return;speechSynthesis.cancel();
+    const u=new SpeechSynthesisUtterance(text);u.lang='zh-TW';u.rate=+S.rate||.85;
+    const v=voices.find(v=>/zh[-_]TW/i.test(v.lang))||voices.find(v=>/^zh/i.test(v.lang));if(v)u.voice=v;speechSynthesis.speak(u)}catch(e){}
+}
+
+/* ================= 叫號台 ================= */
+function sayText(it){const st=callStyle();if(st==='clue')return it.c||('請找到：'+it.t);if(st==='picture')return '這是什麼？';return it.t}
+function bigPic(it){if(it.img)return `<div class="big">${imgTag(it,it.t)}</div>`;if(!it.e)return '';return `<div class="big${isTxt(it)?' txt':''}">${esc(it.e)}</div>`}
+function renderStage(){
+  const p=pool(),st=$('#stage'),m=mode(),cs=callStyle();
+  const head=`<span class="count">已抽 ${drawn.length} ／ 共 ${p.length}</span><span class="rnd">第 ${S.ri+1}/${S.rounds.length} 局・${esc(m.name)}</span><button class="btn sm fs" id="fsBtn">投影全螢幕</button>`;
+  const pick=pickedName?`<div class="pick">🙋 請 ${esc(pickedName)}</div>`:'';
+  let body;
+  if(!current){
+    body=m.call==='none'
+      ?`<div class="name">「${esc(m.name)}」不用叫號</div><p class="clue" style="font-weight:500">帶著卡片去找找看！回來後用右邊的賓果榜記錄。</p><div class="controls"><button class="btn pri xl" data-act="next">還是抽一張</button></div>`
+      :`<div class="name">準備好了嗎？</div><p class="hidden-ans">主題：${esc(poolName())}・叫號方式：${CALLS[cs]}</p><p style="max-width:40ch;margin:0">${esc(m.lead)}</p><div class="controls"><button class="btn pri xl" data-act="next">抽第一張</button></div>`;
+  } else {
+    const it=current,show=revealed||cs==='both';let mid='';
+    if(cs==='both')mid=bigPic(it)+`<div class="name">${esc(it.t)}</div>`;
+    else if(cs==='picture')mid=bigPic(it)+(revealed?`<div class="name">${esc(it.t)}</div>`:`<div class="name hidden-ans">這是什麼？</div>`);
+    else if(cs==='voice')mid=revealed?bigPic(it)+`<div class="name">${esc(it.t)}</div>`:`<div class="big" aria-hidden="true">🔊</div><div class="name hidden-ans">仔細聽…</div>`;
+    else mid=`<div class="clue">「${esc(it.c||('找找看：'+it.t))}」</div>`+(revealed?bigPic(it)+`<div class="name">${esc(it.t)}</div>`:`<div class="big" aria-hidden="true">❓</div>`);
+    const left=p.length-drawn.length;
+    body=mid+(m.prompt?`<div class="prompt">${esc(m.prompt)}</div>`:'')+(autoTimer?`<div class="timer"><i style="animation-duration:${+S.auto}s"></i></div>`:'')+
+     `<div class="controls">${left?`<button class="btn pri xl" data-act="next">抽下一張</button>`:`<button class="btn sun xl" data-act="reset">全部抽完！重來這一局</button>`}
+      <button class="btn" data-act="say">再念一次</button>${show?'':`<button class="btn" data-act="reveal">顯示答案</button>`}<button class="btn" data-act="pick">抽一位</button></div>`;
+  }
+  st.innerHTML=head+pick+body;
+  $('#fsBtn').onclick=toggleFS;
+  renderRoundPanel();
+}
+function toggleFS(){try{if(document.fullscreenElement)document.exitFullscreen();else{const r=$('#view-call').requestFullscreen?.();r&&r.catch(()=>toast('這個環境不支援全螢幕，可以用瀏覽器的全螢幕功能'))}}catch(e){toast('這個環境不支援全螢幕')}}
+function renderHist(){
+  const p=pool();$('#histCount').textContent=`${drawn.length} 張`;
+  $('#hist').innerHTML=drawn.length?drawn.slice().reverse().map((id,k)=>{const it=p[id];if(!it)return '';return `<div class="${k===0?'last':''}">${it.img?imgTag(it):`<span class="e">${esc(it.e||'・')}</span>`}${esc(it.t)}</div>`}).join(''):'<p class="note" style="grid-column:1/-1;margin:0">還沒抽卡。</p>';
+}
+function drawNext(){
+  const p=pool(),rest=p.filter(x=>!drawn.includes(x.id));
+  if(!rest.length){stopAuto();toast('全部都抽完了！');return}
+  current=rest[Math.floor(Math.random()*rest.length)];drawn.push(current.id);revealed=false;pickedName='';
+  renderStage();renderHist();const t=sayText(current);speak(t);
+  clearTimeout(twiceT);if(S.twice)twiceT=setTimeout(()=>speak(t),4000);
+  if(S.hint)renderCards();renderBoard();checkNewWins();
+}
+function resetRound(){stopAuto();drawn=[];current=null;revealed=false;pickedName='';board=[];knownWins=new Set();cards.forEach(c=>{c.marked.clear();c.won=false});renderStage();renderHist();renderCards();renderBoard()}
+function startAuto(){stopAuto();autoTimer=setInterval(drawNext,(+S.auto||12)*1000);$('#autoBtn').textContent='暫停自動抽卡';drawNext()}
+function stopAuto(){if(autoTimer){clearInterval(autoTimer);autoTimer=null}const b=$('#autoBtn');if(b)b.textContent='自動抽卡'}
+$('#stage').addEventListener('click',e=>{const b=e.target.closest('[data-act]');if(!b)return;const a=b.dataset.act;
+  if(a==='next')drawNext();else if(a==='reset')resetRound();else if(a==='say'&&current)speak(sayText(current),true);else if(a==='reveal'){revealed=true;renderStage();if(current)speak(current.t,true)}else if(a==='pick')pickOne()});
+$('#autoBtn').onclick=()=>autoTimer?stopAuto():startAuto();
+$('#resetCall').onclick=resetRound;
+function gotoRound(k){
+  const wasCoop=mode().id==='coop';S.ri=k;save();const isCoop=mode().id==='coop';
+  if(wasCoop!==isCoop)generate();
+  resetRound();syncAll(false);
+}
+$('#nextRound').onclick=()=>{if(S.ri+1>=S.rounds.length){toast('已經是最後一局了，可以到「做卡片」加一局');return}gotoRound(S.ri+1);toast(`第 ${S.ri+1} 局：${mode().name}`)};
+function renderRoundPanel(){
+  const m=mode();$('#roundTitle').textContent=`第 ${S.ri+1} 局，共 ${S.rounds.length} 局`;
+  $('#roundNote').innerHTML=`<b>${esc(m.name)}</b>（${CALLS[round().call]}）<br>${esc(m.lead)}${S.rounds[S.ri+1]?`<br><span class="lab">下一局：${esc(MODES.find(x=>x.id===S.rounds[S.ri+1].mode).name)}</span>`:''}`;
+  $('#nextRound').disabled=S.ri+1>=S.rounds.length;
+}
+document.addEventListener('keydown',e=>{
+  if(S.view!=='call'||/INPUT|TEXTAREA|SELECT/.test(document.activeElement.tagName)||$('#modal'))return;
+  if(e.code==='Space'){e.preventDefault();drawNext()}else if(e.key==='r'||e.key==='R'){if(current)speak(sayText(current),true)}else if(e.key==='a'||e.key==='A'){revealed=true;renderStage()}else if(e.key==='p'||e.key==='P')pickOne();
+});
+
+/* ================= 活動模板 ================= */
+function renderTpls(){
+  $('#tplList').innerHTML=TEMPLATES.map(t=>{const th=theme(t.theme),total=t.script.reduce((a,s)=>a+s[0],0);return `<article class="tpl${S.tpl===t.id?' cur':''}">
+    <div><h3>${esc(t.name)}</h3><div class="who">${esc(t.who)}・${esc(t.time)}</div></div>
+    <div class="chips"><span class="chip c">${esc(th.name)}</span><span class="chip">${t.size}×${t.size}</span>${t.groups?`<span class="chip">${t.groups} 組</span>`:''}${t.big?'<span class="chip">大字</span>':''}${t.detect?'<span class="chip a">自動偵測賓果</span>':''}</div>
+    <div class="rl">${t.rounds.map((r,k)=>{const m=MODES.find(x=>x.id===r.mode);return `<div><b>第 ${k+1} 局</b>${esc(m.name)}<span class="lab">・${CALLS[r.call]}</span></div>`}).join('')}</div>
+    <details><summary>主持流程（${total} 分鐘）與分工</summary><ol>${t.script.map(s=>`<li><b>${s[0]} 分</b>　${esc(s[1])}</li>`).join('')}</ol><p style="margin:.6em 0 0"><b>人力分工</b></p><ul>${t.roles.map(r=>`<li>${esc(r)}</li>`).join('')}</ul><p style="margin:.6em 0 0"><b>個別化建議</b></p><ul>${t.indiv.map(r=>`<li>${esc(r)}</li>`).join('')}</ul></details>
+    <div class="acts"><button class="btn pri" data-apply="${t.id}">套用這個模板</button></div></article>`}).join('');
+}
+$('#tplList').addEventListener('click',e=>{const b=e.target.closest('[data-apply]');if(b)applyTpl(b.dataset.apply)});
+function applyTpl(id){
+  const t=TEMPLATES.find(x=>x.id===id);if(!t)return;
+  Object.assign(S,{tpl:id,src:'theme',theme:t.theme,size:t.size,display:t.display,hint:t.hint,detect:t.detect,big:t.big,rounds:JSON.parse(JSON.stringify(t.rounds)),ri:0});
+  if(t.groups&&!roster.length){roster=[...Array(t.groups)].map((_,k)=>({name:`第 ${k+1} 組`,n:0,disp:'',big:false}));saveRoster()}
+  save();syncAll(true);go('make');toast(`已套用「${t.name}」，可以再調整名單和設定`);
+}
+
+/* ================= 教案 ================= */
+function renderGuide(){
+  const t=S.src==='theme'?theme(S.theme):null,pl=t?PLANS[t.id]:null,m=mode();
+  const sel=`<div class="sel-theme"><label class="lab" for="gTheme">查看主題教案</label><select id="gTheme">${THEMES.map(x=>`<option value="${x.id}"${t&&x.id===t.id?' selected':''}>${x.name}</option>`).join('')}</select></div>`;
+  let body='';
+  if(pl){const rm=MODES.find(x=>x.id===pl.mode);
+    body=`<div class="plan-h">${themeIcon(t)}<div><h2>${esc(t.name)}賓果</h2><div class="chips"><span class="chip a">適合 ${pl.age}</span><span class="chip b">建議玩法：${esc(rm.name)}</span><span class="chip c">建議 ${pl.size}×${pl.size}</span><span class="chip">${t.items.length} 張圖卡</span></div></div></div>
+    <div class="row"><button class="btn pri" id="applyPlan">套用這份教案的設定</button></div>
+    <section><h3>教學目標</h3><ul>${pl.goals.map(g=>`<li>${esc(g)}</li>`).join('')}</ul></section>
+    <section><h3>準備材料</h3><p>${esc(pl.prep)}</p></section>
+    <section><h3>活動流程（約 20 分鐘）</h3><ol>${pl.flow.map(g=>`<li>${esc(g)}</li>`).join('')}</ol></section>
+    <section><h3>延伸活動</h3><ul>${pl.extend.map(g=>`<li>${esc(g)}</li>`).join('')}</ul></section>
+    <section><h3>給特殊需求孩子的調整</h3><ul>${pl.adapt.map(g=>`<li>${esc(g)}</li>`).join('')}</ul></section>`;
+  } else {
+    body=`<div class="plan-h"><div><h2>${esc(poolName())}</h2><div class="chips"><span class="chip">自訂主題</span><span class="chip b">目前玩法：${esc(m.name)}</span></div></div></div>
+    <section><h3>自訂主題的設計建議</h3><ul><li>用孩子熟悉的照片：家人、同學、教室角落、常去的店。</li><li>一個主題聚焦一個學習目標，例如「這週的生字」「班上的規則」。</li><li>在每一項加上「提示」，就能玩猜謎賓果和聽音找圖。</li><li>做好的主題可以儲存，也能產生分享代碼給其他老師、家長。</li></ul></section>`;
+  }
+  body+=`<section><h3>目前玩法：${esc(m.name)}</h3><div class="row" style="align-items:flex-start;gap:14px">${miniHTML(m,S.size,true)}<div style="flex:1;min-width:0"><p>${esc(m.desc)}</p><ol>${m.how.map(h=>`<li>${esc(h)}</li>`).join('')}</ol><p class="note" style="margin-top:6px"><b>團體帶領：</b>${esc(m.lead)}</p></div></div></section>
+  <section><h3>通用調整策略（發展遲緩、特教需求）</h3><ul>${TIPS.map(x=>`<li>${esc(x)}</li>`).join('')}</ul></section>`;
+  $('#plan').innerHTML=sel+body;
+  $('#gTheme').onchange=e=>{S.src='theme';S.theme=e.target.value;save();syncAll(true);renderGuide()};
+  const ap=$('#applyPlan');if(ap)ap.onclick=()=>{S.rounds=[{mode:pl.mode,call:MODES.find(x=>x.id===pl.mode).call}];S.ri=0;S.size=pl.size;save();syncAll(true);renderGuide();toast('已套用：'+t.name+'・'+mode().name)};
+  $('#gal').innerHTML=MODES.map(x=>`<div class="g">${miniHTML(x,5,false)}<div style="min-width:0"><h4>${esc(x.name)} <span class="chip" style="font-family:var(--body)">${esc(x.tag)}</span></h4><p>${esc(x.desc)}</p><div class="meta">👥 ${esc(x.ppl)}・⏱ ${esc(x.time)}・叫號：${CALLS[x.call]}</div><p style="margin-top:4px"><b style="color:var(--ink)">帶領：</b>${esc(x.lead)}</p><ul>${x.adj.map(a=>`<li>${esc(a)}</li>`).join('')}</ul>${x.id===m.id?'<span class="chip b" style="display:inline-block;margin-top:6px">這一局使用中</span>':`<button class="btn sm" data-mode="${x.id}">這一局用這個玩法</button>`}</div></div>`).join('');
+}
+$('#gal').addEventListener('click',e=>{const b=e.target.closest('[data-mode]');if(!b)return;setMode(b.dataset.mode);renderGuide();toast('第 '+(S.ri+1)+' 局改為：'+mode().name)});
+
+/* ================= 控制面板 ================= */
+function setMode(id){const wasCoop=mode().id==='coop';const m=MODES.find(x=>x.id===id);S.rounds[S.ri]={mode:id,call:m.call==='none'?'none':m.call};save();
+  if(wasCoop!==(id==='coop'))generate();else{cards.forEach(c=>c.won=winCells(c,c.marked).size>0);renderCards()}
+  syncAll(false);renderBoard()}
+function renderThemes(){$('#themeList').innerHTML=THEMES.map(t=>`<button class="th" data-t="${t.id}" aria-pressed="${S.src==='theme'&&S.theme===t.id}">${themeIcon(t)}<span>${t.name}</span></button>`).join('')}
+$('#themeList').addEventListener('click',e=>{const b=e.target.closest('[data-t]');if(!b)return;S.theme=b.dataset.t;S.src='theme';save();syncAll(true)});
+function renderModes(){$('#modeList').innerHTML=MODES.map(m=>`<button class="md" data-m="${m.id}" aria-pressed="${mode().id===m.id}">${miniHTML(m,S.size,false)}<span><span class="nm">${m.name}</span><br><span class="tg">${m.tag}・${m.ppl}</span></span></button>`).join('');
+  const m=mode();$('#modeFor').textContent=`第 ${S.ri+1} 局的玩法`;
+  $('#modeNote').innerHTML=`<b>${esc(m.name)}</b>（${esc(m.ppl)}・${esc(m.time)}）：${esc(m.desc)}<br><b>帶領：</b>${esc(m.lead)}<ul>${m.adj.map(a=>`<li>${esc(a)}</li>`).join('')}</ul>`}
+$('#modeList').addEventListener('click',e=>{const b=e.target.closest('[data-m]');if(b)setMode(b.dataset.m)});
+function renderRounds(){
+  $('#rounds').innerHTML=S.rounds.map((r,k)=>`<div class="rd${k===S.ri?' cur':''}" data-k="${k}"><button class="n" data-go="${k}" aria-pressed="${k===S.ri}">第 ${k+1} 局</button>
+   <select data-f="mode" aria-label="第 ${k+1} 局玩法">${MODES.map(m=>`<option value="${m.id}"${m.id===r.mode?' selected':''}>${m.name}</option>`).join('')}</select>
+   <select data-f="call" aria-label="第 ${k+1} 局叫號方式">${Object.entries(CALLS).map(([v,l])=>`<option value="${v}"${v===r.call?' selected':''}>${l}</option>`).join('')}</select>
+   ${S.rounds.length>1?`<button data-rm="${k}" aria-label="刪除第 ${k+1} 局">✕</button>`:'<span></span>'}</div>`).join('');
+}
+$('#rounds').addEventListener('click',e=>{const g=e.target.closest('[data-go]'),r=e.target.closest('[data-rm]');
+  if(g){gotoRound(+g.dataset.go)}
+  if(r){const k=+r.dataset.rm;S.rounds.splice(k,1);if(S.ri>=S.rounds.length)S.ri=S.rounds.length-1;save();generate();syncAll(false)}});
+$('#rounds').addEventListener('change',e=>{const row=e.target.closest('.rd');if(!row)return;const k=+row.dataset.k,f=e.target.dataset.f;
+  if(f==='mode'){const m=MODES.find(x=>x.id===e.target.value);if(k===S.ri){setMode(m.id);return}S.rounds[k]={mode:m.id,call:m.call}}else S.rounds[k].call=e.target.value;
+  save();syncAll(false);if(k===S.ri)renderStage()});
+$('#addRound').onclick=()=>{if(S.rounds.length>=6){toast('最多 6 局');return}const last=S.rounds[S.rounds.length-1];S.rounds.push({mode:last.mode,call:last.call});save();renderRounds();toast(`已加入第 ${S.rounds.length} 局`)};
+/* 名單 */
+function renderRoster(){
+  const sz=[0,3,4,5].map(n=>`<option value="${n}">${n?n+'×'+n:'跟全體'}</option>`).join('');
+  const dp=[['','跟全體'],['both','圖＋字'],['pic','只有圖'],['text','只有字']].map(([v,l])=>`<option value="${v}">${l}</option>`).join('');
+  $('#rosterBox').innerHTML=roster.length?`<div class="rr rr-h"><span></span><span>名字</span><span>格子</span><span>顯示</span><span>大字</span><span></span></div><div class="roster">${roster.map((r,k)=>`<div class="rr" data-k="${k}"><span class="k">${k+1}</span><input type="text" data-f="name" value="${esc(r.name)}" aria-label="第 ${k+1} 位名字"><select data-f="n" aria-label="格子大小">${sz.replace(`value="${r.n||0}"`,`value="${r.n||0}" selected`)}</select><select data-f="disp" aria-label="顯示方式">${dp.replace(`value="${r.disp||''}"`,`value="${r.disp||''}" selected`)}</select><label><input type="checkbox" data-f="big"${r.big?' checked':''}>大</label><button data-rm aria-label="刪除">✕</button></div>`).join('')}</div>
+   <div class="row" style="justify-content:space-between"><span class="lab">共 ${roster.length} 位，每人一張卡</span><button class="btn sm danger" id="clrRoster">清空名單</button></div>`
+   :'<p class="note" style="margin:0">還沒有名單。沒有名單時，依「卡片張數」產生沒有名字的卡。</p>';
+  const c=$('#clrRoster');if(c)c.onclick=e=>{if(e.target.dataset.arm!=='1'){e.target.dataset.arm='1';e.target.textContent='再按一次確定';setTimeout(()=>{e.target.dataset.arm='';e.target.textContent='清空名單'},3000);return}roster=[];saveRoster();renderRoster();generate()};
+  $('#countField').hidden=roster.length>0;
+}
+let rT;$('#rosterBox').addEventListener('input',e=>{const r=e.target.closest('.rr');if(!r||e.target.dataset.f!=='name')return;roster[+r.dataset.k].name=e.target.value;saveRoster();clearTimeout(rT);rT=setTimeout(()=>{cards.forEach((c,k)=>{if(roster[k])c.name=roster[k].name});renderCards()},300)});
+$('#rosterBox').addEventListener('change',e=>{const r=e.target.closest('.rr');if(!r)return;const k=+r.dataset.k,f=e.target.dataset.f;if(!f||f==='name')return;
+  roster[k][f]=f==='big'?e.target.checked:f==='n'?+e.target.value:e.target.value;saveRoster();
+  if(cards[k]&&mode().id!=='coop'){const n=bestSize(roster[k].n||S.size)||S.size;cards[k]=f==='n'?makeCard(n,roster[k].disp||S.display,roster[k].name,roster[k].big):Object.assign(cards[k],{disp:roster[k].disp||S.display,big:roster[k].big});renderCards()}});
+$('#rosterBox').addEventListener('click',e=>{if(!e.target.matches('[data-rm]'))return;roster.splice(+e.target.closest('.rr').dataset.k,1);saveRoster();renderRoster();generate()});
+$('#addRoster').onclick=()=>{const names=$('#rosterText').value.split(/\n|、|,|，/).map(s=>s.trim()).filter(Boolean);if(!names.length){toast('請先輸入名字，一行一個');return}roster.push(...names.map(name=>({name,n:0,disp:'',big:false})));$('#rosterText').value='';saveRoster();renderRoster();generate();toast(`已加入 ${names.length} 位`)};
+$('#mkGroups').onclick=()=>{const n=Math.max(2,Math.min(12,+$('#grpN').value||4));roster=[...Array(n)].map((_,k)=>({name:`第 ${k+1} 組`,n:0,disp:'',big:false}));saveRoster();renderRoster();generate();toast(`已建立 ${n} 組`)};
+
+function renderSize(){const p=pool().length;$('#sizeSeg').innerHTML=[3,4,5].map(n=>`<button data-v="${n}" aria-pressed="${S.size===n}" ${p<need(n)?'disabled title="項目不足"':''}>${n}×${n}</button>`).join('')}
+$('#sizeSeg').addEventListener('click',e=>{const b=e.target.closest('button');if(!b||b.disabled)return;S.size=+b.dataset.v;save();syncAll(true)});
+function segBind(id,key,cb){$(id).addEventListener('click',e=>{const b=e.target.closest('button[data-v]');if(!b)return;const v=b.dataset.v;S[key]=(key==='mark'||isNaN(+v))?v:+v;save();paintSeg(id,key);cb&&cb()})}
+function paintSeg(id,key){$$(id+' button[data-v]').forEach(b=>b.setAttribute('aria-pressed',String(String(b.dataset.v)===String(S[key]))))}
+segBind('#dispSeg','display',()=>{cards.forEach((c,k)=>{if(!(roster[k]&&roster[k].disp))c.disp=S.display});renderCards()});
+segBind('#markSeg','mark',renderCards);segBind('#palSeg','pal',renderCards);
+segBind('#rateSeg','rate');segBind('#autoSeg','auto',()=>{if(autoTimer)startAuto()});
+$('#callSeg').addEventListener('click',e=>{const b=e.target.closest('button[data-v]');if(!b)return;round().call=b.dataset.v;save();$$('#callSeg button').forEach(x=>x.setAttribute('aria-pressed',String(x===b)));revealed=false;renderStage();renderRounds()});
+function setCount(v){S.count=Math.max(1,Math.min(40,v));$('#cOut').textContent=S.count;save();generate()}
+$('#cMinus').onclick=()=>setCount(S.count-1);$('#cPlus').onclick=()=>setCount(S.count+1);
+$('#cardTitle').addEventListener('input',e=>{S.title=e.target.value;save();renderCards()});
+$('#freeChk').onchange=e=>{S.free=e.target.checked;save();syncAll(true)};
+$('#hintChk').onchange=e=>{S.hint=e.target.checked;save();renderCards()};
+$('#voiceChk').onchange=e=>{S.voice=e.target.checked;save()};
+$('#twiceChk').onchange=e=>{S.twice=e.target.checked;save()};
+$('#bigMode').onchange=e=>{S.big=e.target.checked;document.body.classList.toggle('big',S.big);save()};
+$('#shuffle').onclick=()=>{generate();drawn=[];current=null;board=[];renderStage();renderHist();renderBoard();toast('已重新洗牌')};
+$('#clearMarks').onclick=()=>{cards.forEach(c=>{c.marked.clear();c.won=false});renderCards()};
+$('#goCall').onclick=()=>go('call');
+$$('[data-src]').forEach(b=>b.onclick=()=>{S.src=b.dataset.src;save();syncAll(true)});
+
+function syncAll(regen){
+  $$('[data-src]').forEach(b=>b.setAttribute('aria-selected',String(b.dataset.src===S.src)));
+  $('#srcTheme').hidden=S.src!=='theme';$('#srcCustom').hidden=S.src!=='custom';
+  renderThemes();renderRounds();renderModes();renderSize();renderRoster();
+  ['#dispSeg:display','#markSeg:mark','#palSeg:pal','#rateSeg:rate','#autoSeg:auto'].forEach(x=>{const [i,k]=x.split(':');paintSeg(i,k)});
+  $$('#callSeg button').forEach(x=>x.setAttribute('aria-pressed',String(x.dataset.v===callStyle())));
+  $('#cOut').textContent=S.count;$('#cardTitle').value=S.title;$('#freeChk').checked=S.free;$('#hintChk').checked=S.hint;$('#voiceChk').checked=S.voice;$('#twiceChk').checked=S.twice;$('#bigMode').checked=S.big;$('#detectChk').checked=S.detect;
+  document.body.classList.toggle('big',S.big);
+  if(regen){drawn=[];current=null;revealed=false;board=[];generate();renderSize();renderStage();renderHist();renderBoard()}
+  else renderInfo();
+  renderPickLeft();
+}
+
+/* ================= 自訂內容 ================= */
+const EMO=/^[\p{Extended_Pictographic}\p{Emoji_Component}️‍⃣]+$/u;
+function parseLines(txt){return txt.split(/\n/).map(s=>s.trim()).filter(Boolean).map(line=>{
+  let [main,clue]=line.split(/[|｜]/);main=(main||'').trim();clue=(clue||'').trim();
+  const sp=main.split(/\s+/);let e='',t=main;
+  if(sp.length>1&&EMO.test(sp[0])){e=sp[0];t=sp.slice(1).join(' ')}
+  return {e,t,c:clue}})}
+function renderItems(){
+  $('#customName').value=custom.name||'';
+  $('#itemCount').textContent=`清單 ${custom.items.length} 項（3×3 需 ${need(3)} 項、4×4 需 16 項、5×5 需 ${need(5)} 項）`;
+  $('#itemList').innerHTML=custom.items.length?custom.items.map((it,i)=>`<div class="it" data-i="${i}"><div class="th-img">${it.img?`<img src="${esc(it.img)}" alt="">`:esc(it.e||'字')}</div><input type="text" data-k="t" value="${esc(it.t)}" aria-label="名稱"><input type="text" data-k="c" value="${esc(it.c||'')}" placeholder="提示（可不填）" aria-label="提示"><button data-del aria-label="刪除">✕</button></div>`).join(''):'<p class="note" style="margin:0">清單是空的。可以輸入文字、上傳圖片，或從主題庫載入。</p>';
+  renderSets();
+}
+let regenT;function softRegen(){clearTimeout(regenT);regenT=setTimeout(()=>{if(S.src==='custom'){renderSize();generate();drawn=[];current=null;renderStage();renderHist()}},400)}
+$('#itemList').addEventListener('input',e=>{const r=e.target.closest('.it');if(!r)return;custom.items[+r.dataset.i][e.target.dataset.k]=e.target.value;saveCustom();softRegen()});
+$('#itemList').addEventListener('click',e=>{if(!e.target.matches('[data-del]'))return;const r=e.target.closest('.it');custom.items.splice(+r.dataset.i,1);saveCustom();renderItems();softRegen()});
+$('#customName').addEventListener('input',e=>{custom.name=e.target.value;saveCustom();renderInfo()});
+$('#addText').onclick=()=>{const add=parseLines($('#customText').value);if(!add.length){toast('請先輸入文字，一行一個');return}custom.items.push(...add);$('#customText').value='';saveCustom();renderItems();softRegen();toast(`已加入 ${add.length} 項`)};
+$('#sampleText').onclick=()=>{$('#customText').value=['蘋果 | 紅紅圓圓的水果','小狗 | 汪汪叫','公車 | 很多人一起搭','雨傘 | 下雨天用','書本 | 打開來看故事','氣球 | 吹氣會變大','熊熊 | 抱著睡覺','牛奶 | 白白的飲料','足球 | 用腳踢','畫筆 | 用來畫畫'].join('\n')};
+$('#clearItems').onclick=e=>{if(!custom.items.length)return;const b=e.target;if(b.dataset.arm!=='1'){b.dataset.arm='1';b.textContent='再按一次確定清空';setTimeout(()=>{b.dataset.arm='';b.textContent='清空清單'},3000);return}b.dataset.arm='';b.textContent='清空清單';custom.items=[];saveCustom();renderItems();softRegen()};
+function readImg(file){return new Promise(res=>{const fr=new FileReader();fr.onload=()=>{const im=new Image();im.onload=()=>{const M=400,s=Math.min(1,M/Math.max(im.width,im.height)),c=document.createElement('canvas');c.width=Math.round(im.width*s);c.height=Math.round(im.height*s);const x=c.getContext('2d');x.fillStyle='#fff';x.fillRect(0,0,c.width,c.height);x.drawImage(im,0,0,c.width,c.height);res(c.toDataURL('image/jpeg',.82))};im.onerror=()=>res(null);im.src=fr.result};fr.onerror=()=>res(null);fr.readAsDataURL(file)})}
+async function addFiles(files){const list=[...files].filter(f=>f.type.startsWith('image/'));if(!list.length)return;let n=0;
+  for(const f of list){const d=await readImg(f);if(d){custom.items.push({img:d,t:f.name.replace(/\.[^.]+$/,'').slice(0,20),c:''});n++}}
+  saveCustom();renderItems();softRegen();toast(`已加入 ${n} 張圖片，可以修改下方的名稱`)}
+$('#fileIn').onchange=e=>{addFiles(e.target.files);e.target.value=''};
+const drop=$('#drop');['dragenter','dragover'].forEach(ev=>drop.addEventListener(ev,e=>{e.preventDefault();drop.classList.add('over')}));
+['dragleave','drop'].forEach(ev=>drop.addEventListener(ev,e=>{e.preventDefault();drop.classList.remove('over')}));
+drop.addEventListener('drop',e=>addFiles(e.dataTransfer.files));
+document.addEventListener('paste',e=>{if(S.view!=='make'||S.src!=='custom')return;const fs=[...(e.clipboardData?.files||[])];if(fs.length){e.preventDefault();addFiles(fs)}});
+function getSets(){return store.get('bingo.sets',[])}
+function renderSets(){const sets=getSets();$('#setList').innerHTML=sets.map((s,i)=>`<div class="set"><span>${esc(s.name)}（${s.items.length}）</span><button class="btn sm" data-load="${i}">載入</button><button class="btn sm danger" data-rm="${i}">刪除</button></div>`).join('')}
+$('#saveSet').onclick=()=>{if(!custom.items.length){toast('清單是空的');return}const name=(custom.name||'').trim()||('我的主題 '+(getSets().length+1));const sets=getSets().filter(s=>s.name!==name);sets.unshift({name,items:custom.items});if(store.set('bingo.sets',sets)){custom.name=name;saveCustom();renderItems();toast('已儲存「'+name+'」')}else toast('儲存失敗：瀏覽器空間不足或不允許儲存')};
+$('#setList').addEventListener('click',e=>{const l=e.target.closest('[data-load]'),r=e.target.closest('[data-rm]');const sets=getSets();
+  if(l){const s=sets[+l.dataset.load];custom={name:s.name,items:JSON.parse(JSON.stringify(s.items))};saveCustom();renderItems();softRegen();toast('已載入「'+s.name+'」')}
+  if(r){if(r.dataset.arm!=='1'){r.dataset.arm='1';r.textContent='確定？';setTimeout(()=>{r.dataset.arm='';r.textContent='刪除'},3000);return}sets.splice(+r.dataset.rm,1);store.set('bingo.sets',sets);renderSets()}});
+function enc(o){return 'BINGO1:'+btoa(unescape(encodeURIComponent(JSON.stringify(o))))}
+function dec(s){s=s.trim();if(!s.startsWith('BINGO1:'))throw 0;return JSON.parse(decodeURIComponent(escape(atob(s.slice(7)))))}
+$('#shareSet').onclick=()=>{if(!custom.items.length){toast('清單是空的');return}const code=enc({name:custom.name||'自訂主題',items:custom.items});
+  modal(`<h2>分享代碼</h2><p>把整段代碼傳給其他老師或家長，對方在「匯入代碼」貼上即可。${custom.items.some(i=>i.img)?'<br><small>含圖片時代碼會比較長。</small>':''}</p><textarea id="codeOut" readonly style="min-height:160px;font-family:monospace;font-size:.8rem">${esc(code)}</textarea><div class="row"><button class="btn pri" id="copyCode">複製</button><button class="btn" data-close>關閉</button></div>`);
+  $('#copyCode').onclick=()=>{const ta=$('#codeOut');const fb=()=>{ta.select();toast('請按 Ctrl/⌘ + C 複製')};try{navigator.clipboard.writeText(code).then(()=>toast('已複製'),fb)}catch(e){fb()}}};
+$('#importSet').onclick=()=>{modal(`<h2>匯入代碼</h2><p>貼上別人分享的代碼（以 BINGO1: 開頭）。</p><textarea id="codeIn" style="min-height:160px;font-family:monospace;font-size:.8rem"></textarea><div class="row"><button class="btn pri" id="doImport">匯入</button><button class="btn" data-close>取消</button></div><p id="impErr" class="warn" hidden></p>`);
+  $('#doImport').onclick=()=>{try{const o=dec($('#codeIn').value);if(!Array.isArray(o.items))throw 0;custom={name:String(o.name||'匯入的主題'),items:o.items.map(x=>({e:String(x.e||''),t:String(x.t||''),c:String(x.c||''),img:typeof x.img==='string'&&x.img.startsWith('data:image/')?x.img:undefined}))};saveCustom();S.src='custom';save();closeModal();syncAll(true);renderItems();toast('已匯入「'+custom.name+'」')}catch(e){const er=$('#impErr');er.hidden=false;er.textContent='代碼看起來不完整，請確認從 BINGO1: 開始整段複製。'}}};
+
+/* ================= 視窗 ================= */
+function modal(html){closeModal();const m=document.createElement('div');m.className='modal';m.id='modal';m.innerHTML=`<div class="modal-box" role="dialog" aria-modal="true">${html}</div>`;document.body.appendChild(m);m.addEventListener('click',e=>{if(e.target===m||e.target.closest('[data-close]'))closeModal()});const f=m.querySelector('select,textarea,button');f&&f.focus()}
+function closeModal(){const m=$('#modal');m&&m.remove()}
+document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeModal();$$('.win-o').forEach(w=>w.remove())}});
+
+/* ================= 列印 ================= */
+$('#printBtn').textContent='下載／列印';
+$('#printBtn').onclick=()=>{
+  if(!cards.length){toast('還沒有卡片可以下載');return}
+  modal(`<h2>下載與列印</h2>
+   <div class="field"><span class="lab">要輸出什麼</span><div class="seg" id="pKind"><button data-v="cards" aria-pressed="true">賓果卡（${cards.length} 張）</button><button data-v="tiles" aria-pressed="false">叫號圖卡（${pool().length} 張，可剪下）</button><button data-v="sheet" aria-pressed="false">主持流程單</button></div></div>
+   <div class="field" id="pPerWrap"><span class="lab">每頁幾張賓果卡（A4）</span><div class="seg" id="pPer">${[1,2,4].map(n=>`<button data-v="${n}" aria-pressed="${S.perPage===n}">${n} 張</button>`).join('')}</div></div>
+   <div class="dl-grid">
+     <button class="dl" id="dlPdf"><b>下載 PDF</b><span>排版固定，直接印 A4。</span></button>
+     <button class="dl" id="dlPpt"><b>下載 PPT（可編輯）</b><span>每個格子的文字、圖片、框線都是獨立物件，可以改字、移動、換圖、加東西。</span></button>
+     <button class="dl" id="dlPrint"><b>${inFrame?'存成圖片':'直接列印'}</b><span>${inFrame?'每頁轉成圖片，按右鍵（手機長按）另存。':'開啟瀏覽器列印，紙張 A4、邊界選「無」。'}</span></button>
+   </div>
+   <div class="row"><button class="btn" data-close>關閉</button></div><div id="pOut"></div>`);
+  let kind='cards';
+  $('#pKind').onclick=e=>{const b=e.target.closest('button');if(!b)return;kind=b.dataset.v;$$('#pKind button').forEach(x=>x.setAttribute('aria-pressed',String(x===b)));$('#pPerWrap').hidden=kind!=='cards'};
+  $('#pPer').onclick=e=>{const b=e.target.closest('button');if(!b)return;S.perPage=+b.dataset.v;save();$$('#pPer button').forEach(x=>x.setAttribute('aria-pressed',String(x===b)))};
+  $('#dlPrint').onclick=async()=>{buildPrint(kind);if(!inFrame){closeModal();setTimeout(()=>window.print(),120);return}await exportImages()};
+  $('#dlPdf').onclick=()=>runExport(()=>makePDF(kind),'pdf',kind);
+  $('#dlPpt').onclick=()=>runExport(()=>makePPT(kind),'pptx',kind);
+};
+function sheetHTML(){
+  const t=TEMPLATES.find(x=>x.id===S.tpl);
+  const rows=S.rounds.map((r,k)=>{const m=MODES.find(x=>x.id===r.mode);return `<tr><td>第 ${k+1} 局</td><td><b>${esc(m.name)}</b><br>${CALLS[r.call]}</td><td>${esc(m.desc)}</td><td>${esc(m.lead)}</td></tr>`}).join('');
+  const who=cards.map((c,i)=>`<li>#${i+1} ${esc(c.name||'（未命名）')}・${c.n}×${c.n}・${{both:'圖＋字',pic:'只有圖',text:'只有字'}[c.disp]}${c.big?'・大字':''}</li>`).join('');
+  return `<div class="ppage sheet"><h1>${esc(S.title.trim()||poolName())}・主持流程單</h1><p class="meta">${t?esc(t.name)+'・'+esc(t.who)+'・'+esc(t.time):'自訂流程'}　主題：${esc(poolName())}　卡片：${cards.length} 張</p>
+   <h2>每局玩法</h2><table><tr><th style="width:14%">局數</th><th style="width:20%">玩法</th><th>規則</th><th style="width:34%">帶領要點</th></tr>${rows}</table>
+   ${t?`<h2>時間安排</h2><table>${t.script.map(s=>`<tr><td style="width:14%">${s[0]} 分</td><td>${esc(s[1])}</td></tr>`).join('')}</table><h2>人力分工</h2><ul>${t.roles.map(r=>`<li>${esc(r)}</li>`).join('')}</ul><h2>個別化建議</h2><ul>${t.indiv.map(r=>`<li>${esc(r)}</li>`).join('')}</ul>`:''}
+   <h2>卡片對照（個別化設定）</h2><ul class="cols">${who}</ul>
+   <h2>賓果紀錄</h2><table><tr><th style="width:14%">局數</th><th>上榜名單</th></tr>${S.rounds.map((r,k)=>`<tr><td>第 ${k+1} 局</td><td style="height:12mm"></td></tr>`).join('')}</table></div>`;
+}
+function buildPrint(kind){
+  const area=$('#printArea'),pages=[];
+  if(kind==='cards'){const per=S.perPage;for(let i=0;i<cards.length;i+=per)pages.push(`<div class="ppage per${per}">${cards.slice(i,i+per).map((c,k)=>cardHTML(c,i+k,'print')).join('')}</div>`)}
+  else if(kind==='tiles'){const p=pool();for(let i=0;i<p.length;i+=20)pages.push(`<div class="ppage tiles">${p.slice(i,i+20).map(it=>`<div class="tile">${it.img?imgTag(it):it.e?`<span class="e${isTxt(it)?' txt':''}">${esc(it.e)}</span>`:''}<span class="n">${esc(it.t)}</span>${it.c?`<span class="c">${esc(it.c)}</span>`:''}</div>`).join('')}</div>`)}
+  else pages.push(sheetHTML());
+  area.innerHTML=pages.join('');
+}
+function loadH2C(){return new Promise((res,rej)=>{if(window.html2canvas)return res();const s=document.createElement('script');s.src='https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js';s.onload=res;s.onerror=rej;document.head.appendChild(s)})}
+async function exportImages(){
+  const out=$('#pOut');out.innerHTML='<p class="note">正在產生圖片…</p>';
+  try{await loadH2C();const pages=$$('#printArea .ppage'),imgs=[];
+    for(const pg of pages){const c=await html2canvas(pg,{scale:2,backgroundColor:'#ffffff',useCORS:true,logging:false});imgs.push(c.toDataURL('image/png'))}
+    out.innerHTML=`<p class="note">共 ${imgs.length} 頁。在圖片上<b>按右鍵 → 另存圖片</b>（手機請長按），再用 A4 列印。</p><div class="shots">${imgs.map((s,i)=>`<img src="${s}" alt="第 ${i+1} 頁">`).join('')}</div>`;
+  }catch(e){out.innerHTML='<p class="warn">圖片產生失敗。可以用單機版 HTML 檔，在瀏覽器開啟後直接列印。</p>'}
+}
+
+/* ================= 下載 PDF / PPT ================= */
+let DL=null;(async()=>{try{if(window.claude&&window.claude.use)DL=await window.claude.use('downloads')}catch(e){DL=null}})();
+const KIND_NAME={cards:'賓果卡',tiles:'叫號圖卡',sheet:'主持流程單'};
+function loadScript(src,test){return new Promise((res,rej)=>{if(test())return res();const s=document.createElement('script');s.src=src;s.onload=()=>test()?res():rej(new Error('load'));s.onerror=rej;document.head.appendChild(s)})}
+function fileBase(kind){return ((S.title.trim()||poolName())+'-'+KIND_NAME[kind]).replace(/[\\/:*?"<>|]/g,'')}
+async function deliver(blob,filename){
+  if(DL){try{await DL.save({filename,data:blob});return 'saved'}catch(e){
+    if(e&&e.code==='declined')return 'declined';
+    if(e&&e.code==='rate_limited')throw new Error('剛剛已經有一個下載視窗，請先完成或關閉它再試一次。');
+    throw new Error('這個檢視畫面不能下載檔案（'+(e&&e.code||'unavailable')+'）。可以改用單機版 HTML 檔下載。')}}
+  if(inFrame)throw new Error('這個檢視畫面不能下載檔案。請在 claude.ai 開啟網頁，或改用單機版 HTML 檔。');
+  const url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=filename;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),4000);return 'saved';
+}
+let exporting=false;
+async function runExport(fn,ext,kind){
+  if(exporting)return;exporting=true;const out=$('#pOut');
+  $$('.dl').forEach(b=>b.disabled=true);
+  if(out)out.innerHTML=`<p class="note">正在製作 ${ext==='pdf'?'PDF':'PPT'}…卡片多時需要十幾秒。</p>`;
+  try{const blob=await fn();const r=await deliver(blob,fileBase(kind)+'.'+ext);
+    if(out)out.innerHTML=r==='declined'?'<p class="note">已取消下載。</p>':`<p class="note">已送出下載：<b>${esc(fileBase(kind))}.${ext}</b>${ext==='pptx'?'。可用 PowerPoint、Keynote 或 Google 簡報開啟編輯。':''}</p>`;
+  }catch(e){if(out)out.innerHTML=`<p class="warn">${esc(e.message||'製作失敗，請再試一次。')}</p>`}
+  finally{exporting=false;$$('.dl').forEach(b=>b.disabled=false)}
+}
+/* PDF：把 A4 頁面轉成圖片後組成 PDF */
+async function makePDF(kind){
+  await loadScript('https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js',()=>window.jspdf&&window.jspdf.jsPDF);
+  await loadH2C();buildPrint(kind);
+  const pdf=new window.jspdf.jsPDF({unit:'mm',format:'a4',orientation:'portrait',compress:true});
+  const pages=$$('#printArea .ppage');
+  for(let i=0;i<pages.length;i++){const c=await html2canvas(pages[i],{scale:2,backgroundColor:'#ffffff',useCORS:true,logging:false});
+    if(i)pdf.addPage();pdf.addImage(c.toDataURL('image/jpeg',.9),'JPEG',0,0,210,297,undefined,'FAST')}
+  return pdf.output('blob');
+}
+/* PPT：每個元素都是可編輯物件 */
+const ACC={blue:['2556C4','E3EBFB'],sun:['E0A400','FFF4CC'],coral:['E8553F','FDE6E1'],leaf:['24936A','DDF3EA'],berry:['8E44AD','F1E4F7']};
+const PFONT='Microsoft JhengHei';
+const imgCache=new Map();
+function toPng(src,px){if(imgCache.has(src))return imgCache.get(src);const p=new Promise(res=>{const im=new Image();im.onload=()=>{const s=Math.min(1,px/Math.max(im.width,im.height)),c=document.createElement('canvas');c.width=Math.round(im.width*s);c.height=Math.round(im.height*s);const x=c.getContext('2d');x.fillStyle='#fff';x.fillRect(0,0,c.width,c.height);x.drawImage(im,0,0,c.width,c.height);res(c.toDataURL('image/png'))};im.onerror=()=>res(null);im.src=src});imgCache.set(src,p);return p}
+async function itemPic(it){if(!it||!it.img)return null;return toPng(it.img,320)}
+async function pptCard(pres,slide,card,i,x,y,w,h){
+  const p=pool(),n=card.n,m=mode(),[acc,tint]=ACC[palOf(i)];
+  const pad=w*0.035,hh=w*0.13;
+  slide.addShape(pres.ShapeType.roundRect,{x,y,w,h,fill:{color:'FFFFFF'},line:{color:acc,width:3},rectRadius:0.15});
+  slide.addText(S.title.trim()||poolName(),{x:x+pad,y:y+pad,w:w*0.58,h:hh*0.62,fontFace:PFONT,fontSize:Math.round(w*3.1),bold:true,color:'1C2A39',valign:'middle',margin:0});
+  slide.addText(`玩法：${m.name}${S.rounds.length>1?`（第 ${S.ri+1} 局）`:''}`,{x:x+pad,y:y+pad+hh*0.6,w:w*0.6,h:hh*0.32,fontFace:PFONT,fontSize:Math.max(8,Math.round(w*1.25)),color:'5A6B7C',margin:0});
+  const tag=card.name?card.name:`第 ${i+1} 張`;
+  slide.addText(tag,{shape:pres.ShapeType.roundRect,x:x+w-pad-w*0.34,y:y+pad+hh*0.08,w:w*0.34,h:hh*0.5,fill:{color:card.name?acc:tint},color:card.name?'FFFFFF':'1C2A39',fontFace:PFONT,fontSize:Math.round(w*2),bold:true,align:'center',valign:'middle',rectRadius:0.2,margin:0});
+  const side=Math.min(w-2*pad,h-hh-2*pad),gap=side*0.012,cell=(side-gap*(n-1))/n;
+  const gx=x+(w-side)/2,gy=y+pad+hh+(h-hh-2*pad-side)/2;
+  for(let k=0;k<card.items.length;k++){
+    const r=Math.floor(k/n),c=k%n,cx=gx+c*(cell+gap),cy=gy+r*(cell+gap),id=card.items[k];
+    if(id===null){slide.addText([{text:'FREE',options:{fontSize:Math.round(cell*16),bold:true,color:acc,breakLine:true}},{text:'免費',options:{fontSize:Math.round(cell*9),color:'1C2A39'}}],{shape:pres.ShapeType.roundRect,x:cx,y:cy,w:cell,h:cell,fill:{color:tint},line:{color:acc,width:1.5},rectRadius:0.08,align:'center',valign:'middle',fontFace:PFONT,margin:0});continue}
+    const it=p[id];if(!it)continue;
+    slide.addShape(pres.ShapeType.roundRect,{x:cx,y:cy,w:cell,h:cell,fill:{color:'FFFFFF'},line:{color:acc,width:1.5},rectRadius:0.08});
+    const hasPic=!!(it.e||it.img),showPic=card.disp!=='text'&&hasPic,showTxt=card.disp!=='pic'||!hasPic;
+    const lblH=showTxt&&showPic?cell*0.26:0,big=card.big?1.25:1;
+    if(showPic){const ps=showTxt?cell*0.64:cell*0.8,px=cx+(cell-ps)/2,py=cy+(showTxt?cell*0.06:(cell-ps)/2);
+      const data=await itemPic(it);
+      if(data)slide.addImage({data,x:px,y:py,w:ps,h:ps,sizing:{type:'contain',w:ps,h:ps}});
+      else slide.addText(it.e,{x:px,y:py,w:ps,h:ps,fontSize:Math.round(ps*(isTxt(it)?34:40)),fontFace:isTxt(it)?PFONT:undefined,bold:isTxt(it),align:'center',valign:'middle',color:'1C2A39',margin:0})}
+    if(showTxt){const ty=showPic?cy+cell-lblH-cell*0.03:cy,th=showPic?lblH:cell;
+      slide.addText(it.t,{x:cx+cell*0.03,y:ty,w:cell*0.94,h:th,fontFace:PFONT,fontSize:Math.max(7,Math.round(cell*(showPic?11.5:17)*big)),bold:true,color:'1C2A39',align:'center',valign:'middle',fit:'shrink',margin:0})}
+  }
+}
+async function makePPT(kind){
+  await loadScript('https://cdn.jsdelivr.net/npm/pptxgenjs@3.12.0/dist/pptxgen.bundle.js',()=>window.PptxGenJS);
+  const pres=new window.PptxGenJS();pres.defineLayout({name:'A4P',width:8.27,height:11.69});pres.layout='A4P';
+  pres.title=fileBase(kind);pres.author='童趣賓果工作室';
+  const W=8.27,H=11.69,M=0.4;
+  if(kind==='cards'){const per=S.perPage;
+    for(let i=0;i<cards.length;i+=per){const slide=pres.addSlide();slide.background={color:'FFFFFF'};
+      const group=cards.slice(i,i+per);
+      for(let k=0;k<group.length;k++){let x,y,w,h;
+        if(per===1){w=W-2*M;h=w*1.16;x=M;y=(H-h)/2}
+        else if(per===2){h=(H-3*M)/2;w=Math.min(W-2*M,h*0.86);x=(W-w)/2;y=M+k*(h+M)}
+        else{w=(W-3*M)/2;h=(H-3*M)/2;x=M+(k%2)*(w+M);y=M+Math.floor(k/2)*(h+M);const hh=Math.min(h,w*1.16);y+= (h-hh)/2;h=hh}
+        await pptCard(pres,slide,group[k],i+k,x,y,w,h)}}
+  } else if(kind==='tiles'){const p=pool(),cols=4,rows=5,tw=(W-2*M)/cols,th=(H-2*M)/rows;
+    for(let i=0;i<p.length;i+=20){const slide=pres.addSlide();slide.background={color:'FFFFFF'};
+      const part=p.slice(i,i+20);
+      for(let k=0;k<part.length;k++){const it=part[k],x=M+(k%cols)*tw,y=M+Math.floor(k/cols)*th;
+        slide.addShape(pres.ShapeType.rect,{x,y,w:tw,h:th,fill:{color:'FFFFFF'},line:{color:'9AABBC',width:0.75,dashType:'dash'}});
+        const ps=Math.min(tw,th)*0.58,px=x+(tw-ps)/2,py=y+th*0.06,data=await itemPic(it);
+        if(data)slide.addImage({data,x:px,y:py,w:ps,h:ps,sizing:{type:'contain',w:ps,h:ps}});
+        else if(it.e)slide.addText(it.e,{x:px,y:py,w:ps,h:ps,fontSize:Math.round(ps*(isTxt(it)?34:40)),fontFace:isTxt(it)?PFONT:undefined,bold:isTxt(it),align:'center',valign:'middle',color:'1C2A39',margin:0});
+        slide.addText(it.t,{x:x+0.05,y:y+th*0.68,w:tw-0.1,h:th*0.16,fontFace:PFONT,fontSize:15,bold:true,color:'1C2A39',align:'center',valign:'middle',fit:'shrink',margin:0});
+        if(it.c)slide.addText(it.c,{x:x+0.05,y:y+th*0.83,w:tw-0.1,h:th*0.14,fontFace:PFONT,fontSize:8.5,color:'5A6B7C',align:'center',valign:'top',fit:'shrink',margin:0})}}
+  } else {const t=TEMPLATES.find(x=>x.id===S.tpl),slide=pres.addSlide();slide.background={color:'FFFFFF'};let y=M;
+    slide.addText(`${S.title.trim()||poolName()}・主持流程單`,{x:M,y,w:W-2*M,h:0.5,fontFace:PFONT,fontSize:22,bold:true,color:'1C2A39',margin:0});y+=0.5;
+    slide.addText(`${t?t.name+'・'+t.who+'・'+t.time:'自訂流程'}　主題：${poolName()}　卡片：${cards.length} 張`,{x:M,y,w:W-2*M,h:0.3,fontFace:PFONT,fontSize:10,color:'5A6B7C',margin:0});y+=0.45;
+    const hd=s=>({text:s,options:{bold:true,fill:{color:'EEF3F6'}}});
+    const rows=[[hd('局數'),hd('玩法'),hd('規則'),hd('帶領要點')],...S.rounds.map((r,k)=>{const m=MODES.find(x=>x.id===r.mode);return [`第 ${k+1} 局`,`${m.name}\n${CALLS[r.call]}`,m.desc,m.lead]})];
+    slide.addTable(rows,{x:M,y,w:W-2*M,colW:[0.8,1.3,2.4,W-2*M-4.5],fontFace:PFONT,fontSize:9,color:'1C2A39',border:{type:'solid',color:'B8C6D3',pt:0.5},valign:'top',autoPage:false});
+    y+=0.45+S.rounds.length*0.62;
+    if(t){slide.addText('時間安排',{x:M,y,w:3,h:0.3,fontFace:PFONT,fontSize:13,bold:true,color:'1C2A39',margin:0});y+=0.32;
+      slide.addText(t.script.map(s=>({text:`${s[0]} 分　${s[1]}`,options:{bullet:true,breakLine:true}})),{x:M,y,w:W-2*M,h:t.script.length*0.28,fontFace:PFONT,fontSize:10,color:'1C2A39',valign:'top',margin:0});y+=t.script.length*0.28+0.15;
+      slide.addText('人力分工',{x:M,y,w:3,h:0.3,fontFace:PFONT,fontSize:13,bold:true,color:'1C2A39',margin:0});y+=0.32;
+      slide.addText(t.roles.map(s=>({text:s,options:{bullet:true,breakLine:true}})),{x:M,y,w:W-2*M,h:t.roles.length*0.28,fontFace:PFONT,fontSize:10,color:'1C2A39',valign:'top',margin:0});y+=t.roles.length*0.28+0.15;
+      slide.addText('個別化建議',{x:M,y,w:3,h:0.3,fontFace:PFONT,fontSize:13,bold:true,color:'1C2A39',margin:0});y+=0.32;
+      slide.addText(t.indiv.map(s=>({text:s,options:{bullet:true,breakLine:true}})),{x:M,y,w:W-2*M,h:t.indiv.length*0.28,fontFace:PFONT,fontSize:10,color:'1C2A39',valign:'top',margin:0});y+=t.indiv.length*0.28+0.15}
+    slide.addText('卡片對照與賓果紀錄',{x:M,y,w:4,h:0.3,fontFace:PFONT,fontSize:13,bold:true,color:'1C2A39',margin:0});y+=0.32;
+    const who=cards.map((c,i)=>`#${i+1} ${c.name||'（未命名）'}・${c.n}×${c.n}・${{both:'圖＋字',pic:'只有圖',text:'只有字'}[c.disp]}${c.big?'・大字':''}`).join('\n');
+    slide.addText(who,{x:M,y,w:W-2*M,h:Math.max(0.6,H-y-M),fontFace:PFONT,fontSize:9,color:'1C2A39',valign:'top',margin:0,fit:'shrink'});
+  }
+  return pres.write({outputType:'blob'});
+}
+
+/* ================= 頁面切換 ================= */
+const VIEWS=['tpl','make','call','guide'];
+function go(v){S.view=v;save();$$('.tab').forEach(t=>t.setAttribute('aria-selected',String(t.dataset.view===v)));$$('.view').forEach(x=>x.hidden=x.id!=='view-'+v);
+  if(v==='call'){renderStage();renderHist();renderBoard();renderPickLeft()}if(v==='guide')renderGuide();if(v==='tpl')renderTpls();if(v!=='call')stopAuto();
+  if(location.hash!=='#'+v)try{history.replaceState(null,'','#'+v)}catch(e){}window.scrollTo(0,0)}
+$$('.tab').forEach(t=>t.onclick=()=>go(t.dataset.view));
+window.addEventListener('hashchange',()=>{const h=location.hash.slice(1);if(VIEWS.includes(h)&&h!==S.view)go(h)});
+
+/* ================= 啟動 ================= */
+function boot(){syncAll(true);renderItems();const h=location.hash.slice(1);go(VIEWS.includes(h)?h:(S.view||'tpl'))}
+boot();
+/* 若有 GPT 生成的圖檔（img/manifest.json），載入後改用插圖 */
+fetch('img/manifest.json').then(r=>r.ok?r.json():null).then(j=>{if(j&&Array.isArray(j.items)&&j.items.length){IMGS=new Set(j.items);const keep=S.view;syncAll(true);renderItems();go(keep)}}).catch(()=>{});
+})();
+</script>
+</body>
+</html>
