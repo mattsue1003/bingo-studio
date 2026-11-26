@@ -1,0 +1,2284 @@
+[
+ {
+  "key": "animals-01",
+  "theme": "動物朋友",
+  "name": "小狗",
+  "clue": "汪汪叫，是人類的好朋友",
+  "subject": "a cute 小狗 (animal; hint: 汪汪叫，是人類的好朋友)"
+ },
+ {
+  "key": "animals-02",
+  "theme": "動物朋友",
+  "name": "小貓",
+  "clue": "喵喵叫，喜歡抓老鼠",
+  "subject": "a cute 小貓 (animal; hint: 喵喵叫，喜歡抓老鼠)"
+ },
+ {
+  "key": "animals-03",
+  "theme": "動物朋友",
+  "name": "兔子",
+  "clue": "長耳朵，愛吃紅蘿蔔",
+  "subject": "a cute 兔子 (animal; hint: 長耳朵，愛吃紅蘿蔔)"
+ },
+ {
+  "key": "animals-04",
+  "theme": "動物朋友",
+  "name": "熊",
+  "clue": "胖胖的，喜歡吃蜂蜜",
+  "subject": "a cute 熊 (animal; hint: 胖胖的，喜歡吃蜂蜜)"
+ },
+ {
+  "key": "animals-05",
+  "theme": "動物朋友",
+  "name": "貓熊",
+  "clue": "黑白色，愛吃竹子",
+  "subject": "a cute 貓熊 (animal; hint: 黑白色，愛吃竹子)"
+ },
+ {
+  "key": "animals-06",
+  "theme": "動物朋友",
+  "name": "老虎",
+  "clue": "身上有條紋，是森林之王",
+  "subject": "a cute 老虎 (animal; hint: 身上有條紋，是森林之王)"
+ },
+ {
+  "key": "animals-07",
+  "theme": "動物朋友",
+  "name": "獅子",
+  "clue": "有很多鬃毛，吼聲很大",
+  "subject": "a cute 獅子 (animal; hint: 有很多鬃毛，吼聲很大)"
+ },
+ {
+  "key": "animals-08",
+  "theme": "動物朋友",
+  "name": "大象",
+  "clue": "鼻子長長的",
+  "subject": "a cute 大象 (animal; hint: 鼻子長長的)"
+ },
+ {
+  "key": "animals-09",
+  "theme": "動物朋友",
+  "name": "長頸鹿",
+  "clue": "脖子最長的動物",
+  "subject": "a cute 長頸鹿 (animal; hint: 脖子最長的動物)"
+ },
+ {
+  "key": "animals-10",
+  "theme": "動物朋友",
+  "name": "猴子",
+  "clue": "會爬樹，愛吃香蕉",
+  "subject": "a cute 猴子 (animal; hint: 會爬樹，愛吃香蕉)"
+ },
+ {
+  "key": "animals-11",
+  "theme": "動物朋友",
+  "name": "小豬",
+  "clue": "鼻子扁扁，嚕嚕叫",
+  "subject": "a cute 小豬 (animal; hint: 鼻子扁扁，嚕嚕叫)"
+ },
+ {
+  "key": "animals-12",
+  "theme": "動物朋友",
+  "name": "乳牛",
+  "clue": "會產牛奶，哞哞叫",
+  "subject": "a cute 乳牛 (animal; hint: 會產牛奶，哞哞叫)"
+ },
+ {
+  "key": "animals-13",
+  "theme": "動物朋友",
+  "name": "綿羊",
+  "clue": "毛捲捲的，咩咩叫",
+  "subject": "a cute 綿羊 (animal; hint: 毛捲捲的，咩咩叫)"
+ },
+ {
+  "key": "animals-14",
+  "theme": "動物朋友",
+  "name": "馬",
+  "clue": "跑得很快，可以騎",
+  "subject": "a cute 馬 (animal; hint: 跑得很快，可以騎)"
+ },
+ {
+  "key": "animals-15",
+  "theme": "動物朋友",
+  "name": "雞",
+  "clue": "早上會喔喔叫",
+  "subject": "a cute 雞 (animal; hint: 早上會喔喔叫)"
+ },
+ {
+  "key": "animals-16",
+  "theme": "動物朋友",
+  "name": "鴨子",
+  "clue": "呱呱叫，會游泳",
+  "subject": "a cute 鴨子 (animal; hint: 呱呱叫，會游泳)"
+ },
+ {
+  "key": "animals-17",
+  "theme": "動物朋友",
+  "name": "青蛙",
+  "clue": "會跳很遠，住在池塘",
+  "subject": "a cute 青蛙 (animal; hint: 會跳很遠，住在池塘)"
+ },
+ {
+  "key": "animals-18",
+  "theme": "動物朋友",
+  "name": "烏龜",
+  "clue": "走路慢慢，背著硬殼",
+  "subject": "a cute 烏龜 (animal; hint: 走路慢慢，背著硬殼)"
+ },
+ {
+  "key": "animals-19",
+  "theme": "動物朋友",
+  "name": "魚",
+  "clue": "住在水裡，用鰭游泳",
+  "subject": "a cute 魚 (animal; hint: 住在水裡，用鰭游泳)"
+ },
+ {
+  "key": "animals-20",
+  "theme": "動物朋友",
+  "name": "海豚",
+  "clue": "很聰明，住在海裡",
+  "subject": "a cute 海豚 (animal; hint: 很聰明，住在海裡)"
+ },
+ {
+  "key": "animals-21",
+  "theme": "動物朋友",
+  "name": "鯨魚",
+  "clue": "海裡最大的動物",
+  "subject": "a cute 鯨魚 (animal; hint: 海裡最大的動物)"
+ },
+ {
+  "key": "animals-22",
+  "theme": "動物朋友",
+  "name": "蝴蝶",
+  "clue": "有美麗的翅膀",
+  "subject": "a cute 蝴蝶 (animal; hint: 有美麗的翅膀)"
+ },
+ {
+  "key": "animals-23",
+  "theme": "動物朋友",
+  "name": "蜜蜂",
+  "clue": "會採蜜，嗡嗡嗡",
+  "subject": "a cute 蜜蜂 (animal; hint: 會採蜜，嗡嗡嗡)"
+ },
+ {
+  "key": "animals-24",
+  "theme": "動物朋友",
+  "name": "蝸牛",
+  "clue": "背著房子慢慢爬",
+  "subject": "a cute 蝸牛 (animal; hint: 背著房子慢慢爬)"
+ },
+ {
+  "key": "animals-25",
+  "theme": "動物朋友",
+  "name": "企鵝",
+  "clue": "住在冰天雪地，搖搖擺擺走",
+  "subject": "a cute 企鵝 (animal; hint: 住在冰天雪地，搖搖擺擺走)"
+ },
+ {
+  "key": "animals-26",
+  "theme": "動物朋友",
+  "name": "貓頭鷹",
+  "clue": "晚上醒著，眼睛大大",
+  "subject": "a cute 貓頭鷹 (animal; hint: 晚上醒著，眼睛大大)"
+ },
+ {
+  "key": "animals-27",
+  "theme": "動物朋友",
+  "name": "松鼠",
+  "clue": "尾巴蓬蓬，愛吃堅果",
+  "subject": "a cute 松鼠 (animal; hint: 尾巴蓬蓬，愛吃堅果)"
+ },
+ {
+  "key": "animals-28",
+  "theme": "動物朋友",
+  "name": "斑馬",
+  "clue": "身上有黑白條紋的馬",
+  "subject": "a cute 斑馬 (animal; hint: 身上有黑白條紋的馬)"
+ },
+ {
+  "key": "fruits-01",
+  "theme": "蔬菜水果",
+  "name": "蘋果",
+  "clue": "紅紅圓圓，咬起來脆脆",
+  "subject": "a single 蘋果 (fruit or vegetable; hint: 紅紅圓圓，咬起來脆脆)"
+ },
+ {
+  "key": "fruits-02",
+  "theme": "蔬菜水果",
+  "name": "香蕉",
+  "clue": "黃色彎彎的，猴子愛吃",
+  "subject": "a single 香蕉 (fruit or vegetable; hint: 黃色彎彎的，猴子愛吃)"
+ },
+ {
+  "key": "fruits-03",
+  "theme": "蔬菜水果",
+  "name": "葡萄",
+  "clue": "一串一串紫色的",
+  "subject": "a single 葡萄 (fruit or vegetable; hint: 一串一串紫色的)"
+ },
+ {
+  "key": "fruits-04",
+  "theme": "蔬菜水果",
+  "name": "草莓",
+  "clue": "紅色，有小小的籽",
+  "subject": "a single 草莓 (fruit or vegetable; hint: 紅色，有小小的籽)"
+ },
+ {
+  "key": "fruits-05",
+  "theme": "蔬菜水果",
+  "name": "西瓜",
+  "clue": "外面綠、裡面紅，夏天吃",
+  "subject": "a single 西瓜 (fruit or vegetable; hint: 外面綠、裡面紅，夏天吃)"
+ },
+ {
+  "key": "fruits-06",
+  "theme": "蔬菜水果",
+  "name": "橘子",
+  "clue": "橘色，要剝皮吃",
+  "subject": "a single 橘子 (fruit or vegetable; hint: 橘色，要剝皮吃)"
+ },
+ {
+  "key": "fruits-07",
+  "theme": "蔬菜水果",
+  "name": "鳳梨",
+  "clue": "頭上有葉子，酸酸甜甜",
+  "subject": "a single 鳳梨 (fruit or vegetable; hint: 頭上有葉子，酸酸甜甜)"
+ },
+ {
+  "key": "fruits-08",
+  "theme": "蔬菜水果",
+  "name": "芒果",
+  "clue": "黃色，夏天很香甜",
+  "subject": "a single 芒果 (fruit or vegetable; hint: 黃色，夏天很香甜)"
+ },
+ {
+  "key": "fruits-09",
+  "theme": "蔬菜水果",
+  "name": "水蜜桃",
+  "clue": "粉紅色，軟軟的",
+  "subject": "a single 水蜜桃 (fruit or vegetable; hint: 粉紅色，軟軟的)"
+ },
+ {
+  "key": "fruits-10",
+  "theme": "蔬菜水果",
+  "name": "梨子",
+  "clue": "水分很多",
+  "subject": "a single 梨子 (fruit or vegetable; hint: 水分很多)"
+ },
+ {
+  "key": "fruits-11",
+  "theme": "蔬菜水果",
+  "name": "櫻桃",
+  "clue": "兩顆紅紅連在一起",
+  "subject": "a single 櫻桃 (fruit or vegetable; hint: 兩顆紅紅連在一起)"
+ },
+ {
+  "key": "fruits-12",
+  "theme": "蔬菜水果",
+  "name": "奇異果",
+  "clue": "外面毛毛，裡面綠色",
+  "subject": "a single 奇異果 (fruit or vegetable; hint: 外面毛毛，裡面綠色)"
+ },
+ {
+  "key": "fruits-13",
+  "theme": "蔬菜水果",
+  "name": "檸檬",
+  "clue": "黃色，非常酸",
+  "subject": "a single 檸檬 (fruit or vegetable; hint: 黃色，非常酸)"
+ },
+ {
+  "key": "fruits-14",
+  "theme": "蔬菜水果",
+  "name": "椰子",
+  "clue": "硬硬的殼，裡面有水",
+  "subject": "a single 椰子 (fruit or vegetable; hint: 硬硬的殼，裡面有水)"
+ },
+ {
+  "key": "fruits-15",
+  "theme": "蔬菜水果",
+  "name": "番茄",
+  "clue": "紅色，可以做成番茄醬",
+  "subject": "a single 番茄 (fruit or vegetable; hint: 紅色，可以做成番茄醬)"
+ },
+ {
+  "key": "fruits-16",
+  "theme": "蔬菜水果",
+  "name": "紅蘿蔔",
+  "clue": "橘色長長，兔子愛吃",
+  "subject": "a single 紅蘿蔔 (fruit or vegetable; hint: 橘色長長，兔子愛吃)"
+ },
+ {
+  "key": "fruits-17",
+  "theme": "蔬菜水果",
+  "name": "玉米",
+  "clue": "一顆一顆黃色的",
+  "subject": "a single 玉米 (fruit or vegetable; hint: 一顆一顆黃色的)"
+ },
+ {
+  "key": "fruits-18",
+  "theme": "蔬菜水果",
+  "name": "花椰菜",
+  "clue": "長得像一棵小樹",
+  "subject": "a single 花椰菜 (fruit or vegetable; hint: 長得像一棵小樹)"
+ },
+ {
+  "key": "fruits-19",
+  "theme": "蔬菜水果",
+  "name": "小黃瓜",
+  "clue": "綠色長條，脆脆的",
+  "subject": "a single 小黃瓜 (fruit or vegetable; hint: 綠色長條，脆脆的)"
+ },
+ {
+  "key": "fruits-20",
+  "theme": "蔬菜水果",
+  "name": "茄子",
+  "clue": "紫色長長的",
+  "subject": "a single 茄子 (fruit or vegetable; hint: 紫色長長的)"
+ },
+ {
+  "key": "fruits-21",
+  "theme": "蔬菜水果",
+  "name": "馬鈴薯",
+  "clue": "可以做成薯條",
+  "subject": "a single 馬鈴薯 (fruit or vegetable; hint: 可以做成薯條)"
+ },
+ {
+  "key": "fruits-22",
+  "theme": "蔬菜水果",
+  "name": "洋蔥",
+  "clue": "切的時候會流眼淚",
+  "subject": "a single 洋蔥 (fruit or vegetable; hint: 切的時候會流眼淚)"
+ },
+ {
+  "key": "fruits-23",
+  "theme": "蔬菜水果",
+  "name": "香菇",
+  "clue": "長得像一把小傘",
+  "subject": "a single 香菇 (fruit or vegetable; hint: 長得像一把小傘)"
+ },
+ {
+  "key": "fruits-24",
+  "theme": "蔬菜水果",
+  "name": "辣椒",
+  "clue": "紅紅的，吃起來很辣",
+  "subject": "a single 辣椒 (fruit or vegetable; hint: 紅紅的，吃起來很辣)"
+ },
+ {
+  "key": "fruits-25",
+  "theme": "蔬菜水果",
+  "name": "青菜",
+  "clue": "綠色的葉子",
+  "subject": "a single 青菜 (fruit or vegetable; hint: 綠色的葉子)"
+ },
+ {
+  "key": "fruits-26",
+  "theme": "蔬菜水果",
+  "name": "南瓜",
+  "clue": "萬聖節做成燈籠",
+  "subject": "a single 南瓜 (fruit or vegetable; hint: 萬聖節做成燈籠)"
+ },
+ {
+  "key": "vehicles-01",
+  "theme": "交通工具",
+  "name": "汽車",
+  "clue": "四個輪子，載家人出門",
+  "subject": "a cute 汽車 (vehicle; hint: 四個輪子，載家人出門)"
+ },
+ {
+  "key": "vehicles-02",
+  "theme": "交通工具",
+  "name": "公車",
+  "clue": "很多人一起搭，要刷卡",
+  "subject": "a cute 公車 (vehicle; hint: 很多人一起搭，要刷卡)"
+ },
+ {
+  "key": "vehicles-03",
+  "theme": "交通工具",
+  "name": "計程車",
+  "clue": "黃色的，招手就會停",
+  "subject": "a cute 計程車 (vehicle; hint: 黃色的，招手就會停)"
+ },
+ {
+  "key": "vehicles-04",
+  "theme": "交通工具",
+  "name": "警車",
+  "clue": "會嗚嗚叫，警察開的",
+  "subject": "a cute 警車 (vehicle; hint: 會嗚嗚叫，警察開的)"
+ },
+ {
+  "key": "vehicles-05",
+  "theme": "交通工具",
+  "name": "救護車",
+  "clue": "載生病的人去醫院",
+  "subject": "a cute 救護車 (vehicle; hint: 載生病的人去醫院)"
+ },
+ {
+  "key": "vehicles-06",
+  "theme": "交通工具",
+  "name": "消防車",
+  "clue": "紅色的，去滅火",
+  "subject": "a cute 消防車 (vehicle; hint: 紅色的，去滅火)"
+ },
+ {
+  "key": "vehicles-07",
+  "theme": "交通工具",
+  "name": "貨車",
+  "clue": "載很多貨物",
+  "subject": "a cute 貨車 (vehicle; hint: 載很多貨物)"
+ },
+ {
+  "key": "vehicles-08",
+  "theme": "交通工具",
+  "name": "拖拉機",
+  "clue": "在農田裡工作",
+  "subject": "a cute 拖拉機 (vehicle; hint: 在農田裡工作)"
+ },
+ {
+  "key": "vehicles-09",
+  "theme": "交通工具",
+  "name": "機車",
+  "clue": "兩個輪子，要戴安全帽",
+  "subject": "a cute 機車 (vehicle; hint: 兩個輪子，要戴安全帽)"
+ },
+ {
+  "key": "vehicles-10",
+  "theme": "交通工具",
+  "name": "腳踏車",
+  "clue": "用腳踩才會動",
+  "subject": "a cute 腳踏車 (vehicle; hint: 用腳踩才會動)"
+ },
+ {
+  "key": "vehicles-11",
+  "theme": "交通工具",
+  "name": "滑板車",
+  "clue": "一腳踩、一腳滑",
+  "subject": "a cute 滑板車 (vehicle; hint: 一腳踩、一腳滑)"
+ },
+ {
+  "key": "vehicles-12",
+  "theme": "交通工具",
+  "name": "火車",
+  "clue": "在鐵軌上跑，嘟嘟嘟",
+  "subject": "a cute 火車 (vehicle; hint: 在鐵軌上跑，嘟嘟嘟)"
+ },
+ {
+  "key": "vehicles-13",
+  "theme": "交通工具",
+  "name": "高鐵",
+  "clue": "跑得非常快的列車",
+  "subject": "a cute 高鐵 (vehicle; hint: 跑得非常快的列車)"
+ },
+ {
+  "key": "vehicles-14",
+  "theme": "交通工具",
+  "name": "捷運",
+  "clue": "在城市地底下跑",
+  "subject": "a cute 捷運 (vehicle; hint: 在城市地底下跑)"
+ },
+ {
+  "key": "vehicles-15",
+  "theme": "交通工具",
+  "name": "飛機",
+  "clue": "在天空飛，去很遠的地方",
+  "subject": "a cute 飛機 (vehicle; hint: 在天空飛，去很遠的地方)"
+ },
+ {
+  "key": "vehicles-16",
+  "theme": "交通工具",
+  "name": "直升機",
+  "clue": "頭上有螺旋槳",
+  "subject": "a cute 直升機 (vehicle; hint: 頭上有螺旋槳)"
+ },
+ {
+  "key": "vehicles-17",
+  "theme": "交通工具",
+  "name": "火箭",
+  "clue": "可以飛到太空",
+  "subject": "a cute 火箭 (vehicle; hint: 可以飛到太空)"
+ },
+ {
+  "key": "vehicles-18",
+  "theme": "交通工具",
+  "name": "帆船",
+  "clue": "靠風吹著走",
+  "subject": "a cute 帆船 (vehicle; hint: 靠風吹著走)"
+ },
+ {
+  "key": "vehicles-19",
+  "theme": "交通工具",
+  "name": "輪船",
+  "clue": "在海上航行的大船",
+  "subject": "a cute 輪船 (vehicle; hint: 在海上航行的大船)"
+ },
+ {
+  "key": "vehicles-20",
+  "theme": "交通工具",
+  "name": "獨木舟",
+  "clue": "用槳划的小船",
+  "subject": "a cute 獨木舟 (vehicle; hint: 用槳划的小船)"
+ },
+ {
+  "key": "vehicles-21",
+  "theme": "交通工具",
+  "name": "纜車",
+  "clue": "掛在空中的車廂",
+  "subject": "a cute 纜車 (vehicle; hint: 掛在空中的車廂)"
+ },
+ {
+  "key": "vehicles-22",
+  "theme": "交通工具",
+  "name": "電動機車",
+  "clue": "很安靜的兩輪車",
+  "subject": "a cute 電動機車 (vehicle; hint: 很安靜的兩輪車)"
+ },
+ {
+  "key": "vehicles-23",
+  "theme": "交通工具",
+  "name": "娃娃車",
+  "clue": "載小朋友上學",
+  "subject": "a cute 娃娃車 (vehicle; hint: 載小朋友上學)"
+ },
+ {
+  "key": "vehicles-24",
+  "theme": "交通工具",
+  "name": "小貨卡",
+  "clue": "後面可以載東西",
+  "subject": "a cute 小貨卡 (vehicle; hint: 後面可以載東西)"
+ },
+ {
+  "key": "vehicles-25",
+  "theme": "交通工具",
+  "name": "聯結車",
+  "clue": "很長很長的大卡車",
+  "subject": "a cute 聯結車 (vehicle; hint: 很長很長的大卡車)"
+ },
+ {
+  "key": "emotions-01",
+  "theme": "情緒小臉",
+  "name": "開心",
+  "clue": "收到禮物的感覺",
+  "subject": "the face and upper body of a cute East Asian preschool child clearly showing the emotion \"開心\" (situation: 收到禮物的感覺)"
+ },
+ {
+  "key": "emotions-02",
+  "theme": "情緒小臉",
+  "name": "難過",
+  "clue": "心愛的玩具壞掉了",
+  "subject": "the face and upper body of a cute East Asian preschool child clearly showing the emotion \"難過\" (situation: 心愛的玩具壞掉了)"
+ },
+ {
+  "key": "emotions-03",
+  "theme": "情緒小臉",
+  "name": "生氣",
+  "clue": "東西被別人搶走",
+  "subject": "the face and upper body of a cute East Asian preschool child clearly showing the emotion \"生氣\" (situation: 東西被別人搶走)"
+ },
+ {
+  "key": "emotions-04",
+  "theme": "情緒小臉",
+  "name": "害怕",
+  "clue": "聽到很大的打雷聲",
+  "subject": "the face and upper body of a cute East Asian preschool child clearly showing the emotion \"害怕\" (situation: 聽到很大的打雷聲)"
+ },
+ {
+  "key": "emotions-05",
+  "theme": "情緒小臉",
+  "name": "驚訝",
+  "clue": "突然看到很特別的東西",
+  "subject": "the face and upper body of a cute East Asian preschool child clearly showing the emotion \"驚訝\" (situation: 突然看到很特別的東西)"
+ },
+ {
+  "key": "emotions-06",
+  "theme": "情緒小臉",
+  "name": "想睡覺",
+  "clue": "晚上玩累了",
+  "subject": "the face and upper body of a cute East Asian preschool child clearly showing the emotion \"想睡覺\" (situation: 晚上玩累了)"
+ },
+ {
+  "key": "emotions-07",
+  "theme": "情緒小臉",
+  "name": "被愛",
+  "clue": "媽媽抱抱的感覺",
+  "subject": "the face and upper body of a cute East Asian preschool child clearly showing the emotion \"被愛\" (situation: 媽媽抱抱的感覺)"
+ },
+ {
+  "key": "emotions-08",
+  "theme": "情緒小臉",
+  "name": "害羞",
+  "clue": "第一次上台說話",
+  "subject": "the face and upper body of a cute East Asian preschool child clearly showing the emotion \"害羞\" (situation: 第一次上台說話)"
+ },
+ {
+  "key": "emotions-09",
+  "theme": "情緒小臉",
+  "name": "想一想",
+  "clue": "在想答案是什麼",
+  "subject": "the face and upper body of a cute East Asian preschool child clearly showing the emotion \"想一想\" (situation: 在想答案是什麼)"
+ },
+ {
+  "key": "emotions-10",
+  "theme": "情緒小臉",
+  "name": "好好吃",
+  "clue": "吃到最喜歡的食物",
+  "subject": "the face and upper body of a cute East Asian preschool child clearly showing the emotion \"好好吃\" (situation: 吃到最喜歡的食物)"
+ },
+ {
+  "key": "emotions-11",
+  "theme": "情緒小臉",
+  "name": "生病",
+  "clue": "發燒不舒服",
+  "subject": "the face and upper body of a cute East Asian preschool child clearly showing the emotion \"生病\" (situation: 發燒不舒服)"
+ },
+ {
+  "key": "emotions-12",
+  "theme": "情緒小臉",
+  "name": "放鬆",
+  "clue": "洗完熱水澡",
+  "subject": "the face and upper body of a cute East Asian preschool child clearly showing the emotion \"放鬆\" (situation: 洗完熱水澡)"
+ },
+ {
+  "key": "emotions-13",
+  "theme": "情緒小臉",
+  "name": "不服氣",
+  "clue": "輸了比賽很不甘心",
+  "subject": "the face and upper body of a cute East Asian preschool child clearly showing the emotion \"不服氣\" (situation: 輸了比賽很不甘心)"
+ },
+ {
+  "key": "emotions-14",
+  "theme": "情緒小臉",
+  "name": "慶祝",
+  "clue": "參加生日派對",
+  "subject": "the face and upper body of a cute East Asian preschool child clearly showing the emotion \"慶祝\" (situation: 參加生日派對)"
+ },
+ {
+  "key": "emotions-15",
+  "theme": "情緒小臉",
+  "name": "大哭",
+  "clue": "跌倒好痛",
+  "subject": "the face and upper body of a cute East Asian preschool child clearly showing the emotion \"大哭\" (situation: 跌倒好痛)"
+ },
+ {
+  "key": "emotions-16",
+  "theme": "情緒小臉",
+  "name": "大笑",
+  "clue": "聽到好好笑的故事",
+  "subject": "the face and upper body of a cute East Asian preschool child clearly showing the emotion \"大笑\" (situation: 聽到好好笑的故事)"
+ },
+ {
+  "key": "emotions-17",
+  "theme": "情緒小臉",
+  "name": "擔心",
+  "clue": "找不到媽媽",
+  "subject": "the face and upper body of a cute East Asian preschool child clearly showing the emotion \"擔心\" (situation: 找不到媽媽)"
+ },
+ {
+  "key": "emotions-18",
+  "theme": "情緒小臉",
+  "name": "得意",
+  "clue": "完成一件很難的事",
+  "subject": "the face and upper body of a cute East Asian preschool child clearly showing the emotion \"得意\" (situation: 完成一件很難的事)"
+ },
+ {
+  "key": "emotions-19",
+  "theme": "情緒小臉",
+  "name": "想抱抱",
+  "clue": "看到好朋友",
+  "subject": "the face and upper body of a cute East Asian preschool child clearly showing the emotion \"想抱抱\" (situation: 看到好朋友)"
+ },
+ {
+  "key": "emotions-20",
+  "theme": "情緒小臉",
+  "name": "說不出話",
+  "clue": "不知道該說什麼",
+  "subject": "the face and upper body of a cute East Asian preschool child clearly showing the emotion \"說不出話\" (situation: 不知道該說什麼)"
+ },
+ {
+  "key": "emotions-21",
+  "theme": "情緒小臉",
+  "name": "不耐煩",
+  "clue": "等了好久好久",
+  "subject": "the face and upper body of a cute East Asian preschool child clearly showing the emotion \"不耐煩\" (situation: 等了好久好久)"
+ },
+ {
+  "key": "emotions-22",
+  "theme": "情緒小臉",
+  "name": "好興奮",
+  "clue": "要去遊樂園玩",
+  "subject": "the face and upper body of a cute East Asian preschool child clearly showing the emotion \"好興奮\" (situation: 要去遊樂園玩)"
+ },
+ {
+  "key": "emotions-23",
+  "theme": "情緒小臉",
+  "name": "緊張",
+  "clue": "要打針了",
+  "subject": "the face and upper body of a cute East Asian preschool child clearly showing the emotion \"緊張\" (situation: 要打針了)"
+ },
+ {
+  "key": "emotions-24",
+  "theme": "情緒小臉",
+  "name": "溫暖",
+  "clue": "幫助別人的時候",
+  "subject": "the face and upper body of a cute East Asian preschool child clearly showing the emotion \"溫暖\" (situation: 幫助別人的時候)"
+ },
+ {
+  "key": "emotions-25",
+  "theme": "情緒小臉",
+  "name": "噁心",
+  "clue": "聞到臭臭的味道",
+  "subject": "the face and upper body of a cute East Asian preschool child clearly showing the emotion \"噁心\" (situation: 聞到臭臭的味道)"
+ },
+ {
+  "key": "body-01",
+  "theme": "身體部位",
+  "name": "眼睛",
+  "clue": "用來看東西",
+  "subject": "a friendly, non-medical illustration of the human body part \"眼睛\" for young children (hint: 用來看東西)"
+ },
+ {
+  "key": "body-02",
+  "theme": "身體部位",
+  "name": "耳朵",
+  "clue": "用來聽聲音",
+  "subject": "a friendly, non-medical illustration of the human body part \"耳朵\" for young children (hint: 用來聽聲音)"
+ },
+ {
+  "key": "body-03",
+  "theme": "身體部位",
+  "name": "鼻子",
+  "clue": "用來聞味道",
+  "subject": "a friendly, non-medical illustration of the human body part \"鼻子\" for young children (hint: 用來聞味道)"
+ },
+ {
+  "key": "body-04",
+  "theme": "身體部位",
+  "name": "嘴巴",
+  "clue": "用來吃飯、說話",
+  "subject": "a friendly, non-medical illustration of the human body part \"嘴巴\" for young children (hint: 用來吃飯、說話)"
+ },
+ {
+  "key": "body-05",
+  "theme": "身體部位",
+  "name": "牙齒",
+  "clue": "每天要刷乾淨",
+  "subject": "a friendly, non-medical illustration of the human body part \"牙齒\" for young children (hint: 每天要刷乾淨)"
+ },
+ {
+  "key": "body-06",
+  "theme": "身體部位",
+  "name": "舌頭",
+  "clue": "可以嚐出味道",
+  "subject": "a friendly, non-medical illustration of the human body part \"舌頭\" for young children (hint: 可以嚐出味道)"
+ },
+ {
+  "key": "body-07",
+  "theme": "身體部位",
+  "name": "手",
+  "clue": "可以拿東西、揮手",
+  "subject": "a friendly, non-medical illustration of the human body part \"手\" for young children (hint: 可以拿東西、揮手)"
+ },
+ {
+  "key": "body-08",
+  "theme": "身體部位",
+  "name": "手指",
+  "clue": "用來指東西",
+  "subject": "a friendly, non-medical illustration of the human body part \"手指\" for young children (hint: 用來指東西)"
+ },
+ {
+  "key": "body-09",
+  "theme": "身體部位",
+  "name": "大拇指",
+  "clue": "比讚的那根手指",
+  "subject": "a friendly, non-medical illustration of the human body part \"大拇指\" for young children (hint: 比讚的那根手指)"
+ },
+ {
+  "key": "body-10",
+  "theme": "身體部位",
+  "name": "手掌",
+  "clue": "可以捧東西",
+  "subject": "a friendly, non-medical illustration of the human body part \"手掌\" for young children (hint: 可以捧東西)"
+ },
+ {
+  "key": "body-11",
+  "theme": "身體部位",
+  "name": "指甲",
+  "clue": "要定期剪短",
+  "subject": "a friendly, non-medical illustration of the human body part \"指甲\" for young children (hint: 要定期剪短)"
+ },
+ {
+  "key": "body-12",
+  "theme": "身體部位",
+  "name": "手臂",
+  "clue": "舉起來很有力氣",
+  "subject": "a friendly, non-medical illustration of the human body part \"手臂\" for young children (hint: 舉起來很有力氣)"
+ },
+ {
+  "key": "body-13",
+  "theme": "身體部位",
+  "name": "腿",
+  "clue": "用來跑跑跳跳",
+  "subject": "a friendly, non-medical illustration of the human body part \"腿\" for young children (hint: 用來跑跑跳跳)"
+ },
+ {
+  "key": "body-14",
+  "theme": "身體部位",
+  "name": "腳",
+  "clue": "用來走路",
+  "subject": "a friendly, non-medical illustration of the human body part \"腳\" for young children (hint: 用來走路)"
+ },
+ {
+  "key": "body-15",
+  "theme": "身體部位",
+  "name": "大腦",
+  "clue": "用來思考",
+  "subject": "a friendly, non-medical illustration of the human body part \"大腦\" for young children (hint: 用來思考)"
+ },
+ {
+  "key": "body-16",
+  "theme": "身體部位",
+  "name": "心臟",
+  "clue": "撲通撲通跳",
+  "subject": "a friendly, non-medical illustration of the human body part \"心臟\" for young children (hint: 撲通撲通跳)"
+ },
+ {
+  "key": "body-17",
+  "theme": "身體部位",
+  "name": "肺",
+  "clue": "用來呼吸",
+  "subject": "a friendly, non-medical illustration of the human body part \"肺\" for young children (hint: 用來呼吸)"
+ },
+ {
+  "key": "body-18",
+  "theme": "身體部位",
+  "name": "骨頭",
+  "clue": "讓身體站得直",
+  "subject": "a friendly, non-medical illustration of the human body part \"骨頭\" for young children (hint: 讓身體站得直)"
+ },
+ {
+  "key": "body-19",
+  "theme": "身體部位",
+  "name": "頭髮",
+  "clue": "長在頭上，要梳整齊",
+  "subject": "a friendly, non-medical illustration of the human body part \"頭髮\" for young children (hint: 長在頭上，要梳整齊)"
+ },
+ {
+  "key": "body-20",
+  "theme": "身體部位",
+  "name": "臉",
+  "clue": "眼睛、鼻子、嘴巴都在這裡",
+  "subject": "a friendly, non-medical illustration of the human body part \"臉\" for young children (hint: 眼睛、鼻子、嘴巴都在這裡)"
+ },
+ {
+  "key": "daily-01",
+  "theme": "生活自理",
+  "name": "刷牙",
+  "clue": "早上和睡前都要做",
+  "subject": "a cute East Asian child doing the daily routine \"刷牙\" (hint: 早上和睡前都要做)"
+ },
+ {
+  "key": "daily-02",
+  "theme": "生活自理",
+  "name": "洗手",
+  "clue": "吃飯前、上廁所後",
+  "subject": "a cute East Asian child doing the daily routine \"洗手\" (hint: 吃飯前、上廁所後)"
+ },
+ {
+  "key": "daily-03",
+  "theme": "生活自理",
+  "name": "洗澡",
+  "clue": "把身體洗乾淨",
+  "subject": "a cute East Asian child doing the daily routine \"洗澡\" (hint: 把身體洗乾淨)"
+ },
+ {
+  "key": "daily-04",
+  "theme": "生活自理",
+  "name": "穿衣服",
+  "clue": "先套頭，再穿手",
+  "subject": "a cute East Asian child doing the daily routine \"穿衣服\" (hint: 先套頭，再穿手)"
+ },
+ {
+  "key": "daily-05",
+  "theme": "生活自理",
+  "name": "穿褲子",
+  "clue": "一腳一腳伸進去",
+  "subject": "a cute East Asian child doing the daily routine \"穿褲子\" (hint: 一腳一腳伸進去)"
+ },
+ {
+  "key": "daily-06",
+  "theme": "生活自理",
+  "name": "穿襪子",
+  "clue": "穿鞋子之前",
+  "subject": "a cute East Asian child doing the daily routine \"穿襪子\" (hint: 穿鞋子之前)"
+ },
+ {
+  "key": "daily-07",
+  "theme": "生活自理",
+  "name": "穿鞋子",
+  "clue": "分清楚左腳右腳",
+  "subject": "a cute East Asian child doing the daily routine \"穿鞋子\" (hint: 分清楚左腳右腳)"
+ },
+ {
+  "key": "daily-08",
+  "theme": "生活自理",
+  "name": "穿外套",
+  "clue": "天氣冷的時候",
+  "subject": "a cute East Asian child doing the daily routine \"穿外套\" (hint: 天氣冷的時候)"
+ },
+ {
+  "key": "daily-09",
+  "theme": "生活自理",
+  "name": "吃早餐",
+  "clue": "起床後的第一餐",
+  "subject": "a cute East Asian child doing the daily routine \"吃早餐\" (hint: 起床後的第一餐)"
+ },
+ {
+  "key": "daily-10",
+  "theme": "生活自理",
+  "name": "吃飯",
+  "clue": "用湯匙或筷子",
+  "subject": "a cute East Asian child doing the daily routine \"吃飯\" (hint: 用湯匙或筷子)"
+ },
+ {
+  "key": "daily-11",
+  "theme": "生活自理",
+  "name": "喝水",
+  "clue": "口渴的時候",
+  "subject": "a cute East Asian child doing the daily routine \"喝水\" (hint: 口渴的時候)"
+ },
+ {
+  "key": "daily-12",
+  "theme": "生活自理",
+  "name": "上廁所",
+  "clue": "上完記得沖水",
+  "subject": "a cute East Asian child doing the daily routine \"上廁所\" (hint: 上完記得沖水)"
+ },
+ {
+  "key": "daily-13",
+  "theme": "生活自理",
+  "name": "睡覺",
+  "clue": "晚上要早點睡",
+  "subject": "a cute East Asian child doing the daily routine \"睡覺\" (hint: 晚上要早點睡)"
+ },
+ {
+  "key": "daily-14",
+  "theme": "生活自理",
+  "name": "收玩具",
+  "clue": "玩完放回原位",
+  "subject": "a cute East Asian child doing the daily routine \"收玩具\" (hint: 玩完放回原位)"
+ },
+ {
+  "key": "daily-15",
+  "theme": "生活自理",
+  "name": "整理書包",
+  "clue": "上學前準備好",
+  "subject": "a cute East Asian child doing the daily routine \"整理書包\" (hint: 上學前準備好)"
+ },
+ {
+  "key": "daily-16",
+  "theme": "生活自理",
+  "name": "掃地",
+  "clue": "讓地板乾乾淨淨",
+  "subject": "a cute East Asian child doing the daily routine \"掃地\" (hint: 讓地板乾乾淨淨)"
+ },
+ {
+  "key": "daily-17",
+  "theme": "生活自理",
+  "name": "丟垃圾",
+  "clue": "丟進垃圾桶",
+  "subject": "a cute East Asian child doing the daily routine \"丟垃圾\" (hint: 丟進垃圾桶)"
+ },
+ {
+  "key": "daily-18",
+  "theme": "生活自理",
+  "name": "梳頭髮",
+  "clue": "讓頭髮整整齊齊",
+  "subject": "a cute East Asian child doing the daily routine \"梳頭髮\" (hint: 讓頭髮整整齊齊)"
+ },
+ {
+  "key": "daily-19",
+  "theme": "生活自理",
+  "name": "戴口罩",
+  "clue": "生病或人多的時候",
+  "subject": "a cute East Asian child doing the daily routine \"戴口罩\" (hint: 生病或人多的時候)"
+ },
+ {
+  "key": "daily-20",
+  "theme": "生活自理",
+  "name": "擦乳液",
+  "clue": "皮膚乾乾的時候",
+  "subject": "a cute East Asian child doing the daily routine \"擦乳液\" (hint: 皮膚乾乾的時候)"
+ },
+ {
+  "key": "daily-21",
+  "theme": "生活自理",
+  "name": "收衣服",
+  "clue": "衣服晾乾了",
+  "subject": "a cute East Asian child doing the daily routine \"收衣服\" (hint: 衣服晾乾了)"
+ },
+ {
+  "key": "daily-22",
+  "theme": "生活自理",
+  "name": "收碗盤",
+  "clue": "吃完飯拿到廚房",
+  "subject": "a cute East Asian child doing the daily routine \"收碗盤\" (hint: 吃完飯拿到廚房)"
+ },
+ {
+  "key": "daily-23",
+  "theme": "生活自理",
+  "name": "帶雨傘",
+  "clue": "下雨天出門",
+  "subject": "a cute East Asian child doing the daily routine \"帶雨傘\" (hint: 下雨天出門)"
+ },
+ {
+  "key": "daily-24",
+  "theme": "生活自理",
+  "name": "起床",
+  "clue": "鬧鐘響了",
+  "subject": "a cute East Asian child doing the daily routine \"起床\" (hint: 鬧鐘響了)"
+ },
+ {
+  "key": "daily-25",
+  "theme": "生活自理",
+  "name": "舉手",
+  "clue": "想說話先舉手",
+  "subject": "a cute East Asian child doing the daily routine \"舉手\" (hint: 想說話先舉手)"
+ },
+ {
+  "key": "daily-26",
+  "theme": "生活自理",
+  "name": "說謝謝",
+  "clue": "別人幫助我的時候",
+  "subject": "a cute East Asian child doing the daily routine \"說謝謝\" (hint: 別人幫助我的時候)"
+ },
+ {
+  "key": "community-01",
+  "theme": "社區好鄰居",
+  "name": "學校",
+  "clue": "上課學習的地方",
+  "subject": "a cute building or place in a Taiwanese neighborhood: \"學校\" (上課學習的地方)"
+ },
+ {
+  "key": "community-02",
+  "theme": "社區好鄰居",
+  "name": "醫院",
+  "clue": "生病去看醫生",
+  "subject": "a cute building or place in a Taiwanese neighborhood: \"醫院\" (生病去看醫生)"
+ },
+ {
+  "key": "community-03",
+  "theme": "社區好鄰居",
+  "name": "便利商店",
+  "clue": "24 小時都開著",
+  "subject": "a cute building or place in a Taiwanese neighborhood: \"便利商店\" (24 小時都開著)"
+ },
+ {
+  "key": "community-04",
+  "theme": "社區好鄰居",
+  "name": "超市",
+  "clue": "買菜、買日用品",
+  "subject": "a cute building or place in a Taiwanese neighborhood: \"超市\" (買菜、買日用品)"
+ },
+ {
+  "key": "community-05",
+  "theme": "社區好鄰居",
+  "name": "銀行",
+  "clue": "存錢的地方",
+  "subject": "a cute building or place in a Taiwanese neighborhood: \"銀行\" (存錢的地方)"
+ },
+ {
+  "key": "community-06",
+  "theme": "社區好鄰居",
+  "name": "郵局",
+  "clue": "寄信、寄包裹",
+  "subject": "a cute building or place in a Taiwanese neighborhood: \"郵局\" (寄信、寄包裹)"
+ },
+ {
+  "key": "community-07",
+  "theme": "社區好鄰居",
+  "name": "消防局",
+  "clue": "消防員在這裡",
+  "subject": "a cute building or place in a Taiwanese neighborhood: \"消防局\" (消防員在這裡)"
+ },
+ {
+  "key": "community-08",
+  "theme": "社區好鄰居",
+  "name": "警察局",
+  "clue": "有困難找警察",
+  "subject": "a cute building or place in a Taiwanese neighborhood: \"警察局\" (有困難找警察)"
+ },
+ {
+  "key": "community-09",
+  "theme": "社區好鄰居",
+  "name": "公園",
+  "clue": "溜滑梯、散步",
+  "subject": "a cute building or place in a Taiwanese neighborhood: \"公園\" (溜滑梯、散步)"
+ },
+ {
+  "key": "community-10",
+  "theme": "社區好鄰居",
+  "name": "圖書館",
+  "clue": "安靜看書、借書",
+  "subject": "a cute building or place in a Taiwanese neighborhood: \"圖書館\" (安靜看書、借書)"
+ },
+ {
+  "key": "community-11",
+  "theme": "社區好鄰居",
+  "name": "麵包店",
+  "clue": "買麵包和蛋糕",
+  "subject": "a cute building or place in a Taiwanese neighborhood: \"麵包店\" (買麵包和蛋糕)"
+ },
+ {
+  "key": "community-12",
+  "theme": "社區好鄰居",
+  "name": "理髮店",
+  "clue": "剪頭髮的地方",
+  "subject": "a cute building or place in a Taiwanese neighborhood: \"理髮店\" (剪頭髮的地方)"
+ },
+ {
+  "key": "community-13",
+  "theme": "社區好鄰居",
+  "name": "火車站",
+  "clue": "搭火車的地方",
+  "subject": "a cute building or place in a Taiwanese neighborhood: \"火車站\" (搭火車的地方)"
+ },
+ {
+  "key": "community-14",
+  "theme": "社區好鄰居",
+  "name": "公車站",
+  "clue": "在這裡等公車",
+  "subject": "a cute building or place in a Taiwanese neighborhood: \"公車站\" (在這裡等公車)"
+ },
+ {
+  "key": "community-15",
+  "theme": "社區好鄰居",
+  "name": "藥局",
+  "clue": "買藥的地方",
+  "subject": "a cute building or place in a Taiwanese neighborhood: \"藥局\" (買藥的地方)"
+ },
+ {
+  "key": "community-16",
+  "theme": "社區好鄰居",
+  "name": "區公所",
+  "clue": "辦證件的地方",
+  "subject": "a cute building or place in a Taiwanese neighborhood: \"區公所\" (辦證件的地方)"
+ },
+ {
+  "key": "community-17",
+  "theme": "社區好鄰居",
+  "name": "廟宇",
+  "clue": "拜拜祈福的地方",
+  "subject": "a cute building or place in a Taiwanese neighborhood: \"廟宇\" (拜拜祈福的地方)"
+ },
+ {
+  "key": "community-18",
+  "theme": "社區好鄰居",
+  "name": "游泳池",
+  "clue": "夏天游泳",
+  "subject": "a cute building or place in a Taiwanese neighborhood: \"游泳池\" (夏天游泳)"
+ },
+ {
+  "key": "community-19",
+  "theme": "社區好鄰居",
+  "name": "餐廳",
+  "clue": "吃飯的地方",
+  "subject": "a cute building or place in a Taiwanese neighborhood: \"餐廳\" (吃飯的地方)"
+ },
+ {
+  "key": "community-20",
+  "theme": "社區好鄰居",
+  "name": "電影院",
+  "clue": "看電影的地方",
+  "subject": "a cute building or place in a Taiwanese neighborhood: \"電影院\" (看電影的地方)"
+ },
+ {
+  "key": "community-21",
+  "theme": "社區好鄰居",
+  "name": "牙醫診所",
+  "clue": "檢查牙齒",
+  "subject": "a cute building or place in a Taiwanese neighborhood: \"牙醫診所\" (檢查牙齒)"
+ },
+ {
+  "key": "community-22",
+  "theme": "社區好鄰居",
+  "name": "加油站",
+  "clue": "汽車、機車加油",
+  "subject": "a cute building or place in a Taiwanese neighborhood: \"加油站\" (汽車、機車加油)"
+ },
+ {
+  "key": "community-23",
+  "theme": "社區好鄰居",
+  "name": "家",
+  "clue": "和家人住的地方",
+  "subject": "a cute building or place in a Taiwanese neighborhood: \"家\" (和家人住的地方)"
+ },
+ {
+  "key": "community-24",
+  "theme": "社區好鄰居",
+  "name": "洗衣店",
+  "clue": "洗衣服的地方",
+  "subject": "a cute building or place in a Taiwanese neighborhood: \"洗衣店\" (洗衣服的地方)"
+ },
+ {
+  "key": "community-25",
+  "theme": "社區好鄰居",
+  "name": "遊樂園",
+  "clue": "坐摩天輪",
+  "subject": "a cute building or place in a Taiwanese neighborhood: \"遊樂園\" (坐摩天輪)"
+ },
+ {
+  "key": "community-26",
+  "theme": "社區好鄰居",
+  "name": "運動場",
+  "clue": "跑步、比賽",
+  "subject": "a cute building or place in a Taiwanese neighborhood: \"運動場\" (跑步、比賽)"
+ },
+ {
+  "key": "jobs-01",
+  "theme": "職業達人",
+  "name": "醫生",
+  "clue": "幫生病的人看病",
+  "subject": "a friendly adult working as \"醫生\" with the typical uniform and tools (幫生病的人看病)"
+ },
+ {
+  "key": "jobs-02",
+  "theme": "職業達人",
+  "name": "老師",
+  "clue": "在學校教小朋友",
+  "subject": "a friendly adult working as \"老師\" with the typical uniform and tools (在學校教小朋友)"
+ },
+ {
+  "key": "jobs-03",
+  "theme": "職業達人",
+  "name": "消防員",
+  "clue": "勇敢去滅火",
+  "subject": "a friendly adult working as \"消防員\" with the typical uniform and tools (勇敢去滅火)"
+ },
+ {
+  "key": "jobs-04",
+  "theme": "職業達人",
+  "name": "警察",
+  "clue": "保護大家的安全",
+  "subject": "a friendly adult working as \"警察\" with the typical uniform and tools (保護大家的安全)"
+ },
+ {
+  "key": "jobs-05",
+  "theme": "職業達人",
+  "name": "廚師",
+  "clue": "煮好吃的菜",
+  "subject": "a friendly adult working as \"廚師\" with the typical uniform and tools (煮好吃的菜)"
+ },
+ {
+  "key": "jobs-06",
+  "theme": "職業達人",
+  "name": "農夫",
+  "clue": "種稻米和蔬菜",
+  "subject": "a friendly adult working as \"農夫\" with the typical uniform and tools (種稻米和蔬菜)"
+ },
+ {
+  "key": "jobs-07",
+  "theme": "職業達人",
+  "name": "修車師傅",
+  "clue": "把壞掉的車修好",
+  "subject": "a friendly adult working as \"修車師傅\" with the typical uniform and tools (把壞掉的車修好)"
+ },
+ {
+  "key": "jobs-08",
+  "theme": "職業達人",
+  "name": "建築工人",
+  "clue": "蓋房子",
+  "subject": "a friendly adult working as \"建築工人\" with the typical uniform and tools (蓋房子)"
+ },
+ {
+  "key": "jobs-09",
+  "theme": "職業達人",
+  "name": "工程師",
+  "clue": "用電腦寫程式",
+  "subject": "a friendly adult working as \"工程師\" with the typical uniform and tools (用電腦寫程式)"
+ },
+ {
+  "key": "jobs-10",
+  "theme": "職業達人",
+  "name": "畫家",
+  "clue": "畫出美麗的圖",
+  "subject": "a friendly adult working as \"畫家\" with the typical uniform and tools (畫出美麗的圖)"
+ },
+ {
+  "key": "jobs-11",
+  "theme": "職業達人",
+  "name": "太空人",
+  "clue": "坐火箭去太空",
+  "subject": "a friendly adult working as \"太空人\" with the typical uniform and tools (坐火箭去太空)"
+ },
+ {
+  "key": "jobs-12",
+  "theme": "職業達人",
+  "name": "機長",
+  "clue": "開飛機",
+  "subject": "a friendly adult working as \"機長\" with the typical uniform and tools (開飛機)"
+ },
+ {
+  "key": "jobs-13",
+  "theme": "職業達人",
+  "name": "科學家",
+  "clue": "在實驗室做研究",
+  "subject": "a friendly adult working as \"科學家\" with the typical uniform and tools (在實驗室做研究)"
+ },
+ {
+  "key": "jobs-14",
+  "theme": "職業達人",
+  "name": "法官",
+  "clue": "判斷誰對誰錯",
+  "subject": "a friendly adult working as \"法官\" with the typical uniform and tools (判斷誰對誰錯)"
+ },
+ {
+  "key": "jobs-15",
+  "theme": "職業達人",
+  "name": "歌手",
+  "clue": "唱歌給大家聽",
+  "subject": "a friendly adult working as \"歌手\" with the typical uniform and tools (唱歌給大家聽)"
+ },
+ {
+  "key": "jobs-16",
+  "theme": "職業達人",
+  "name": "美髮師",
+  "clue": "幫人剪頭髮",
+  "subject": "a friendly adult working as \"美髮師\" with the typical uniform and tools (幫人剪頭髮)"
+ },
+ {
+  "key": "jobs-17",
+  "theme": "職業達人",
+  "name": "郵差",
+  "clue": "送信到每一家",
+  "subject": "a friendly adult working as \"郵差\" with the typical uniform and tools (送信到每一家)"
+ },
+ {
+  "key": "jobs-18",
+  "theme": "職業達人",
+  "name": "司機",
+  "clue": "開車送貨",
+  "subject": "a friendly adult working as \"司機\" with the typical uniform and tools (開車送貨)"
+ },
+ {
+  "key": "jobs-19",
+  "theme": "職業達人",
+  "name": "護理師",
+  "clue": "幫忙打針、照顧病人",
+  "subject": "a friendly adult working as \"護理師\" with the typical uniform and tools (幫忙打針、照顧病人)"
+ },
+ {
+  "key": "jobs-20",
+  "theme": "職業達人",
+  "name": "牙醫",
+  "clue": "檢查牙齒",
+  "subject": "a friendly adult working as \"牙醫\" with the typical uniform and tools (檢查牙齒)"
+ },
+ {
+  "key": "jobs-21",
+  "theme": "職業達人",
+  "name": "音樂家",
+  "clue": "演奏樂器",
+  "subject": "a friendly adult working as \"音樂家\" with the typical uniform and tools (演奏樂器)"
+ },
+ {
+  "key": "jobs-22",
+  "theme": "職業達人",
+  "name": "攝影師",
+  "clue": "幫大家拍照",
+  "subject": "a friendly adult working as \"攝影師\" with the typical uniform and tools (幫大家拍照)"
+ },
+ {
+  "key": "jobs-23",
+  "theme": "職業達人",
+  "name": "清潔隊員",
+  "clue": "讓街道乾淨",
+  "subject": "a friendly adult working as \"清潔隊員\" with the typical uniform and tools (讓街道乾淨)"
+ },
+ {
+  "key": "jobs-24",
+  "theme": "職業達人",
+  "name": "偵探",
+  "clue": "找出線索",
+  "subject": "a friendly adult working as \"偵探\" with the typical uniform and tools (找出線索)"
+ },
+ {
+  "key": "jobs-25",
+  "theme": "職業達人",
+  "name": "上班族",
+  "clue": "在辦公室工作",
+  "subject": "a friendly adult working as \"上班族\" with the typical uniform and tools (在辦公室工作)"
+ },
+ {
+  "key": "colors-01",
+  "theme": "顏色形狀",
+  "name": "紅色圓形",
+  "clue": "圓圓的，紅色",
+  "subject": "a single simple geometric shape: \"紅色圓形\" (圓圓的，紅色); flat, clearly that exact color and shape, nothing else in the picture"
+ },
+ {
+  "key": "colors-02",
+  "theme": "顏色形狀",
+  "name": "橘色圓形",
+  "clue": "圓圓的，橘色",
+  "subject": "a single simple geometric shape: \"橘色圓形\" (圓圓的，橘色); flat, clearly that exact color and shape, nothing else in the picture"
+ },
+ {
+  "key": "colors-03",
+  "theme": "顏色形狀",
+  "name": "黃色圓形",
+  "clue": "圓圓的，黃色",
+  "subject": "a single simple geometric shape: \"黃色圓形\" (圓圓的，黃色); flat, clearly that exact color and shape, nothing else in the picture"
+ },
+ {
+  "key": "colors-04",
+  "theme": "顏色形狀",
+  "name": "綠色圓形",
+  "clue": "圓圓的，綠色",
+  "subject": "a single simple geometric shape: \"綠色圓形\" (圓圓的，綠色); flat, clearly that exact color and shape, nothing else in the picture"
+ },
+ {
+  "key": "colors-05",
+  "theme": "顏色形狀",
+  "name": "藍色圓形",
+  "clue": "圓圓的，藍色",
+  "subject": "a single simple geometric shape: \"藍色圓形\" (圓圓的，藍色); flat, clearly that exact color and shape, nothing else in the picture"
+ },
+ {
+  "key": "colors-06",
+  "theme": "顏色形狀",
+  "name": "紫色圓形",
+  "clue": "圓圓的，紫色",
+  "subject": "a single simple geometric shape: \"紫色圓形\" (圓圓的，紫色); flat, clearly that exact color and shape, nothing else in the picture"
+ },
+ {
+  "key": "colors-07",
+  "theme": "顏色形狀",
+  "name": "咖啡色圓形",
+  "clue": "圓圓的，咖啡色",
+  "subject": "a single simple geometric shape: \"咖啡色圓形\" (圓圓的，咖啡色); flat, clearly that exact color and shape, nothing else in the picture"
+ },
+ {
+  "key": "colors-08",
+  "theme": "顏色形狀",
+  "name": "黑色圓形",
+  "clue": "圓圓的，黑色",
+  "subject": "a single simple geometric shape: \"黑色圓形\" (圓圓的，黑色); flat, clearly that exact color and shape, nothing else in the picture"
+ },
+ {
+  "key": "colors-09",
+  "theme": "顏色形狀",
+  "name": "紅色正方形",
+  "clue": "四個邊一樣長，紅色",
+  "subject": "a single simple geometric shape: \"紅色正方形\" (四個邊一樣長，紅色); flat, clearly that exact color and shape, nothing else in the picture"
+ },
+ {
+  "key": "colors-10",
+  "theme": "顏色形狀",
+  "name": "橘色正方形",
+  "clue": "四個邊一樣長，橘色",
+  "subject": "a single simple geometric shape: \"橘色正方形\" (四個邊一樣長，橘色); flat, clearly that exact color and shape, nothing else in the picture"
+ },
+ {
+  "key": "colors-11",
+  "theme": "顏色形狀",
+  "name": "黃色正方形",
+  "clue": "四個邊一樣長，黃色",
+  "subject": "a single simple geometric shape: \"黃色正方形\" (四個邊一樣長，黃色); flat, clearly that exact color and shape, nothing else in the picture"
+ },
+ {
+  "key": "colors-12",
+  "theme": "顏色形狀",
+  "name": "綠色正方形",
+  "clue": "四個邊一樣長，綠色",
+  "subject": "a single simple geometric shape: \"綠色正方形\" (四個邊一樣長，綠色); flat, clearly that exact color and shape, nothing else in the picture"
+ },
+ {
+  "key": "colors-13",
+  "theme": "顏色形狀",
+  "name": "藍色正方形",
+  "clue": "四個邊一樣長，藍色",
+  "subject": "a single simple geometric shape: \"藍色正方形\" (四個邊一樣長，藍色); flat, clearly that exact color and shape, nothing else in the picture"
+ },
+ {
+  "key": "colors-14",
+  "theme": "顏色形狀",
+  "name": "紫色正方形",
+  "clue": "四個邊一樣長，紫色",
+  "subject": "a single simple geometric shape: \"紫色正方形\" (四個邊一樣長，紫色); flat, clearly that exact color and shape, nothing else in the picture"
+ },
+ {
+  "key": "colors-15",
+  "theme": "顏色形狀",
+  "name": "紅色三角形",
+  "clue": "有三個角",
+  "subject": "a single simple geometric shape: \"紅色三角形\" (有三個角); flat, clearly that exact color and shape, nothing else in the picture"
+ },
+ {
+  "key": "colors-16",
+  "theme": "顏色形狀",
+  "name": "紅色倒三角形",
+  "clue": "尖尖的角朝下",
+  "subject": "a single simple geometric shape: \"紅色倒三角形\" (尖尖的角朝下); flat, clearly that exact color and shape, nothing else in the picture"
+ },
+ {
+  "key": "colors-17",
+  "theme": "顏色形狀",
+  "name": "橘色菱形",
+  "clue": "像風箏的形狀",
+  "subject": "a single simple geometric shape: \"橘色菱形\" (像風箏的形狀); flat, clearly that exact color and shape, nothing else in the picture"
+ },
+ {
+  "key": "colors-18",
+  "theme": "顏色形狀",
+  "name": "藍色菱形",
+  "clue": "像鑽石的形狀",
+  "subject": "a single simple geometric shape: \"藍色菱形\" (像鑽石的形狀); flat, clearly that exact color and shape, nothing else in the picture"
+ },
+ {
+  "key": "colors-19",
+  "theme": "顏色形狀",
+  "name": "星星",
+  "clue": "有五個尖尖的角",
+  "subject": "a single simple geometric shape: \"星星\" (有五個尖尖的角); flat, clearly that exact color and shape, nothing else in the picture"
+ },
+ {
+  "key": "colors-20",
+  "theme": "顏色形狀",
+  "name": "紅色愛心",
+  "clue": "代表喜歡",
+  "subject": "a single simple geometric shape: \"紅色愛心\" (代表喜歡); flat, clearly that exact color and shape, nothing else in the picture"
+ },
+ {
+  "key": "colors-21",
+  "theme": "顏色形狀",
+  "name": "黃色愛心",
+  "clue": "黃色的愛心",
+  "subject": "a single simple geometric shape: \"黃色愛心\" (黃色的愛心); flat, clearly that exact color and shape, nothing else in the picture"
+ },
+ {
+  "key": "colors-22",
+  "theme": "顏色形狀",
+  "name": "綠色愛心",
+  "clue": "綠色的愛心",
+  "subject": "a single simple geometric shape: \"綠色愛心\" (綠色的愛心); flat, clearly that exact color and shape, nothing else in the picture"
+ },
+ {
+  "key": "colors-23",
+  "theme": "顏色形狀",
+  "name": "藍色愛心",
+  "clue": "藍色的愛心",
+  "subject": "a single simple geometric shape: \"藍色愛心\" (藍色的愛心); flat, clearly that exact color and shape, nothing else in the picture"
+ },
+ {
+  "key": "colors-24",
+  "theme": "顏色形狀",
+  "name": "紫色愛心",
+  "clue": "紫色的愛心",
+  "subject": "a single simple geometric shape: \"紫色愛心\" (紫色的愛心); flat, clearly that exact color and shape, nothing else in the picture"
+ },
+ {
+  "key": "colors-25",
+  "theme": "顏色形狀",
+  "name": "月亮形",
+  "clue": "彎彎的像月亮",
+  "subject": "a single simple geometric shape: \"月亮形\" (彎彎的像月亮); flat, clearly that exact color and shape, nothing else in the picture"
+ },
+ {
+  "key": "weather-01",
+  "theme": "天氣季節",
+  "name": "晴天",
+  "clue": "太陽出來了",
+  "subject": "\"晴天\" (太陽出來了), weather or season scene simplified to one clear subject"
+ },
+ {
+  "key": "weather-02",
+  "theme": "天氣季節",
+  "name": "多雲",
+  "clue": "太陽躲在雲後面",
+  "subject": "\"多雲\" (太陽躲在雲後面), weather or season scene simplified to one clear subject"
+ },
+ {
+  "key": "weather-03",
+  "theme": "天氣季節",
+  "name": "陰天",
+  "clue": "天空灰灰的",
+  "subject": "\"陰天\" (天空灰灰的), weather or season scene simplified to one clear subject"
+ },
+ {
+  "key": "weather-04",
+  "theme": "天氣季節",
+  "name": "下雨",
+  "clue": "要帶雨傘",
+  "subject": "\"下雨\" (要帶雨傘), weather or season scene simplified to one clear subject"
+ },
+ {
+  "key": "weather-05",
+  "theme": "天氣季節",
+  "name": "打雷",
+  "clue": "轟隆隆好大聲",
+  "subject": "\"打雷\" (轟隆隆好大聲), weather or season scene simplified to one clear subject"
+ },
+ {
+  "key": "weather-06",
+  "theme": "天氣季節",
+  "name": "下雪",
+  "clue": "白白冷冷的",
+  "subject": "\"下雪\" (白白冷冷的), weather or season scene simplified to one clear subject"
+ },
+ {
+  "key": "weather-07",
+  "theme": "天氣季節",
+  "name": "彩虹",
+  "clue": "雨後出現七種顏色",
+  "subject": "\"彩虹\" (雨後出現七種顏色), weather or season scene simplified to one clear subject"
+ },
+ {
+  "key": "weather-08",
+  "theme": "天氣季節",
+  "name": "龍捲風",
+  "clue": "轉呀轉的大風",
+  "subject": "\"龍捲風\" (轉呀轉的大風), weather or season scene simplified to one clear subject"
+ },
+ {
+  "key": "weather-09",
+  "theme": "天氣季節",
+  "name": "起霧",
+  "clue": "看不清楚前面",
+  "subject": "\"起霧\" (看不清楚前面), weather or season scene simplified to one clear subject"
+ },
+ {
+  "key": "weather-10",
+  "theme": "天氣季節",
+  "name": "颳風",
+  "clue": "風呼呼地吹",
+  "subject": "\"颳風\" (風呼呼地吹), weather or season scene simplified to one clear subject"
+ },
+ {
+  "key": "weather-11",
+  "theme": "天氣季節",
+  "name": "好熱",
+  "clue": "溫度好高",
+  "subject": "\"好熱\" (溫度好高), weather or season scene simplified to one clear subject"
+ },
+ {
+  "key": "weather-12",
+  "theme": "天氣季節",
+  "name": "好冷",
+  "clue": "冷得發抖",
+  "subject": "\"好冷\" (冷得發抖), weather or season scene simplified to one clear subject"
+ },
+ {
+  "key": "weather-13",
+  "theme": "天氣季節",
+  "name": "春天",
+  "clue": "花朵開了",
+  "subject": "\"春天\" (花朵開了), weather or season scene simplified to one clear subject"
+ },
+ {
+  "key": "weather-14",
+  "theme": "天氣季節",
+  "name": "夏天",
+  "clue": "去海邊玩水",
+  "subject": "\"夏天\" (去海邊玩水), weather or season scene simplified to one clear subject"
+ },
+ {
+  "key": "weather-15",
+  "theme": "天氣季節",
+  "name": "秋天",
+  "clue": "葉子變紅掉下來",
+  "subject": "\"秋天\" (葉子變紅掉下來), weather or season scene simplified to one clear subject"
+ },
+ {
+  "key": "weather-16",
+  "theme": "天氣季節",
+  "name": "冬天",
+  "clue": "穿厚厚的衣服",
+  "subject": "\"冬天\" (穿厚厚的衣服), weather or season scene simplified to one clear subject"
+ },
+ {
+  "key": "weather-17",
+  "theme": "天氣季節",
+  "name": "雨傘",
+  "clue": "下雨天撐開",
+  "subject": "\"雨傘\" (下雨天撐開), weather or season scene simplified to one clear subject"
+ },
+ {
+  "key": "weather-18",
+  "theme": "天氣季節",
+  "name": "圍巾",
+  "clue": "圍在脖子上保暖",
+  "subject": "\"圍巾\" (圍在脖子上保暖), weather or season scene simplified to one clear subject"
+ },
+ {
+  "key": "weather-19",
+  "theme": "天氣季節",
+  "name": "手套",
+  "clue": "讓手暖暖的",
+  "subject": "\"手套\" (讓手暖暖的), weather or season scene simplified to one clear subject"
+ },
+ {
+  "key": "weather-20",
+  "theme": "天氣季節",
+  "name": "太陽眼鏡",
+  "clue": "太陽很大時戴",
+  "subject": "\"太陽眼鏡\" (太陽很大時戴), weather or season scene simplified to one clear subject"
+ },
+ {
+  "key": "weather-21",
+  "theme": "天氣季節",
+  "name": "帽子",
+  "clue": "遮太陽",
+  "subject": "\"帽子\" (遮太陽), weather or season scene simplified to one clear subject"
+ },
+ {
+  "key": "weather-22",
+  "theme": "天氣季節",
+  "name": "月亮",
+  "clue": "晚上掛在天上",
+  "subject": "\"月亮\" (晚上掛在天上), weather or season scene simplified to one clear subject"
+ },
+ {
+  "key": "weather-23",
+  "theme": "天氣季節",
+  "name": "星星",
+  "clue": "晚上一閃一閃",
+  "subject": "\"星星\" (晚上一閃一閃), weather or season scene simplified to one clear subject"
+ },
+ {
+  "key": "weather-24",
+  "theme": "天氣季節",
+  "name": "日出",
+  "clue": "早上太陽升起",
+  "subject": "\"日出\" (早上太陽升起), weather or season scene simplified to one clear subject"
+ },
+ {
+  "key": "weather-25",
+  "theme": "天氣季節",
+  "name": "海浪",
+  "clue": "海邊一波一波",
+  "subject": "\"海浪\" (海邊一波一波), weather or season scene simplified to one clear subject"
+ },
+ {
+  "key": "actions-01",
+  "theme": "動作指令",
+  "name": "拍拍手",
+  "clue": "拍手三下",
+  "subject": "a cute East Asian child doing the body action \"拍拍手\" (拍手三下), full body, clear pose"
+ },
+ {
+  "key": "actions-02",
+  "theme": "動作指令",
+  "name": "舉雙手",
+  "clue": "兩手舉高高",
+  "subject": "a cute East Asian child doing the body action \"舉雙手\" (兩手舉高高), full body, clear pose"
+ },
+ {
+  "key": "actions-03",
+  "theme": "動作指令",
+  "name": "跳一跳",
+  "clue": "原地跳兩下",
+  "subject": "a cute East Asian child doing the body action \"跳一跳\" (原地跳兩下), full body, clear pose"
+ },
+ {
+  "key": "actions-04",
+  "theme": "動作指令",
+  "name": "摸摸頭",
+  "clue": "雙手摸摸頭",
+  "subject": "a cute East Asian child doing the body action \"摸摸頭\" (雙手摸摸頭), full body, clear pose"
+ },
+ {
+  "key": "actions-05",
+  "theme": "動作指令",
+  "name": "踏踏腳",
+  "clue": "用力踏腳三下",
+  "subject": "a cute East Asian child doing the body action \"踏踏腳\" (用力踏腳三下), full body, clear pose"
+ },
+ {
+  "key": "actions-06",
+  "theme": "動作指令",
+  "name": "揮揮手",
+  "clue": "跟大家說嗨",
+  "subject": "a cute East Asian child doing the body action \"揮揮手\" (跟大家說嗨), full body, clear pose"
+ },
+ {
+  "key": "actions-07",
+  "theme": "動作指令",
+  "name": "轉一圈",
+  "clue": "原地轉一圈",
+  "subject": "a cute East Asian child doing the body action \"轉一圈\" (原地轉一圈), full body, clear pose"
+ },
+ {
+  "key": "actions-08",
+  "theme": "動作指令",
+  "name": "深呼吸",
+  "clue": "慢慢吸氣，再吐氣",
+  "subject": "a cute East Asian child doing the body action \"深呼吸\" (慢慢吸氣，再吐氣), full body, clear pose"
+ },
+ {
+  "key": "actions-09",
+  "theme": "動作指令",
+  "name": "笑一個",
+  "clue": "給旁邊的人一個微笑",
+  "subject": "a cute East Asian child doing the body action \"笑一個\" (給旁邊的人一個微笑), full body, clear pose"
+ },
+ {
+  "key": "actions-10",
+  "theme": "動作指令",
+  "name": "抱自己",
+  "clue": "給自己一個抱抱",
+  "subject": "a cute East Asian child doing the body action \"抱自己\" (給自己一個抱抱), full body, clear pose"
+ },
+ {
+  "key": "actions-11",
+  "theme": "動作指令",
+  "name": "青蛙跳",
+  "clue": "蹲下來跳一下",
+  "subject": "a cute East Asian child doing the body action \"青蛙跳\" (蹲下來跳一下), full body, clear pose"
+ },
+ {
+  "key": "actions-12",
+  "theme": "動作指令",
+  "name": "單腳站",
+  "clue": "單腳站數到五",
+  "subject": "a cute East Asian child doing the body action \"單腳站\" (單腳站數到五), full body, clear pose"
+ },
+ {
+  "key": "actions-13",
+  "theme": "動作指令",
+  "name": "指鼻子",
+  "clue": "用手指指鼻子",
+  "subject": "a cute East Asian child doing the body action \"指鼻子\" (用手指指鼻子), full body, clear pose"
+ },
+ {
+  "key": "actions-14",
+  "theme": "動作指令",
+  "name": "慢慢走",
+  "clue": "像烏龜一樣慢慢走",
+  "subject": "a cute East Asian child doing the body action \"慢慢走\" (像烏龜一樣慢慢走), full body, clear pose"
+ },
+ {
+  "key": "actions-15",
+  "theme": "動作指令",
+  "name": "兔子跳",
+  "clue": "雙手放頭上跳",
+  "subject": "a cute East Asian child doing the body action \"兔子跳\" (雙手放頭上跳), full body, clear pose"
+ },
+ {
+  "key": "actions-16",
+  "theme": "動作指令",
+  "name": "老鷹飛",
+  "clue": "張開雙手飛一飛",
+  "subject": "a cute East Asian child doing the body action \"老鷹飛\" (張開雙手飛一飛), full body, clear pose"
+ },
+ {
+  "key": "actions-17",
+  "theme": "動作指令",
+  "name": "拍大腿",
+  "clue": "拍大腿兩下",
+  "subject": "a cute East Asian child doing the body action \"拍大腿\" (拍大腿兩下), full body, clear pose"
+ },
+ {
+  "key": "actions-18",
+  "theme": "動作指令",
+  "name": "比個讚",
+  "clue": "比讚給好朋友",
+  "subject": "a cute East Asian child doing the body action \"比個讚\" (比讚給好朋友), full body, clear pose"
+ },
+ {
+  "key": "actions-19",
+  "theme": "動作指令",
+  "name": "鞠個躬",
+  "clue": "彎腰說謝謝",
+  "subject": "a cute East Asian child doing the body action \"鞠個躬\" (彎腰說謝謝), full body, clear pose"
+ },
+ {
+  "key": "actions-20",
+  "theme": "動作指令",
+  "name": "敬個禮",
+  "clue": "像警察一樣敬禮",
+  "subject": "a cute East Asian child doing the body action \"敬個禮\" (像警察一樣敬禮), full body, clear pose"
+ },
+ {
+  "key": "actions-21",
+  "theme": "動作指令",
+  "name": "噓安靜",
+  "clue": "手指放在嘴巴前",
+  "subject": "a cute East Asian child doing the body action \"噓安靜\" (手指放在嘴巴前), full body, clear pose"
+ },
+ {
+  "key": "actions-22",
+  "theme": "動作指令",
+  "name": "遮眼睛",
+  "clue": "雙手遮住眼睛",
+  "subject": "a cute East Asian child doing the body action \"遮眼睛\" (雙手遮住眼睛), full body, clear pose"
+ },
+ {
+  "key": "actions-23",
+  "theme": "動作指令",
+  "name": "摀耳朵",
+  "clue": "雙手摀住耳朵",
+  "subject": "a cute East Asian child doing the body action \"摀耳朵\" (雙手摀住耳朵), full body, clear pose"
+ },
+ {
+  "key": "actions-24",
+  "theme": "動作指令",
+  "name": "扭一扭",
+  "clue": "身體像蛇一樣扭",
+  "subject": "a cute East Asian child doing the body action \"扭一扭\" (身體像蛇一樣扭), full body, clear pose"
+ },
+ {
+  "key": "actions-25",
+  "theme": "動作指令",
+  "name": "原地跑",
+  "clue": "原地跑五步",
+  "subject": "a cute East Asian child doing the body action \"原地跑\" (原地跑五步), full body, clear pose"
+ },
+ {
+  "key": "actions-26",
+  "theme": "動作指令",
+  "name": "跳個舞",
+  "clue": "自由跳一下",
+  "subject": "a cute East Asian child doing the body action \"跳個舞\" (自由跳一下), full body, clear pose"
+ },
+ {
+  "key": "safety-01",
+  "theme": "安全小尖兵",
+  "name": "紅綠燈",
+  "clue": "綠燈行、紅燈停",
+  "subject": "child safety education picture for \"紅綠燈\" (綠燈行、紅燈停), one clear subject, reassuring not scary"
+ },
+ {
+  "key": "safety-02",
+  "theme": "安全小尖兵",
+  "name": "斑馬線",
+  "clue": "過馬路走這裡",
+  "subject": "child safety education picture for \"斑馬線\" (過馬路走這裡), one clear subject, reassuring not scary"
+ },
+ {
+  "key": "safety-03",
+  "theme": "安全小尖兵",
+  "name": "安全帽",
+  "clue": "騎車一定要戴",
+  "subject": "child safety education picture for \"安全帽\" (騎車一定要戴), one clear subject, reassuring not scary"
+ },
+ {
+  "key": "safety-04",
+  "theme": "安全小尖兵",
+  "name": "滅火器",
+  "clue": "著火時大人使用",
+  "subject": "child safety education picture for \"滅火器\" (著火時大人使用), one clear subject, reassuring not scary"
+ },
+ {
+  "key": "safety-05",
+  "theme": "安全小尖兵",
+  "name": "小心火",
+  "clue": "不玩火、不玩打火機",
+  "subject": "child safety education picture for \"小心火\" (不玩火、不玩打火機), one clear subject, reassuring not scary"
+ },
+ {
+  "key": "safety-06",
+  "theme": "安全小尖兵",
+  "name": "小心電",
+  "clue": "濕手不摸插座",
+  "subject": "child safety education picture for \"小心電\" (濕手不摸插座), one clear subject, reassuring not scary"
+ },
+ {
+  "key": "safety-07",
+  "theme": "安全小尖兵",
+  "name": "插頭",
+  "clue": "不亂拔、不亂插",
+  "subject": "child safety education picture for \"插頭\" (不亂拔、不亂插), one clear subject, reassuring not scary"
+ },
+ {
+  "key": "safety-08",
+  "theme": "安全小尖兵",
+  "name": "刀子",
+  "clue": "尖尖的，要大人幫忙",
+  "subject": "child safety education picture for \"刀子\" (尖尖的，要大人幫忙), one clear subject, reassuring not scary"
+ },
+ {
+  "key": "safety-09",
+  "theme": "安全小尖兵",
+  "name": "藥品",
+  "clue": "不能自己亂吃",
+  "subject": "child safety education picture for \"藥品\" (不能自己亂吃), one clear subject, reassuring not scary"
+ },
+ {
+  "key": "safety-10",
+  "theme": "安全小尖兵",
+  "name": "水邊",
+  "clue": "玩水要有大人陪",
+  "subject": "child safety education picture for \"水邊\" (玩水要有大人陪), one clear subject, reassuring not scary"
+ },
+ {
+  "key": "safety-11",
+  "theme": "安全小尖兵",
+  "name": "不跟陌生人走",
+  "clue": "陌生人給糖也不拿",
+  "subject": "child safety education picture for \"不跟陌生人走\" (陌生人給糖也不拿), one clear subject, reassuring not scary"
+ },
+ {
+  "key": "safety-12",
+  "theme": "安全小尖兵",
+  "name": "打電話求救",
+  "clue": "火災打 119、報案打 110",
+  "subject": "child safety education picture for \"打電話求救\" (火災打 119、報案打 110), one clear subject, reassuring not scary"
+ },
+ {
+  "key": "safety-13",
+  "theme": "安全小尖兵",
+  "name": "關好門",
+  "clue": "出門記得關門",
+  "subject": "child safety education picture for \"關好門\" (出門記得關門), one clear subject, reassuring not scary"
+ },
+ {
+  "key": "safety-14",
+  "theme": "安全小尖兵",
+  "name": "清潔劑",
+  "clue": "不能喝、不能玩",
+  "subject": "child safety education picture for \"清潔劑\" (不能喝、不能玩), one clear subject, reassuring not scary"
+ },
+ {
+  "key": "safety-15",
+  "theme": "安全小尖兵",
+  "name": "反光背心",
+  "clue": "晚上走路更安全",
+  "subject": "child safety education picture for \"反光背心\" (晚上走路更安全), one clear subject, reassuring not scary"
+ },
+ {
+  "key": "safety-16",
+  "theme": "安全小尖兵",
+  "name": "電梯",
+  "clue": "不在電梯裡跳",
+  "subject": "child safety education picture for \"電梯\" (不在電梯裡跳), one clear subject, reassuring not scary"
+ },
+ {
+  "key": "safety-17",
+  "theme": "安全小尖兵",
+  "name": "樓梯",
+  "clue": "慢慢走、扶扶手",
+  "subject": "child safety education picture for \"樓梯\" (慢慢走、扶扶手), one clear subject, reassuring not scary"
+ },
+ {
+  "key": "safety-18",
+  "theme": "安全小尖兵",
+  "name": "手電筒",
+  "clue": "停電的時候用",
+  "subject": "child safety education picture for \"手電筒\" (停電的時候用), one clear subject, reassuring not scary"
+ },
+ {
+  "key": "safety-19",
+  "theme": "安全小尖兵",
+  "name": "安全座椅",
+  "clue": "坐車要繫安全帶",
+  "subject": "child safety education picture for \"安全座椅\" (坐車要繫安全帶), one clear subject, reassuring not scary"
+ },
+ {
+  "key": "safety-20",
+  "theme": "安全小尖兵",
+  "name": "找消防員",
+  "clue": "火災時聽消防員的話",
+  "subject": "child safety education picture for \"找消防員\" (火災時聽消防員的話), one clear subject, reassuring not scary"
+ },
+ {
+  "key": "safety-21",
+  "theme": "安全小尖兵",
+  "name": "找警察",
+  "clue": "迷路時找警察",
+  "subject": "child safety education picture for \"找警察\" (迷路時找警察), one clear subject, reassuring not scary"
+ },
+ {
+  "key": "safety-22",
+  "theme": "安全小尖兵",
+  "name": "地震",
+  "clue": "趴下、掩護、穩住",
+  "subject": "child safety education picture for \"地震\" (趴下、掩護、穩住), one clear subject, reassuring not scary"
+ },
+ {
+  "key": "safety-23",
+  "theme": "安全小尖兵",
+  "name": "勤洗手",
+  "clue": "把細菌洗掉",
+  "subject": "child safety education picture for \"勤洗手\" (把細菌洗掉), one clear subject, reassuring not scary"
+ },
+ {
+  "key": "safety-24",
+  "theme": "安全小尖兵",
+  "name": "OK 繃",
+  "clue": "小傷口要貼好",
+  "subject": "child safety education picture for \"OK 繃\" (小傷口要貼好), one clear subject, reassuring not scary"
+ },
+ {
+  "key": "safety-25",
+  "theme": "安全小尖兵",
+  "name": "大聲求救",
+  "clue": "遇到危險大聲喊",
+  "subject": "child safety education picture for \"大聲求救\" (遇到危險大聲喊), one clear subject, reassuring not scary"
+ },
+ {
+  "key": "festivals-01",
+  "theme": "節慶生活",
+  "name": "紅包",
+  "clue": "過年長輩給的",
+  "subject": "Taiwanese festival object or scene \"紅包\" (過年長輩給的), one clear subject"
+ },
+ {
+  "key": "festivals-02",
+  "theme": "節慶生活",
+  "name": "舞龍",
+  "clue": "過年熱鬧的表演",
+  "subject": "Taiwanese festival object or scene \"舞龍\" (過年熱鬧的表演), one clear subject"
+ },
+ {
+  "key": "festivals-03",
+  "theme": "節慶生活",
+  "name": "鞭炮",
+  "clue": "過年劈哩啪啦",
+  "subject": "Taiwanese festival object or scene \"鞭炮\" (過年劈哩啪啦), one clear subject"
+ },
+ {
+  "key": "festivals-04",
+  "theme": "節慶生活",
+  "name": "橘子",
+  "clue": "過年吃，代表吉利",
+  "subject": "Taiwanese festival object or scene \"橘子\" (過年吃，代表吉利), one clear subject"
+ },
+ {
+  "key": "festivals-05",
+  "theme": "節慶生活",
+  "name": "燈籠",
+  "clue": "元宵節提燈籠",
+  "subject": "Taiwanese festival object or scene \"燈籠\" (元宵節提燈籠), one clear subject"
+ },
+ {
+  "key": "festivals-06",
+  "theme": "節慶生活",
+  "name": "湯圓",
+  "clue": "元宵節、冬至吃",
+  "subject": "Taiwanese festival object or scene \"湯圓\" (元宵節、冬至吃), one clear subject"
+ },
+ {
+  "key": "festivals-07",
+  "theme": "節慶生活",
+  "name": "划龍舟",
+  "clue": "端午節的比賽",
+  "subject": "Taiwanese festival object or scene \"划龍舟\" (端午節的比賽), one clear subject"
+ },
+ {
+  "key": "festivals-08",
+  "theme": "節慶生活",
+  "name": "月餅",
+  "clue": "中秋節吃",
+  "subject": "Taiwanese festival object or scene \"月餅\" (中秋節吃), one clear subject"
+ },
+ {
+  "key": "festivals-09",
+  "theme": "節慶生活",
+  "name": "月亮",
+  "clue": "中秋節賞月",
+  "subject": "Taiwanese festival object or scene \"月亮\" (中秋節賞月), one clear subject"
+ },
+ {
+  "key": "festivals-10",
+  "theme": "節慶生活",
+  "name": "烤肉",
+  "clue": "中秋節全家烤肉",
+  "subject": "Taiwanese festival object or scene \"烤肉\" (中秋節全家烤肉), one clear subject"
+ },
+ {
+  "key": "festivals-11",
+  "theme": "節慶生活",
+  "name": "玉兔",
+  "clue": "月亮上的兔子",
+  "subject": "Taiwanese festival object or scene \"玉兔\" (月亮上的兔子), one clear subject"
+ },
+ {
+  "key": "festivals-12",
+  "theme": "節慶生活",
+  "name": "花束",
+  "clue": "母親節送媽媽",
+  "subject": "Taiwanese festival object or scene \"花束\" (母親節送媽媽), one clear subject"
+ },
+ {
+  "key": "festivals-13",
+  "theme": "節慶生活",
+  "name": "領帶",
+  "clue": "父親節送爸爸",
+  "subject": "Taiwanese festival object or scene \"領帶\" (父親節送爸爸), one clear subject"
+ },
+ {
+  "key": "festivals-14",
+  "theme": "節慶生活",
+  "name": "謝師禮",
+  "clue": "教師節謝謝老師",
+  "subject": "Taiwanese festival object or scene \"謝師禮\" (教師節謝謝老師), one clear subject"
+ },
+ {
+  "key": "festivals-15",
+  "theme": "節慶生活",
+  "name": "生日蛋糕",
+  "clue": "生日吹蠟燭",
+  "subject": "Taiwanese festival object or scene \"生日蛋糕\" (生日吹蠟燭), one clear subject"
+ },
+ {
+  "key": "festivals-16",
+  "theme": "節慶生活",
+  "name": "禮物",
+  "clue": "收到很開心",
+  "subject": "Taiwanese festival object or scene \"禮物\" (收到很開心), one clear subject"
+ },
+ {
+  "key": "festivals-17",
+  "theme": "節慶生活",
+  "name": "聖誕樹",
+  "clue": "掛滿裝飾",
+  "subject": "Taiwanese festival object or scene \"聖誕樹\" (掛滿裝飾), one clear subject"
+ },
+ {
+  "key": "festivals-18",
+  "theme": "節慶生活",
+  "name": "聖誕老公公",
+  "clue": "送禮物的白鬍子爺爺",
+  "subject": "Taiwanese festival object or scene \"聖誕老公公\" (送禮物的白鬍子爺爺), one clear subject"
+ },
+ {
+  "key": "festivals-19",
+  "theme": "節慶生活",
+  "name": "南瓜燈",
+  "clue": "萬聖節的燈",
+  "subject": "Taiwanese festival object or scene \"南瓜燈\" (萬聖節的燈), one clear subject"
+ },
+ {
+  "key": "festivals-20",
+  "theme": "節慶生活",
+  "name": "小幽靈",
+  "clue": "萬聖節裝扮",
+  "subject": "Taiwanese festival object or scene \"小幽靈\" (萬聖節裝扮), one clear subject"
+ },
+ {
+  "key": "festivals-21",
+  "theme": "節慶生活",
+  "name": "煙火",
+  "clue": "跨年看煙火",
+  "subject": "Taiwanese festival object or scene \"煙火\" (跨年看煙火), one clear subject"
+ },
+ {
+  "key": "festivals-22",
+  "theme": "節慶生活",
+  "name": "拉炮",
+  "clue": "慶祝的時候拉",
+  "subject": "Taiwanese festival object or scene \"拉炮\" (慶祝的時候拉), one clear subject"
+ },
+ {
+  "key": "festivals-23",
+  "theme": "節慶生活",
+  "name": "好朋友",
+  "clue": "一起過節",
+  "subject": "Taiwanese festival object or scene \"好朋友\" (一起過節), one clear subject"
+ },
+ {
+  "key": "festivals-24",
+  "theme": "節慶生活",
+  "name": "娃娃",
+  "clue": "兒童節的禮物",
+  "subject": "Taiwanese festival object or scene \"娃娃\" (兒童節的禮物), one clear subject"
+ }
+]
